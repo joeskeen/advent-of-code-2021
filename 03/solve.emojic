@@ -1,0 +1,165 @@
+📜 🔤../emojicode/common.emojic🔤
+
+🐇 🆎 🍇
+
+    📗 Returns the solution for part A of the puzzle 📗
+    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        🐽input 0❗ ➡️ firstLine
+        🎶firstLine❗ ➡️ firstLineChars
+        📏firstLineChars❓ ➡️ lineLength
+        
+        💭 🆕🍨🐚🔢🍆❗ ➡️ 🖍🆕normalizedLines
+        🆕🍨🐚🔢🍆 0 lineLength❗ ➡️ 🖍🆕counts
+        
+        🔂 line input 🍇
+            🎶line❗ ➡️ lineChars
+            🔂 i 🆕⏩ 0 lineLength❗️ 🍇
+                🐽lineChars i❗ ➡️ char
+                🐽counts i❗ ➡️ currentCount
+                ↪️ char 🙌 🔤0🔤 🍇
+                    🤜currentCount ➕ 1🤛 ➡️ 🐽counts i❗
+                🍉
+                🙅↪️ char 🙌 🔤1🔤 🍇
+                    🤜currentCount ➖ 1🤛 ➡️ 🐽counts i❗
+                🍉
+                🙅 🍇
+                    😀 🔤🚨 Uh-oh... the character was neither a 0 nor a 1...?!🔤 ❗
+                🍉
+            🍉
+        🍉
+        
+        🆕🔠lineLength❗ ➡️ gammaBuilder
+        🆕🔠lineLength❗ ➡️ epsilonBuilder
+        🔂 num counts 🍇
+            ↪️ num ◀️ 0 🍇
+                🐻gammaBuilder   🔤1🔤❗
+                🐻epsilonBuilder 🔤0🔤❗
+            🍉
+            🙅↪️ num ▶️ 0 🍇
+                🐻gammaBuilder   🔤0🔤❗
+                🐻epsilonBuilder 🔤1🔤❗
+            🍉
+            🙅↪️ num 🙌 0 🍇
+                😀 🔤🚨 Uh-oh... There was the same number of 1s and 0s in this place... I'm doing something wrong here!🔤 ❗
+            🍉
+        🍉
+        🔡gammaBuilder❗ ➡️ gammaString
+        🍺🔢gammaString 2❗ ➡️ gamma
+        🔡epsilonBuilder❗ ➡️ epsilonString
+        🍺🔢epsilonString 2❗ ➡️ epsilon
+
+        💭 😀 🔤Gamma: 🧲gammaString🧲 (🧲gamma🧲); Epsilon: 🧲epsilonString🧲 (🧲epsilon🧲)🔤 ❗
+
+        ↩️ 🔤🧲 gamma ✖️ epsilon 🧲🔤
+    🍉
+    
+    📗 Returns the solution for part B of the puzzle 📗
+    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        🐽input 0❗ ➡️ firstLine
+        🎶firstLine❗ ➡️ firstLineChars
+        📏firstLineChars❓ ➡️ bitCount
+        📏input❓ ➡️ lineCount
+        🆕🍨🐚🍨🐚🔡🍆🍆❗ ➡️ 🖍🆕o2Input
+        🆕🍨🐚🍨🐚🔡🍆🍆❗ ➡️ 🖍🆕co2Input
+        🔂 line input 🍇
+            🎶 line ❗ ➡️ lineChars
+            🐻o2Input lineChars❗
+            🐻co2Input lineChars❗
+        🍉
+        💭 😀 🔤o2Input has a length of 🧲📏o2Input❓🧲🔤❗
+        0 ➡️ 🖍🆕col
+        🔁 📏o2Input❓ ▶️ 1 🤝 col ◀️ bitCount 🍇
+            💭 😀 🔤column 🧲col🧲🔤❗
+            💭 Find bit criteria
+            0 ➡️ 🖍🆕zeroCount
+            0 ➡️ 🖍🆕oneCount
+            🔂 lineChars o2Input 🍇
+            💭    😀 🔤line 🧲lineChars🧲🔤❗
+               🐽lineChars col❗ ➡️ char
+            💭    😀 🔤char 🧲char🧲🔤❗
+                ↪️ char 🙌 🔤0🔤 🍇
+                    zeroCount ⬅️➕ 1
+                🍉
+                🙅↪️ char 🙌 🔤1🔤 🍇
+                    oneCount ⬅️➕ 1
+                🍉
+            🍉
+            💭 😀 🔤Column 🧲col🧲 - 0s: 🧲zeroCount🧲, 1s: 🧲oneCount🧲🔤❗
+            💭 🔤🔤 🖍🆕o2BitCriteria 🔡
+            🔤🔤 ➡️ 🖍🆕o2BitCriteria
+            ↪️ oneCount ◀️ zeroCount 🍇
+                🔤0🔤 ➡️ 🖍 o2BitCriteria
+            🍉
+            🙅 🍇
+                🔤1🔤 ➡️ 🖍 o2BitCriteria
+            🍉
+            💭 😀 🔤Bit Criteria for column 🧲col🧲 is 🧲o2BitCriteria🧲🔤❗
+
+            💭 Filter list by bit criteria
+            💭 Starting at the end of the list with index o2Input length - 1, down to 0, ...
+            🔂 row 🆕⏩ 🤜📏o2Input❓ ➖ 1🤛 -1❗ 🍇
+                🐽o2Input row❗ ➡️ lineChars
+                💭 if it's not the case that the lineChars at col is equal to o2BitCriteria, remove the row
+                ↪️ ❎🐽lineChars col❗ 🙌 o2BitCriteria❗ 🍇
+                    🐨o2Input row❗️
+                🍉
+            🍉
+
+            col ⬅️➕ 1
+        🍉
+        🐽o2Input 0❗ ➡️ o2GeneratorRatingChars
+        🆕🔡o2GeneratorRatingChars 🔤🔤❗ ➡️ o2GeneratorRatingBinary
+        🍺🔢o2GeneratorRatingBinary 2❗ ➡️ o2GeneratorRating
+        💭 😀 🔤Oxygen Generator Rating: 🧲o2GeneratorRating🧲🔤❗
+
+        💭 co2scrubberRating
+        💭 😀 🔤co2Input has a length of 🧲📏co2Input❓🧲🔤❗
+        0 ➡️ 🖍col
+        🔁 📏co2Input❓ ▶️ 1 🤝 col ◀️ bitCount 🍇
+            💭 😀 🔤column 🧲col🧲🔤❗
+            💭 Find bit criteria
+            0 ➡️ 🖍🆕zeroCount
+            0 ➡️ 🖍🆕oneCount
+            🔂 lineChars co2Input 🍇
+            💭    😀 🔤line 🧲lineChars🧲🔤❗
+               🐽lineChars col❗ ➡️ char
+            💭    😀 🔤char 🧲char🧲🔤❗
+                ↪️ char 🙌 🔤0🔤 🍇
+                    zeroCount ⬅️➕ 1
+                🍉
+                🙅↪️ char 🙌 🔤1🔤 🍇
+                    oneCount ⬅️➕ 1
+                🍉
+            🍉
+            💭 😀 🔤Column 🧲col🧲 - 0s: 🧲zeroCount🧲, 1s: 🧲oneCount🧲🔤❗
+            💭 🔤🔤 🖍🆕co2BitCriteria 🔡
+            🔤🔤 ➡️ 🖍🆕co2BitCriteria
+            ↪️ oneCount ◀️ zeroCount 🍇
+                🔤1🔤 ➡️ 🖍 co2BitCriteria
+            🍉
+            🙅 🍇
+                🔤0🔤 ➡️ 🖍 co2BitCriteria
+            🍉
+            💭 😀 🔤Bit Criteria for column 🧲col🧲 is 🧲co2BitCriteria🧲🔤❗
+
+            💭 Filter list by bit criteria
+            💭 Starting at the end of the list with index co2Input length - 1, down to 0, ...
+            🔂 row 🆕⏩ 🤜📏co2Input❓ ➖ 1🤛 -1❗ 🍇
+                🐽co2Input row❗ ➡️ lineChars
+                💭 if it's not the case that the lineChars at col is equal to co2BitCriteria, remove the row
+                ↪️ ❎🐽lineChars col❗ 🙌 co2BitCriteria❗ 🍇
+                    🐨co2Input row❗️
+                🍉
+            🍉
+
+            col ⬅️➕ 1
+        🍉
+        🐽co2Input 0❗ ➡️ co2ScrubberRatingChars
+        🆕🔡co2ScrubberRatingChars 🔤🔤❗ ➡️ co2ScrubberRatingBinary
+        🍺🔢co2ScrubberRatingBinary 2❗ ➡️ co2ScrubberRating
+        💭 😀 🔤CO2 Scrubber Rating: 🧲co2ScrubberRating🧲🔤❗
+        
+        ↩️ 🔤🧲co2ScrubberRating ✖️ o2GeneratorRating🧲🔤
+    🍉
+
+🍉

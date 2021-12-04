@@ -1,0 +1,75 @@
+📦 files 🏠
+
+🐇 🧰 🍇
+    📗 Returns the contents of the provided file, split into lines 📗
+    🐇 ❓📑 fileName🔡 ➡️ 🍨🐚🔡🍆 🍇
+        🍺📇🐇📄 fileName ❗ ➡️ data
+        🍺🔡 data ❗ ➡️ input
+        🔫 input 🔤❌n🔤 ❗ ➡️ lines
+        🆕🍨🐚🔡🍆❗ ➡️ 🖍🆕normalizedLines
+        🔂 line lines 🍇
+            🔧 line ❗ ➡️ 🖍🆕normalizedLine
+            ↪️ ⛳line 🔤❌r🔤❗ 🍇
+                📏🎶normalizedLine❗❓ ➖ 1 ➡️ newLength
+                🔪normalizedLine 0 newLength❗ ➡️ 🖍normalizedLine
+            🍉
+            🐻normalizedLines normalizedLine❗
+        🍉
+        ↩️ normalizedLines
+    🍉
+
+    🐇 ❓📜 fileName🔡 ➡️ 🔡 🍇
+        🍺📇🐇📄 fileName ❗ ➡️ data
+        🍺🔡 data ❗ ➡️ input
+        ↩️ 🔧 input ❗
+    🍉
+
+    📗 Test to see if the specified test case outputs the expected result 📗
+    🐇 ❗🧪 testCaseName🔡 🍇
+        📑🐇🧰 🔤test-input-🧲testCaseName🧲.txt🔤 ❓ ➡️ lines
+
+        🅰️🐇🆎 lines ❓ ➡️ resultA
+        📜🐇🧰 🔤test-output-🧲testCaseName🧲-a.txt🔤 ❓ ➡️ expectedA
+        ↪️ resultA 🙌 expectedA 🍇
+            😀 🔤Test 🧲testCaseName🧲 🅰️: ✔️🔤 ❗
+        🍉
+        🙅 🍇
+            😀 🔤Test 🧲testCaseName🧲 🅰️: ❌❌❌n- Expected: 🧲expectedA🧲❌n- Actual: 🧲resultA🧲 🔤 ❗
+        🍉
+        
+        🅱️🐇🆎 lines ❓ ➡️ resultB
+        📜🐇🧰 🔤test-output-🧲testCaseName🧲-b.txt🔤 ❓ ➡️ expectedB
+        ↪️ resultB 🙌 expectedB 🍇
+            😀 🔤Test 🧲testCaseName🧲 🅱️: ✔️🔤 ❗
+        🍉
+        🙅 🍇
+            😀 🔤Test 🧲testCaseName🧲 🅱️: ❌❌❌n- Expected: 🧲expectedB🧲❌n- Actual: 🧲resultB🧲 🔤 ❗
+        🍉
+    🍉
+
+    📗 Solves the puzzle with the actual puzzle input 📗
+    🐇 ❗🏃 🍇
+        📑🐇🧰 🔤puzzle-input.txt🔤 ❓ ➡️ lines
+
+        🅰️🐇🆎 lines ❓ ➡️ resultA
+        😀 🔤Part A: 🧲resultA🧲🔤 ❗
+
+        🅱️🐇🆎 lines ❓ ➡️ resultB
+        😀 🔤Part B: 🧲resultB🧲🔤 ❗
+    🍉
+🍉
+
+
+🏁🍇
+    😀🔤🔤❗
+
+    💭 Run tests to make sure they pass
+    🧪🐇🧰 🔤00🔤❗
+
+    😀🔤🔤❗
+
+    💭 Try to solve the puzzle
+    🏃🐇🧰❗
+
+    😀🔤🔤❗
+🍉

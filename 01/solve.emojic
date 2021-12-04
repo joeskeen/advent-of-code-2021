@@ -1,0 +1,48 @@
+📜 🔤../emojicode/common.emojic🔤
+
+🐇 🆎 🍇
+
+    📗 Returns the solution for part A of the puzzle 📗
+    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        0 ➡️ 🖍🆕increaseCount
+        0 ➡️ 🖍🆕previousValue
+
+        🔂 line input 🍇
+            🍺🔢line 10❗ ➡️ value
+            ↪️ value ▶️ previousValue 🍇
+                💭 😀 🔤🧲previousValue🧲➡️🧲value🧲🔤 ❗
+                increaseCount ⬅️➕ 1
+            🍉
+            value ➡️ 🖍previousValue
+        🍉
+
+        ↩️ 🔡increaseCount ➖ 1❗
+    🍉
+    
+    📗 Returns the solution for part B of the puzzle 📗
+    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        🆕🍨🐚🔢🍆❗ ➡️ 🖍🆕readings
+
+        🔂 line input 🍇
+            🍺🔢line 10❗ ➡️ value
+            🐻readings value❗
+        🍉
+
+        0 ➡️ 🖍🆕increaseCount
+        0 ➡️ 🖍🆕previousValue
+        🔂 i 🆕⏩ 0 🤜📏readings❓ ➖ 2🤛❗ 🍇
+            🐽readings i❗ ➡️ value1
+            🐽readings 🤜i ➕ 1🤛 ❗ ➡️ value2
+            🐽readings 🤜i ➕ 2🤛 ❗ ➡️ value3
+            value1 ➕ value2 ➕ value3 ➡️ sum
+
+            ↪️ sum ▶️ previousValue 🍇
+                increaseCount ⬅️➕ 1
+            🍉
+            sum ➡️ 🖍previousValue
+        🍉
+
+        ↩️ 🔡increaseCount ➖ 1❗
+    🍉
+
+🍉

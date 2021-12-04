@@ -1,0 +1,59 @@
+📜 🔤../emojicode/common.emojic🔤
+
+🐇 🆎 🍇
+
+    📗 Returns the solution for part A of the puzzle 📗
+    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        0 ➡️ 🖍🆕depth
+        0 ➡️ 🖍🆕horizontal
+
+        🔂 line input 🍇
+            🔫line 🔤 🔤❗ ➡️ parts
+            🐽parts 0❗ ➡️ command
+            🍺🔢🐽parts 1❗ 10❗ ➡️ value
+
+            ↪️ command 🙌 🔤forward🔤 🍇
+                horizontal ⬅️➕ value
+            🍉 
+            🙅↪️ command 🙌 🔤down🔤 🍇
+                depth ⬅️➕ value
+            🍉
+            🙅↪️ command 🙌 🔤up🔤 🍇
+                depth ⬅️➖ value
+            🍉
+            🙅 🍇
+                😀 🔤🚨 Uh-oh... we don't know what the command 🧲command🧲 is!🔤 ❗
+            🍉
+        🍉
+        ↩️ 🔡🤜horizontal ✖️ depth🤛❗
+    🍉
+    
+    📗 Returns the solution for part B of the puzzle 📗
+    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        0 ➡️ 🖍🆕depth
+        0 ➡️ 🖍🆕horizontal
+        0 ➡️ 🖍🆕aim
+
+        🔂 line input 🍇
+            🔫 line 🔤 🔤 ❗ ➡️ parts
+            🐽 parts 0 ❗ ➡️ command
+            🍺🔢🐽parts 1❗ 10❗ ➡️ value
+
+            ↪️ command 🙌 🔤forward🔤 🍇
+                horizontal ⬅️➕ value
+                depth ⬅️➕ 🤜value ✖️ aim🤛
+            🍉 
+            🙅↪️ command 🙌 🔤down🔤 🍇
+                aim ⬅️➕ value
+            🍉
+            🙅↪️ command 🙌 🔤up🔤 🍇
+                aim ⬅️➖ value
+            🍉
+            🙅 🍇
+                😀 🔤🚨 Uh-oh... we don't know what the command 🧲command🧲 is!🔤 ❗
+            🍉
+        🍉
+        ↩️ 🔡🤜horizontal ✖️ depth🤛❗
+    🍉
+
+🍉
