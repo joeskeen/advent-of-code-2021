@@ -2,14 +2,62 @@
 
 🐇 🆎 🍇
 
-    📗 Returns the solution for part A of the puzzle 📗
-    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
-    🍉
-    
-    📗 Returns the solution for part B of the puzzle 📗
-    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
-    🍉
+  📗 Returns the solution for part A of the puzzle 📗
+  🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+    💭 parse the input into a collection of line objects
+    🐰input 🍇 line🔡 ➡️ ↔️
+      🔫line 🔤 -> 🔤❗ ➡️ halves
+      🐰halves 🍇 coord🔡 ➡️ 🎯
+        🔫coord 🔤,🔤❗ ➡️ nums
+        ↩️ 🆕🎯 🍺🔢🐽nums 0❗ 10❗ 🍺🔢🐽nums 1❗ 10❗❗
+      🍉❗ ➡️ points
+      ↩️ 🆕↔️ 🐽points 0❗ 🐽points 1❗ ❗
+    🍉❗ ➡️ lines
 
+    😀 🔡🐽lines 0❗❗❗
+
+    ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+  🍉
+  
+  📗 Returns the solution for part B of the puzzle 📗
+  🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+    ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+  🍉
+
+🍉
+
+🕊️ ↔️ 🍇
+  🖍️🆕start🎯
+  🖍️🆕end🎯
+
+  🆕 🍼start🎯 🍼end🎯 🍇🍉
+
+  ❓🔜 ➡️ 🎯 🍇
+    ↩️ start
+  🍉
+  ❓🔚 ➡️ 🎯 🍇
+    ↩️ end
+  🍉
+
+  ❗🔡 ➡️ 🔡 🍇
+    ↩️ 🔤🧲🔡start❗🧲 -> 🧲🔡end❗🧲🔤
+  🍉
+🍉
+
+🕊️ 🎯 🍇
+  🖍️🆕x🔢
+  🖍️🆕y🔢
+
+  🆕 🍼x🔢 🍼y🔢 🍇🍉
+
+  ❓🚥 ➡️ 🔢 🍇
+    ↩️ x
+  🍉
+  ❓🚦 ➡️ 🔢 🍇
+    ↩️ y
+  🍉
+
+  ❗🔡 ➡️ 🔡 🍇
+    ↩️ 🔤🧲x🧲,🧲y🧲🔤
+  🍉
 🍉
