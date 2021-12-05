@@ -1,0 +1,207 @@
+📜 🔤../emojicode/common.emojic🔤
+
+🐇 🆎 🍇
+
+    📗 Returns the solution for part A of the puzzle 📗
+    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        💭 The first line of input is the numbers in the order they will be called
+        🐽input 0❗ ➡️ numbersLine
+        💭 split on comma
+        🔫numbersLine 🔤,🔤❗ ➡️ numberStrings
+        💭 map each string to a number
+        🐰numberStrings 🍇 element 🔡 ➡️ 🔢
+            ↩️ 🍺🔢element 10❗
+         🍉❗ ➡️ numbers
+
+        💭 The rest of the input is bingo boards
+        🆕🍨🐚📋🍆❗ ➡️ 🖍️🆕boards 
+        2 ➡️ 🖍️🆕i
+        🔁 i ◀️ 📏input❓ 🍇
+            🍿
+                🐽input i❗           
+                🐽input 🤜i ➕ 1🤛❗
+                🐽input 🤜i ➕ 2🤛❗
+                🐽input 🤜i ➕ 3🤛❗
+                🐽input 🤜i ➕ 4🤛❗
+            🍆 ➡️ boardLines
+            🆕📋boardLines❗ ➡️ board
+            🐻boards board❗
+            i ⬅️➕ 6
+        🍉
+
+        🔂 number numbers 🍇
+          🔂 board boards 🍇
+            🎯board number❗
+            ↪️ 🎰board❓ 🍇
+              🚫board❓ ➡️ remainder
+              ↩️ 🔡 remainder ✖️ number ❗
+            🍉
+          🍉
+        🍉
+        
+
+      ↩️ 🔤🚨 No solution exists⁉️🔤
+    🍉
+    
+    📗 Returns the solution for part B of the puzzle 📗
+    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+      💭 The first line of input is the numbers in the order they will be called
+      🐽input 0❗ ➡️ numbersLine
+      💭 split on comma
+      🔫numbersLine 🔤,🔤❗ ➡️ numberStrings
+      💭 map each string to a number
+      🐰numberStrings 🍇 element 🔡 ➡️ 🔢
+          ↩️ 🍺🔢element 10❗
+        🍉❗ ➡️ numbers
+
+      💭 The rest of the input is bingo boards
+      🆕🍨🐚📋🍆❗ ➡️ 🖍️🆕boards 
+      2 ➡️ 🖍️🆕i
+      🔁 i ◀️ 📏input❓ 🍇
+          🍿
+              🐽input i❗           
+              🐽input 🤜i ➕ 1🤛❗
+              🐽input 🤜i ➕ 2🤛❗
+              🐽input 🤜i ➕ 3🤛❗
+              🐽input 🤜i ➕ 4🤛❗
+          🍆 ➡️ boardLines
+          🆕📋boardLines❗ ➡️ board
+          🐻boards board❗
+          i ⬅️➕ 6
+      🍉
+
+      🔂 number numbers 🍇
+        🔂 board boards 🍇
+          🎯board number❗
+          ↪️ 🎰board❓ 🍇
+            🐭boards 🍇 otherBoard 📋 ➡️ 👌
+              ↩️ 🎰otherBoard❓
+            🍉❗ ➡️ winningBoards
+            ↪️ 📏winningBoards❓ 🙌 📏boards❓ 🍇
+              🚫board❓ ➡️ remainder
+              ↩️ 🔡 remainder ✖️ number ❗
+            🍉
+          🍉
+        🍉
+      🍉
+
+      ↩️ 🔤🚨 No solution exists⁉️🔤
+    🍉
+
+🍉
+
+📗 Bingo Square Value Type 📗
+🐇 🔳 🍇
+    🖍️🆕 x 🔢
+    🖍️🆕 marked 👌 ⬅️ 👎
+
+    🆕 🍼 x 🔢 🍇🍉
+
+    📗 Returns the value of the square 📗
+    ❓🔢 ➡️ 🔢 🍇 
+      ↩️ x
+    🍉
+
+    📗 Returns whether the square is marked 📗
+    ❓🎯➡️👌🍇
+        ↩️ marked
+    🍉
+
+    📗 Marks the square 📗
+    ❗🎯🍇
+      💭 😀🔤about to mark this square...🔤❗
+      👍 ➡️ 🖍️marked 
+    🍉
+
+    📗 Returns the string representation of this square 📗
+    ❗🔡 ➡️ 🔡 🍇
+      🔤✖️🔤 ➡️ 🖍️🆕markedStr
+      ↪️ 🎯👇❓ 🍇
+        🔤✔️🔤 ➡️ 🖍️markedStr
+      🍉
+
+      🔡x❗ ➡️ 🖍️🆕xStr
+      ↪️ x ◀️ 10 🍇
+        🔤 🧲x🧲🔤 ➡️ 🖍️xStr
+      🍉
+      
+      ↩️ 🔤🧲markedStr🧲 🧲xStr🧲🔤
+    🍉
+🍉
+
+📗 Bingo Board Class 📗
+🐇 📋 🍇
+  🖍️🆕 allSquares 🍨🐚🍨🐚🔳🍆🍆
+
+  📗 Constructs a bingo board from a list of space separated strings representing the rows 📗
+  🆕 board 🍨🐚🔡🍆 🍇
+    💭 Transform the list of strings into a list of lists of numbers
+    🐰board 🍇line 🔡 ➡️ 🍨🐚🔳🍆  
+    💭 Transform the line into a list of numbers
+      🔫line 🔤 🔤❗ ➡️ 🖍️🆕cells
+      🐭 cells 🍇 cell 🔡 ➡️ 👌 
+        ↩️ ❎ cell 🙌 🔤🔤 ❗
+      🍉❗ ➡️ 🖍️cells
+      ↩️🐰cells 🍇 cell 🔡 ➡️ 🔳
+        🔢 cell 10 ❗ ➡️ val
+        ↩️ 🆕🔳🍺val❗
+      🍉❗
+       
+    🍉❗ ➡️ 🖍️allSquares
+  🍉
+
+  📗 Returns whether this board has a BINGO 📗
+  ❓🎰 ➡️ 👌 🍇
+    ↩️ 
+      🤜 🎯🐽🐽allSquares 0❗ 0❗❓ 🤝 🎯🐽🐽allSquares 1❗ 0❗❓ 🤝 🎯🐽🐽allSquares 2❗ 0❗❓ 🤝 🎯🐽🐽allSquares 3❗ 0❗❓ 🤝 🎯🐽🐽allSquares 4❗ 0❗❓ 🤛 👐
+      🤜 🎯🐽🐽allSquares 0❗ 1❗❓ 🤝 🎯🐽🐽allSquares 1❗ 1❗❓ 🤝 🎯🐽🐽allSquares 2❗ 1❗❓ 🤝 🎯🐽🐽allSquares 3❗ 1❗❓ 🤝 🎯🐽🐽allSquares 4❗ 1❗❓ 🤛 👐
+      🤜 🎯🐽🐽allSquares 0❗ 2❗❓ 🤝 🎯🐽🐽allSquares 1❗ 2❗❓ 🤝 🎯🐽🐽allSquares 2❗ 2❗❓ 🤝 🎯🐽🐽allSquares 3❗ 2❗❓ 🤝 🎯🐽🐽allSquares 4❗ 2❗❓ 🤛 👐
+      🤜 🎯🐽🐽allSquares 0❗ 3❗❓ 🤝 🎯🐽🐽allSquares 1❗ 3❗❓ 🤝 🎯🐽🐽allSquares 2❗ 3❗❓ 🤝 🎯🐽🐽allSquares 3❗ 3❗❓ 🤝 🎯🐽🐽allSquares 4❗ 3❗❓ 🤛 👐
+      🤜 🎯🐽🐽allSquares 0❗ 4❗❓ 🤝 🎯🐽🐽allSquares 1❗ 4❗❓ 🤝 🎯🐽🐽allSquares 2❗ 4❗❓ 🤝 🎯🐽🐽allSquares 3❗ 4❗❓ 🤝 🎯🐽🐽allSquares 4❗ 4❗❓ 🤛 👐
+      🤜 🎯🐽🐽allSquares 0❗ 0❗❓ 🤝 🎯🐽🐽allSquares 0❗ 1❗❓ 🤝 🎯🐽🐽allSquares 0❗ 2❗❓ 🤝 🎯🐽🐽allSquares 0❗ 3❗❓ 🤝 🎯🐽🐽allSquares 0❗ 4❗❓ 🤛 👐
+      🤜 🎯🐽🐽allSquares 1❗ 0❗❓ 🤝 🎯🐽🐽allSquares 1❗ 1❗❓ 🤝 🎯🐽🐽allSquares 1❗ 2❗❓ 🤝 🎯🐽🐽allSquares 1❗ 3❗❓ 🤝 🎯🐽🐽allSquares 1❗ 4❗❓ 🤛 👐
+      🤜 🎯🐽🐽allSquares 2❗ 0❗❓ 🤝 🎯🐽🐽allSquares 2❗ 1❗❓ 🤝 🎯🐽🐽allSquares 2❗ 2❗❓ 🤝 🎯🐽🐽allSquares 2❗ 3❗❓ 🤝 🎯🐽🐽allSquares 2❗ 4❗❓ 🤛 👐
+      🤜 🎯🐽🐽allSquares 3❗ 0❗❓ 🤝 🎯🐽🐽allSquares 3❗ 1❗❓ 🤝 🎯🐽🐽allSquares 3❗ 2❗❓ 🤝 🎯🐽🐽allSquares 3❗ 3❗❓ 🤝 🎯🐽🐽allSquares 3❗ 4❗❓ 🤛 👐
+      🤜 🎯🐽🐽allSquares 4❗ 0❗❓ 🤝 🎯🐽🐽allSquares 4❗ 1❗❓ 🤝 🎯🐽🐽allSquares 4❗ 2❗❓ 🤝 🎯🐽🐽allSquares 4❗ 3❗❓ 🤝 🎯🐽🐽allSquares 4❗ 4❗❓ 🤛
+  🍉
+
+  📗 Returns the sum of unmarked cells 📗
+  ❓🚫 ➡️ 🔢 🍇
+    0 ➡️ 🖍️🆕remainder
+    🔂 row allSquares 🍇
+      🔂 cell row 🍇
+        ↪️ ❎🎯cell❓❗ 🍇
+          remainder ⬅️➕ 🔢cell❓
+        🍉
+      🍉
+    🍉
+    ↩️ remainder
+  🍉
+
+  📗 Marks the given number on this board, if it exists 📗
+  ❗🎯 n1🔢 🍇
+    💭 find all squares with the given value
+    🔂 row allSquares 🍇
+      🐭row 🍇 square 🔳 ➡️ 👌 
+        ↩️ 🔢square❓ 🙌 n1
+      🍉❗ ➡️ matchingSquares
+      🔂 square matchingSquares 🍇
+        🎯square❗
+      🍉
+    🍉
+  🍉
+
+  📗 Serializes the board as a string 📗
+  ❗🔡 ➡️ 🔡 🍇
+    💭 create a string builder
+    🆕🔠❗ ➡️ builder
+    🔂 row allSquares 🍇
+      🔂 cell row 🍇
+        🐻builder 🔡cell❗❗
+      🍉
+      🐻builder 🔤❌n🔤❗
+    🍉
+
+    ↩️ 🔡builder❗
+  🍉
+🍉
