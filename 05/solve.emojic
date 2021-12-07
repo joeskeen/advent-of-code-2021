@@ -3,20 +3,134 @@
 🐇 🆎 🍇
 
   📗 Returns the solution for part A of the puzzle 📗
+  💭 Incorrect answers: 
+  💭 6939 (too high)
+  💭 6642 (too low)
   🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
     💭 parse the input into a collection of line objects
     🐰input 🍇 line🔡 ➡️ ↔️
       🔫line 🔤 -> 🔤❗ ➡️ halves
       🐰halves 🍇 coord🔡 ➡️ 🎯
         🔫coord 🔤,🔤❗ ➡️ nums
-        ↩️ 🆕🎯 🍺🔢🐽nums 0❗ 10❗ 🍺🔢🐽nums 1❗ 10❗❗
+        ↩️ 🆕🎯 🍺💯🐽nums 0❗❗ 🍺💯🐽nums 1❗❗❗
       🍉❗ ➡️ points
       ↩️ 🆕↔️ 🐽points 0❗ 🐽points 1❗ ❗
-    🍉❗ ➡️ lines
+    🍉❗ ➡️ 🖍️🆕lines
+    🐭lines 🍇line ↔️ ➡️ 👌
+      ↩️ ↔️line❓ 👐 ↕️line❓
+    🍉❗ ➡️ 🖍️lines
 
-    😀 🔡🐽lines 0❗❗❗
+    🆕🍨🐚🎯🍆❗ ➡️ 🖍️🆕intersectionPoints
+    🔂 i 🆕⏩0 📏lines❓ 1❗ 🍇
+      🔂 j 🆕⏩🤜i ➕ 1🤛 📏lines❓ 1❗ 🍇
+        💭 add overlap points
+        🐥intersectionPoints ⏬🐇🆎 🐽lines i❗ 🐽lines j❗❓❗
+        💭 add intersect points
+        🔀🐇🆎 🐽lines i❗ 🐽lines j❗❓ ➡️ intersectPoint
+        ↪️ ❎intersectPoint 🙌 🤷❗ 🍇
+          🐻intersectionPoints 🍺intersectPoint❗
+        🍉
+      🍉
+    🍉
 
-    ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+    💭 de-duplicate the intersectionPoints
+    🔂 i 🆕⏩🤜📏intersectionPoints❓ ➖ 1🤛 0 -1❗ 🍇
+      🔂 j 🆕⏩0 i 1❗ 🍇
+        ↪️ 🐽intersectionPoints i❗ 🙌 🐽intersectionPoints j❗ 🍇
+          😀🔤removing duplicate 🧲🔡🐽intersectionPoints i❗❗🧲 (indexes 🧲i🧲 and 🧲j🧲)🔤❗
+          🐨intersectionPoints i❗
+        🍉
+      🍉
+    🍉
+
+    ↩️ 🔡📏intersectionPoints❓❗
+  🍉
+
+  📗 Returns the (single) point where two lines intersect or 🤷 if they don't touch or have same slope 📗
+  🐇 ❓🔀 line1↔️ line2↔️ ➡️ 🍬🎯 🍇
+    💭 line1 represented as a1x + b1y = c1
+    🚦🔚line1❓❓ ➖ 🚦🔜line1❓❓ ➡️ a1
+    🚥🔜line1❓❓ ➖ 🚥🔚line1❓❓ ➡️ b1
+    🤜a1 ✖️ 🚥🔜line1❓❓🤛 ➕ 🤜b1 ✖️ 🚦🔜line1❓❓🤛 ➡️ c1
+    
+    💭 line2 represented as a2x + b2y = c2
+    🚦🔚line2❓❓ ➖ 🚦🔜line2❓❓ ➡️ a2
+    🚥🔜line2❓❓ ➖ 🚥🔚line2❓❓ ➡️ b2
+    🤜a2 ✖️ 🚥🔜line2❓❓🤛 ➕ 🤜b2 ✖️ 🚦🔜line2❓❓🤛 ➡️ c2
+
+    🤜a1 ✖️ b2🤛 ➖ 🤜a2 ✖️ b1🤛 ➡️ determinant
+
+    ↪️ determinant 🙌 0 🍇
+      ↩️ 🤷
+    🍉
+
+    🤜🤜b2 ✖️ c1🤛 ➖ 🤜b1 ✖️ c2🤛🤛 ➗ determinant ➡️ intersectX
+    🤜🤜a1 ✖️ c2🤛 ➖ 🤜a2 ✖️ c1🤛🤛 ➗ determinant ➡️ intersectY
+
+    🤜intersectX ▶️🙌 🚥🔜line1❓❓🤛 🤝 🤜intersectX ◀️🙌 🚥🔚line1❓❓🤛 👐
+    🤜intersectX ◀️🙌 🚥🔜line1❓❓🤛 🤝 🤜intersectX ▶️🙌 🚥🔚line1❓❓🤛 ➡️ intersectXOnLine1Segment
+    🤜intersectX ▶️🙌 🚥🔜line2❓❓🤛 🤝 🤜intersectX ◀️🙌 🚥🔚line2❓❓🤛 👐
+    🤜intersectX ◀️🙌 🚥🔜line2❓❓🤛 🤝 🤜intersectX ▶️🙌 🚥🔚line2❓❓🤛 ➡️ intersectXOnLine2Segment
+    🤜intersectY ▶️🙌 🚦🔜line1❓❓🤛 🤝 🤜intersectY ◀️🙌 🚦🔚line1❓❓🤛 👐
+    🤜intersectY ◀️🙌 🚦🔜line1❓❓🤛 🤝 🤜intersectY ▶️🙌 🚦🔚line1❓❓🤛 ➡️ intersectYOnLine1Segment
+    🤜intersectY ▶️🙌 🚦🔜line2❓❓🤛 🤝 🤜intersectY ◀️🙌 🚦🔚line2❓❓🤛 👐
+    🤜intersectY ◀️🙌 🚦🔜line2❓❓🤛 🤝 🤜intersectY ▶️🙌 🚦🔚line2❓❓🤛 ➡️ intersectYOnLine2Segment
+
+    ↪️ intersectXOnLine1Segment 🤝 intersectXOnLine2Segment 🤝 intersectYOnLine1Segment 🤝 intersectYOnLine2Segment 🍇
+      ↩️ 🆕🎯 intersectX intersectY ❗
+    🍉
+
+    ↩️ 🤷
+  🍉
+
+  📗 If the lines are both horizontal or vertical, return each (integer) point at which they overlap, if any 📗
+  🐇 ❓⏬  line1↔️ line2↔️ ➡️ 🍨🐚🎯🍆 🍇
+    🆕🍨🐚🎯🍆❗ ➡️ 🖍️🆕intersectionPoints
+    🆕🍨🐚🎯🍆❗ ➡️ 🖍️🆕points
+    🐻points 🔜line1❓❗
+    🐻points 🔚line1❓❗
+    🐻points 🔜line2❓❗
+    🐻points 🔚line2❓❗
+    🦁points 🍇 p1🎯 p2🎯 ➡️ 🔢
+      ↩️ ↔️p1 p2❓
+    🍉❗
+    🐽points 1❗ ➡️ overlapStart
+    🐽points 2❗ ➡️ overlapEnd
+
+    ↪️ ↕️line1❓ 🤝 ↕️line2❓ 🤝 🤜 🚥🔜line1❓❓ 🙌 🚥🔜line2❓❓ 🤛 🍇
+      🚦🔜line1❓❓ ➡️ line1StartY
+      🚦🔚line1❓❓ ➡️ line1EndY
+      🚦🔜line2❓❓ ➡️ line2StartY
+      🚦🔚line2❓❓ ➡️ line2EndY
+
+      💭 is line1StartY on line2 or line1EndY on line2?
+      ↪️ 🤜 line1StartY ▶️🙌 line2StartY 🤝 line1StartY ◀️🙌 line2EndY 🤛 👐
+            🤜 line1StartY ▶️🙌 line2EndY 🤝 line1StartY ◀️🙌 line2StartY 🤛 👐 
+            🤜 line1EndY ▶️🙌 line2StartY 🤝 line1EndY ◀️🙌 line2EndY 🤛 👐
+            🤜 line1EndY ▶️🙌 line2EndY 🤝 line1EndY ◀️🙌 line2StartY 🤛 🍇
+          🔂 i 🆕⏩🔢🚦overlapStart❓❗ 🔢🚦overlapEnd❓ ➕ 1❗ 1❗ 🍇
+            🐻intersectionPoints 🆕🎯🚥overlapStart❓ 💯i❗❗❗
+          🍉
+      🍉
+    🍉
+    🙅↪️ ↔️line1❓ 🤝 ↔️line2❓ 🤝 🤜 🚦🔜line1❓❓ 🙌 🚦🔜line2❓❓ 🤛 🍇
+      🚥🔜line1❓❓ ➡️ line1StartX
+      🚥🔚line1❓❓ ➡️ line1EndX
+      🚥🔜line2❓❓ ➡️ line2StartX
+      🚥🔚line2❓❓ ➡️ line2EndX
+
+      💭 is line1StartX on line2 or line1EndX on line2?
+      ↪️ 🤜 line1StartX ▶️🙌 line2StartX 🤝 line1StartX ◀️🙌 line2EndX 🤛 👐
+            🤜 line1StartX ▶️🙌 line2EndX 🤝 line1StartX ◀️🙌 line2StartX 🤛 👐 
+            🤜 line1EndX ▶️🙌 line2StartX 🤝 line1EndX ◀️🙌 line2EndX 🤛 👐
+            🤜 line1EndX ▶️🙌 line2EndX 🤝 line1EndX ◀️🙌 line2StartX 🤛 🍇
+          🔂 i 🆕⏩🔢🚥overlapStart❓❗ 🔢🚥overlapEnd❓ ➕ 1❗ 1❗ 🍇
+            🐻intersectionPoints 🆕🎯🚦overlapStart❓ 💯i❗❗❗
+          🍉
+      🍉
+    🍉
+
+    ↩️ intersectionPoints
   🍉
   
   📗 Returns the solution for part B of the puzzle 📗
@@ -26,38 +140,81 @@
 
 🍉
 
+📗 Line segment struct 📗
 🕊️ ↔️ 🍇
   🖍️🆕start🎯
   🖍️🆕end🎯
 
+  📗 Constructs a line segment with given start and end points 📗
   🆕 🍼start🎯 🍼end🎯 🍇🍉
 
+  📗 Returns the start point of this line segment 📗
   ❓🔜 ➡️ 🎯 🍇
     ↩️ start
   🍉
+
+  📗 Returns the end point of this line segment 📗
   ❓🔚 ➡️ 🎯 🍇
     ↩️ end
   🍉
 
+  📗 Returns whether this is a horizontal line 📗
+  ❓↔️ ➡️ 👌 🍇
+    ↩️ 🚦start❓ 🙌 🚦end❓
+  🍉
+
+  📗 Returns whether this is a vertical line 📗
+  ❓↕️ ➡️ 👌 🍇
+    ↩️ 🚥start❓ 🙌 🚥end❓
+  🍉
+
+  📗 Returns a string representaiton of this line segment in the format start -> end 📗
   ❗🔡 ➡️ 🔡 🍇
     ↩️ 🔤🧲🔡start❗🧲 -> 🧲🔡end❗🧲🔤
   🍉
 🍉
 
+📗 Point struct 📗
 🕊️ 🎯 🍇
-  🖍️🆕x🔢
-  🖍️🆕y🔢
+    🖍️🆕x 💯
+    🖍️🆕y 💯
 
-  🆕 🍼x🔢 🍼y🔢 🍇🍉
+    📗 Constructs a Point with specified X and Y coordinates 📗
+    🆕 🍼x💯 🍼y💯 🍇🍉
 
-  ❓🚥 ➡️ 🔢 🍇
-    ↩️ x
-  🍉
-  ❓🚦 ➡️ 🔢 🍇
-    ↩️ y
-  🍉
+    📗 Returns the X coordinate of the point 📗
+    ❓🚥➡️💯 🍇
+        ↩️x
+    🍉
+    📗 Returns the Y coordinate of the point 📗
+    ❓🚦➡️💯 🍇
+        ↩️y
+    🍉
 
-  ❗🔡 ➡️ 🔡 🍇
-    ↩️ 🔤🧲x🧲,🧲y🧲🔤
-  🍉
+    📗 Returns the point in the format X,Y 📗
+    ❗🔡 ➡️ 🔡 🍇
+        ↩️ 🔤🧲🔡x❗🧲,🧲🔡y❗🧲🔤
+    🍉
+
+    📗 Returns whether this point and another point are equal, that is, have the same X and Y coordinates 📗
+    🙌 other 🎯 ➡️ 👌 🍇
+      ↩️ x 🙌 🚥other❓ 🤝 y 🙌 🚦other❓
+    🍉
+
+    📗 Compares this point to another point, returning -1, 0, or 1 (for sorting) 📗
+    ❓↔️ other🎯 ➡️ 🔢 🍇
+        ↪️ x ◀️ 🚥other❓ 🍇
+            ↩️ -1
+        🍉
+        ↪️ x ▶️ 🚥other❓ 🍇
+            ↩️ 1
+        🍉
+        ↪️ y ◀️ 🚦other❓ 🍇
+            ↩️ -1
+        🍉
+        ↪️ y ▶️ 🚦other❓ 🍇
+            ↩️ 1
+        🍉
+        ↩️ 0
+    🍉
 🍉
