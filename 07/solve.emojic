@@ -1,0 +1,112 @@
+📜 🔤../emojicode/common.emojic🔤
+
+🐇 🆎 🍇
+
+    📗 Returns the solution for part A of the puzzle 📗
+    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        🐽input 0❗ ➡️ line
+        🐰🔫line 🔤,🔤❗ 🍇 value🔡 ➡️ 🔢
+            ↩️ 🍺🔢value 10❗
+        🍉❗ ➡️ 🖍️🆕values
+        🦁values 🍇 a🔢 b🔢 ➡️ 🔢
+            ↩️ b ➖ a
+        🍉❗
+        📏values❓ ➗ 2 ➡️ medianIndex
+        🐽values medianIndex❗ ➡️ median
+
+        💰🐇🆎 values median❓ ➡️ medianCost
+
+        ↩️ 🔡medianCost❗
+    🍉
+
+    🐇 ❓💰 list🍨🐚🔢🍆 destination🔢 ➡️ 🔢 🍇
+        0 ➡️ 🖍️🆕cost
+        🔂 value list 🍇
+            cost ⬅️➕ 🏧destination ➖ value❗
+        🍉
+        ↩️ cost
+    🍉
+
+    🐇 ❓💸 list🍨🐚🔢🍆 destination🔢 ➡️ 🔢 🍇
+        0 ➡️ 🖍️🆕cost
+        🔂 value list 🍇
+            🏧destination ➖ value❗ ➡️ distance
+            🔂 n 🆕⏩ distance 0 -1❗ 🍇
+                cost ⬅️➕ n
+            🍉
+        🍉
+        ↩️ cost
+    🍉
+    
+    📗 Returns the solution for part B of the puzzle 📗
+    💭 Wrong values: 100148861(too high)
+    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        🐽input 0❗ ➡️ line
+        🐰🔫line 🔤,🔤❗ 🍇 value🔡 ➡️ 🔢
+            ↩️ 🍺🔢value 10❗
+        🍉❗ ➡️ 🖍️🆕values
+
+        🆕🍯🐚🔢🍆❗ ➡️ valueMap
+
+        🦁values 🍇 a🔢 b🔢 ➡️ 🔢
+            ↩️ b ➖ a
+        🍉❗
+        📏values❓ ➗ 2 ➡️ medianIndex
+        🐽values medianIndex❗ ➡️ median
+
+        💸🐇🆎 values median❓ ➡️ 🖍️🆕bestCost
+
+        💭 walk outwards from the median and find the costs of median - i and median + i.
+        💭 Once both costs are higher than the best cost, we have the best and can return
+        1 ➡️ 🖍️🆕i
+        🔁 👍 🍇
+            💸🐇🆎 values 🤜median ➖ i🤛❓ ➡️ costA
+            💸🐇🆎 values 🤜median ➕ i🤛❓ ➡️ costB
+
+            ↪️ costA ▶️ bestCost 🤝 costB ▶️ bestCost 🍇
+                ↩️ 🔡bestCost❗
+            🍉
+            🙅↪️ costA ◀️ bestCost 🍇
+                costA ➡️ 🖍️bestCost
+            🍉
+            🙅↪️ costB ◀️ bestCost 🍇
+                costB ➡️ 🖍️bestCost
+            🍉
+
+            i ⬅️➕ 1
+        🍉
+
+        ↩️ 🔡bestCost❗
+
+        💭 0.0 ➡️ 🖍️🆕sum
+        💭 🔂 value values 🍇
+        💭     sum ⬅️➕ 💯value❗
+        💭 🍉
+        💭 sum ➗ 💯📏values❓❗ ➡️ average
+        💭 🏇average❗ ➡️ roundedAverage
+
+        💭 💸🐇🆎 values 🔢roundedAverage❗❓ ➡️ averageCost
+
+        💭 ↩️ 🔡averageCost❗
+
+        💭 I kept this code here because it's a working implementation of dictionary/key-value map use in Emojicode
+        💭 🔂 value values 🍇
+        💭     ↪️ 🐣valueMap 🔡value❗❗ 🍇
+        💭         🤜🍺🐽valueMap 🔡value❗❗ ➕ 1🤛 ➡️ 🐽valueMap 🔡value❗❗
+        💭     🍉
+        💭     🙅 🍇
+        💭         1 ➡️ 🐽valueMap 🔡value❗❗
+        💭     🍉
+        💭 🍉
+
+        💭 🐙valueMap❗ ➡️ 🖍️🆕valueMapKeys
+        💭 🦁valueMapKeys 🍇 a🔡 b🔡 ➡️ 🔢
+        💭     ↩️ 🍺🐽valueMap b❗ ➖ 🍺🐽valueMap a❗
+        💭 🍉❗
+
+        💭 🍺🔢🐽valueMapKeys 0❗ 10❗ ➡️ mode
+
+        💭 💸🐇🆎 values mode❓ ➡️ modeCost
+    🍉
+
+🍉

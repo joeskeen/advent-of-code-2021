@@ -1,0 +1,36 @@
+📜 🔤../emojicode/common.emojic🔤
+
+🐇 🆎 🍇
+
+    📗 Returns the solution for part A of the puzzle 📗
+    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        🔫🐽input 0❗ 🔤,🔤❗ ➡️ list
+        🐰list 🍇 num🔡 ➡️ 🔢
+            ↩️ 🍺🔢num 10❗
+        🍉❗ ➡️ fishes
+
+        0 ➡️ 🖍️🆕finalCount
+        🔂 fish fishes 🍇
+          finalCount ⬅️➕ 🕹️🐇🆎 fish 80 ❓
+        🍉
+
+        ↩️ 🔡finalCount❗
+    🍉
+❌
+    📗 
+      returns the number of lanternfish including the starting one 
+      after the specified number of days 
+    📗
+    🐇 ❓🕹️ start🔢 days🔢 ➡️ 🔢 🍇
+      days ➖ 🤜start ➕ 1🤛 ➡️ remainingDays
+      remainingDays ➗ 7 ➡️ generations
+      🏂💯2❗ 💯generations❗❗ ➡️ end
+      ↩️ 🔢end❗
+    🍉
+    
+    📗 Returns the solution for part B of the puzzle 📗
+    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+    🍉
+
+🍉
