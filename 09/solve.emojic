@@ -3,7 +3,7 @@
 🐇 🆎 🍇
     📗 Returns the valid test case names for this puzzle 📗
     🐇 ❓🧪 ➡️ 🍨🐚🔡🍆 🍇
-        ↩️ 🍿 🔤00🔤 🍆
+        ↩️ 🍿 🔤00🔤 🔤01🔤 🍆
     🍉
 
     📗 Returns the solution for part A of the puzzle 📗
@@ -63,95 +63,141 @@
         🍉❗ ➡️ gridData
         🆕🍫 gridData ❗ ➡️ grid
 
-        ↩️ 🔤🤷🔤
+        🆕🍨🐚🍨🐚🔢🍆🍆❗ ➡️ 🖍️🆕lowPoints
+        💭 foreach row in the grid
+        🔂 rowIndex 🆕⏩0 🚦grid❓ 1❗ 🍇
+            rowIndex ➖ 1 ➡️ aboveIndex
+            rowIndex ➕ 1 ➡️ belowIndex
+            💭 🐽grid rowIndex❗ ➡️ row
+            💭 foreach cell in the row
+            🔂 colIndex 🆕⏩0 🚥grid❓ 1❗ 🍇
+                colIndex ➖ 1 ➡️ leftIndex
+                colIndex ➕ 1 ➡️ rightIndex
+                🍺🐽grid colIndex rowIndex❓ ➡️ cell
 
-        💭 start out with a risk level of 0
-        💭 🆕🍨🐚🍨🐚🔢🍆🍆❗ ➡️ 🖍️🆕lowPoints
-        💭 💭 foreach row in the grid
-        💭 🔂 rowIndex 🆕⏩0 📏grid❓ 1❗ 🍇
-        💭     rowIndex ➖ 1 ➡️ aboveIndex
-        💭     rowIndex ➕ 1 ➡️ belowIndex
-        💭     🐽grid rowIndex❗ ➡️ row
-        💭     💭 foreach cell in the row
-        💭     🔂 colIndex 🆕⏩0 📏row❓ 1❗ 🍇
-        💭         colIndex ➖ 1 ➡️ leftIndex
-        💭         colIndex ➕ 1 ➡️ rightIndex
-        💭         🐽row colIndex❗ ➡️ cell
+                💭 check each direction for a lower value
+                aboveIndex ▶️🙌 0 🤝 🤜🍺🐽grid colIndex aboveIndex❓ ◀️ cell🤛 ➡️ isAboveLower
+                belowIndex ◀️ 🚦grid❓ 🤝 🤜🍺🐽grid colIndex belowIndex❓ ◀️ cell🤛 ➡️ isBelowLower
+                leftIndex ▶️🙌 0 🤝 🤜🍺🐽grid leftIndex rowIndex❓ ◀️ cell🤛 ➡️ isLeftLower
+                rightIndex ◀️ 🚥grid❓ 🤝 🤜🍺🐽grid rightIndex rowIndex❓ ◀️ cell🤛 ➡️ isRightLower
 
-        💭         💭 check each direction for a lower value
-        💭         aboveIndex ▶️🙌 0 🤝 🤜🐽🐽grid aboveIndex❗ colIndex❗ ◀️ cell🤛 ➡️ isAboveLower
-        💭         belowIndex ◀️ 📏grid❓ 🤝 🤜🐽🐽grid belowIndex❗ colIndex❗ ◀️ cell🤛 ➡️ isBelowLower
-        💭         leftIndex ▶️🙌 0 🤝 🤜🐽🐽grid rowIndex❗ leftIndex❗ ◀️ cell🤛 ➡️ isLeftLower
-        💭         rightIndex ◀️ 📏row❓ 🤝 🤜🐽🐽grid rowIndex❗ rightIndex❗ ◀️ cell🤛 ➡️ isRightLower
+                💭 if none of the adjacent cells are lower, add the value of the cell plus 1 to the risk level
+                ↪️ ❎cell 🙌 9❗ 🤝 ❎isAboveLower❗ 🤝 ❎isBelowLower❗ 🤝 ❎isLeftLower❗ 🤝 ❎isRightLower❗ 🍇
+                    🍿colIndex rowIndex🍆 ➡️ point
+                    🐻lowPoints point❗
+                🍉
+            🍉
+        🍉
 
-        💭         💭 if none of the adjacent cells are lower, add the value of the cell plus 1 to the risk level
-        💭         ↪️ ❎cell 🙌 9❗ 🤝 ❎isAboveLower❗ 🤝 ❎isBelowLower❗ 🤝 ❎isLeftLower❗ 🤝 ❎isRightLower❗ 🍇
-        💭             🍿colIndex rowIndex🍆 ➡️ point
-        💭             🐻lowPoints point❗
-        💭         🍉
-        💭     🍉
-        💭 🍉
+        💭 ↩️ 🔤🤷🔤
+        1 ➡️ 🖍️🆕result
+        🔂 pointIndex 🆕⏩0 📏lowPoints❓ 1❗ 🍇
+            🐽lowPoints pointIndex❗ ➡️ point
+            🐽point 0❗ ➡️ x
+            🐽point 1❗ ➡️ y
+            🍺🐽grid x y❓ ➡️ cell
 
-        💭 0 ➡️ 🖍️🆕basins
-        💭 🔂 pointIndex 🆕⏩0 📏lowPoints❓ 1❗ 🍇
-        💭     🐽lowPoints pointIndex❗ ➡️ point
-        💭     🐽point 0❗ ➡️ x
-        💭     🐽point 1❗ ➡️ y
-        💭     🐽🐽grid y❗ x❗ ➡️ cell
+            ↪️ ❎cell 🙌 -1❗ 🍇
+                🚗🐇🆎 grid point❗ ➡️ basinSize
+                ↪️ basinSize ▶️ 0 🍇
+                    😀🔤Basin at 🧲x🧲,🧲y🧲 size: 🧲basinSize🧲🔤❗
+                    result ⬅️✖️ basinSize
+                🍉
+            🍉
+        🍉
 
-        💭     ↪️ ❎cell 🙌 -1❗ 🍇
-        💭         🚗🐇🆎 grid point❗
-        💭         basins ⬅️➕ 1
-        💭     🍉
-        💭 🍉
-
-        💭 💭 return the number of basins as a string
-        💭 ↩️ 🔡basins❗
+        ↩️ 🔡result❗
     🍉
 
-    🐇 ❗🚗 grid🍨🐚🍨🐚🔢🍆🍆 startLocation🍨🐚🔢🍆 🍇
-        💭 TODO: if it's not a 9 or -1, mark it as -1 (visited) then call 🚗❗ on neighboring cells
-        💭 this won't work until I restructure it as a grid class since it's passing a copy of the grid into this function
+    🐇 ❗🚗 grid🍫 startLocation🍨🐚🔢🍆 ➡️ 🔢 🍇
+        💭 TODO: if it's not a 9 or -1, mark it as -1 (visited) then call 🚗❗ on neighboring cells. Returns the size of the basin
+        🐽startLocation 0❗ ➡️ startX
+        🐽startLocation 1❗ ➡️ startY
+        🍺🐽grid startX startY❓ ➡️ startLocationValue
+        ↪️ 🤜startLocationValue 🙌 9🤛 👐 🤜startLocationValue 🙌 -1🤛 🍇
+            ↩️ 0
+        🍉
+
+        -1 ➡️ 🐽grid startX startY❗
+        1 ➡️ 🖍️🆕basinSize
+
+        🐽grid 🤜startX ➖ 1🤛 startY ❓ ➡️ left
+        ↪️ ❎left 🙌 🤷❗ 🍇
+            basinSize ⬅️➕ 🚗🐇🆎 grid 🍿 🤜startX ➖ 1🤛 startY 🍆❗
+        🍉
+
+        🐽grid 🤜startX ➕ 1🤛 startY ❓ ➡️ right
+        ↪️ ❎right 🙌 🤷❗ 🍇
+            basinSize ⬅️➕ 🚗🐇🆎 grid 🍿 🤜startX ➕ 1🤛 startY 🍆❗
+        🍉
+
+        🐽grid startX 🤜startY ➖ 1🤛 ❓ ➡️ up
+        ↪️ ❎up 🙌 🤷❗ 🍇
+            basinSize ⬅️➕ 🚗🐇🆎 grid 🍿 startX 🤜startY ➖ 1🤛 🍆❗
+        🍉
+
+        🐽grid startX 🤜startY ➕ 1🤛 ❓ ➡️ down
+        ↪️ ❎down 🙌 🤷❗ 🍇
+            basinSize ⬅️➕ 🚗🐇🆎 grid 🍿 startX 🤜startY ➕ 1🤛 🍆❗
+        🍉
+
+        ↩️ basinSize
     🍉
 
 🍉
 
 📗 Class for a grid row 📗
-🐇 🍞 🐚T⚪🍆 🍇
-    🖍️🆕row 🍨🐚T🍆
+🐇 🍞 🍇
+    🖍️🆕row 🍨🐚🔢🍆
 
-    🆕 🍼row🍨🐚T🍆 🍇🍉
+    🆕 🍼row🍨🐚🔢🍆 🍇
+    🍉
 
-    ❓🐽 index🔢 ➡️ 🍬T 🍇
+    ❓🐽 index🔢 ➡️ 🍬🔢 🍇
         ↪️ 📏row❓ ▶️ index 🍇
             ↩️ 🐽row index❗
         🍉
         ↩️ 🤷
     🍉
 
+    ➡️🐽 🎍🥡value🔢 index🔢 🍇
+        value ➡️ 🐽row index❗
+    🍉
+
     ❓📏 ➡️ 🔢 🍇
         ↩️ 📏row❓
     🍉
 🍉
-🧇
-📗 Class for a grid 📗
-🐇 🍫 🐚T⚪🍆 🍇
-    🖍️🆕rows 🍨🐚🍞🐚T🍆🍆
 
-    🆕 rowsData🍨🐚🍨🐚T🍆🍆 🍇
-        🆕🍨🐚🍞🐚T🍆🍆❗ ➡️ 🖍️rows
-        💭 🐰 rowsData 🍇 row🍨🐚T🍆 ➡️ 🍞🐚T🍆
-        💭     ↩️ 🆕🍞 row❗
-        💭 🍉❗ ➡️ 🖍️rows
+📗 Class for a grid 📗
+🐇 🍫 🍇
+    🖍️🆕 rows 🍨🐚🍞🍆
+
+    🆕 rowsData🍨🐚🍨🐚🔢🍆🍆 🍇
+        🐰 rowsData 🍇 row🍨🐚🔢🍆 ➡️ 🍞
+            ↩️ 🆕🍞 row❗
+        🍉❗ ➡️ 🖍️rows
     🍉
 
-    💭 ❓🐽 columnIndex🔢 rowIndex🔢 ➡️ 🍬T 🍇
-    💭     ↪️ 📏rows❓ ▶️ rowIndex 🍇
-    💭         🐽rows rowIndex❗ ➡️ row
-    💭         ↪️ 📏row❓ ▶️ columnIndex 🍇
-    💭             ↩️ 🐽row columnIndex❓
-    💭         🍉
-    💭     🍉
-    💭     ↩️ 🤷
-    💭 🍉
+    ❓🚦 ➡️ 🔢 🍇
+        ↩️ 📏rows❓
+    🍉
+
+    ❓🚥 ➡️ 🔢 🍇
+        ↩️ 📏🐽rows 0❗❓
+    🍉
+
+    ❓🐽 columnIndex🔢 rowIndex🔢 ➡️ 🍬🔢 🍇
+        ↪️ rowIndex ▶️🙌 0 🤝 📏rows❓ ▶️ rowIndex 🍇
+            🐽rows rowIndex❗ ➡️ row
+            ↪️ columnIndex ▶️🙌 0 🤝 📏row❓ ▶️ columnIndex 🍇
+                ↩️ 🐽row columnIndex❓
+            🍉
+        🍉
+        ↩️ 🤷
+    🍉
+
+    ➡️🐽 🎍🥡value🔢 columnIndex🔢 rowIndex🔢 🍇
+        value ➡️ 🐽🐽rows rowIndex❗ columnIndex❗
+    🍉
 🍉
