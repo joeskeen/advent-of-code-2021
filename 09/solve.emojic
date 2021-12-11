@@ -3,13 +3,151 @@
 🐇 🆎 🍇
 
     📗 Returns the solution for part A of the puzzle 📗
+    💭 Incorrect answers: 1658(too high)
     🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+        💭 transform the input string array into a 2D array of numbers (grid)
+        🐰input 🍇 line🔡 ➡️ 🍨🐚🔢🍆 
+            🎶line❗ ➡️ characters
+            ↩️ 🐰characters 🍇 character🔡 ➡️ 🔢
+                ↩️ 🍺🔢character 10❗
+            🍉❗
+        🍉❗ ➡️ grid
+
+        💭 start out with a risk level of 0
+        0 ➡️ 🖍️🆕riskLevel
+        🆕🍨🐚🔡🍆❗ ➡️ 🖍️🆕lowPoints
+        💭 foreach row in the grid
+        🔂 rowIndex 🆕⏩0 📏grid❓ 1❗ 🍇
+            rowIndex ➖ 1 ➡️ aboveIndex
+            rowIndex ➕ 1 ➡️ belowIndex
+            🐽grid rowIndex❗ ➡️ row
+            💭 foreach cell in the row
+            🔂 colIndex 🆕⏩0 📏row❓ 1❗ 🍇
+                colIndex ➖ 1 ➡️ leftIndex
+                colIndex ➕ 1 ➡️ rightIndex
+                🐽row colIndex❗ ➡️ cell
+
+                💭 check each direction for a lower value
+                aboveIndex ▶️🙌 0 🤝 🤜🐽🐽grid aboveIndex❗ colIndex❗ ◀️ cell🤛 ➡️ isAboveLower
+                belowIndex ◀️ 📏grid❓ 🤝 🤜🐽🐽grid belowIndex❗ colIndex❗ ◀️ cell🤛 ➡️ isBelowLower
+                leftIndex ▶️🙌 0 🤝 🤜🐽🐽grid rowIndex❗ leftIndex❗ ◀️ cell🤛 ➡️ isLeftLower
+                rightIndex ◀️ 📏row❓ 🤝 🤜🐽🐽grid rowIndex❗ rightIndex❗ ◀️ cell🤛 ➡️ isRightLower
+
+                💭 if none of the adjacent cells are lower, add the value of the cell plus 1 to the risk level
+                ↪️ ❎cell 🙌 9❗ 🤝 ❎isAboveLower❗ 🤝 ❎isBelowLower❗ 🤝 ❎isLeftLower❗ 🤝 ❎isRightLower❗ 🍇
+                    riskLevel ⬅️➕ 🤜cell ➕ 1🤛
+                    🔤(🧲colIndex🧲,🧲rowIndex🧲): 🧲cell🧲🔤 ➡️ point
+                    💭 😀 point ❗
+                    🐻lowPoints point❗
+                🍉
+            🍉
+        🍉
+
+        💭 return the risk level as a string
+        ↩️ 🔡riskLevel❗
     🍉
     
     📗 Returns the solution for part B of the puzzle 📗
     🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+        💭 transform the input string array into a 2D array of numbers (grid)
+        🐰input 🍇 line🔡 ➡️ 🍨🐚🔢🍆
+            🎶line❗ ➡️ characters
+            🐰characters 🍇 character🔡 ➡️ 🔢
+                ↩️ 🍺🔢character 10❗
+            🍉❗ ➡️ row
+            ↩️ row
+        🍉❗ ➡️ gridData
+        🆕🍫 gridData ❗ ➡️ grid
+
+        ↩️ 🔤🤷🔤
+
+        💭 start out with a risk level of 0
+        💭 🆕🍨🐚🍨🐚🔢🍆🍆❗ ➡️ 🖍️🆕lowPoints
+        💭 💭 foreach row in the grid
+        💭 🔂 rowIndex 🆕⏩0 📏grid❓ 1❗ 🍇
+        💭     rowIndex ➖ 1 ➡️ aboveIndex
+        💭     rowIndex ➕ 1 ➡️ belowIndex
+        💭     🐽grid rowIndex❗ ➡️ row
+        💭     💭 foreach cell in the row
+        💭     🔂 colIndex 🆕⏩0 📏row❓ 1❗ 🍇
+        💭         colIndex ➖ 1 ➡️ leftIndex
+        💭         colIndex ➕ 1 ➡️ rightIndex
+        💭         🐽row colIndex❗ ➡️ cell
+
+        💭         💭 check each direction for a lower value
+        💭         aboveIndex ▶️🙌 0 🤝 🤜🐽🐽grid aboveIndex❗ colIndex❗ ◀️ cell🤛 ➡️ isAboveLower
+        💭         belowIndex ◀️ 📏grid❓ 🤝 🤜🐽🐽grid belowIndex❗ colIndex❗ ◀️ cell🤛 ➡️ isBelowLower
+        💭         leftIndex ▶️🙌 0 🤝 🤜🐽🐽grid rowIndex❗ leftIndex❗ ◀️ cell🤛 ➡️ isLeftLower
+        💭         rightIndex ◀️ 📏row❓ 🤝 🤜🐽🐽grid rowIndex❗ rightIndex❗ ◀️ cell🤛 ➡️ isRightLower
+
+        💭         💭 if none of the adjacent cells are lower, add the value of the cell plus 1 to the risk level
+        💭         ↪️ ❎cell 🙌 9❗ 🤝 ❎isAboveLower❗ 🤝 ❎isBelowLower❗ 🤝 ❎isLeftLower❗ 🤝 ❎isRightLower❗ 🍇
+        💭             🍿colIndex rowIndex🍆 ➡️ point
+        💭             🐻lowPoints point❗
+        💭         🍉
+        💭     🍉
+        💭 🍉
+
+        💭 0 ➡️ 🖍️🆕basins
+        💭 🔂 pointIndex 🆕⏩0 📏lowPoints❓ 1❗ 🍇
+        💭     🐽lowPoints pointIndex❗ ➡️ point
+        💭     🐽point 0❗ ➡️ x
+        💭     🐽point 1❗ ➡️ y
+        💭     🐽🐽grid y❗ x❗ ➡️ cell
+
+        💭     ↪️ ❎cell 🙌 -1❗ 🍇
+        💭         🚗🐇🆎 grid point❗
+        💭         basins ⬅️➕ 1
+        💭     🍉
+        💭 🍉
+
+        💭 💭 return the number of basins as a string
+        💭 ↩️ 🔡basins❗
     🍉
 
+    🐇 ❗🚗 grid🍨🐚🍨🐚🔢🍆🍆 startLocation🍨🐚🔢🍆 🍇
+        💭 TODO: if it's not a 9 or -1, mark it as -1 (visited) then call 🚗❗ on neighboring cells
+        💭 this won't work until I restructure it as a grid class since it's passing a copy of the grid into this function
+    🍉
+
+🍉
+
+📗 Class for a grid row 📗
+🐇 🍞 🐚T⚪🍆 🍇
+    🖍️🆕row 🍨🐚T🍆
+
+    🆕 🍼row🍨🐚T🍆 🍇🍉
+
+    ❓🐽 index🔢 ➡️ 🍬T 🍇
+        ↪️ 📏row❓ ▶️ index 🍇
+            ↩️ 🐽row index❗
+        🍉
+        ↩️ 🤷
+    🍉
+
+    ❓📏 ➡️ 🔢 🍇
+        ↩️ 📏row❓
+    🍉
+🍉
+🧇
+📗 Class for a grid 📗
+🐇 🍫 🐚T⚪🍆 🍇
+    🖍️🆕rows 🍨🐚🍞🐚T🍆🍆
+
+    🆕 rowsData🍨🐚🍨🐚T🍆🍆 🍇
+        🆕🍨🐚🍞🐚T🍆🍆❗ ➡️ 🖍️rows
+        💭 🐰 rowsData 🍇 row🍨🐚T🍆 ➡️ 🍞🐚T🍆
+        💭     ↩️ 🆕🍞 row❗
+        💭 🍉❗ ➡️ 🖍️rows
+    🍉
+
+    💭 ❓🐽 columnIndex🔢 rowIndex🔢 ➡️ 🍬T 🍇
+    💭     ↪️ 📏rows❓ ▶️ rowIndex 🍇
+    💭         🐽rows rowIndex❗ ➡️ row
+    💭         ↪️ 📏row❓ ▶️ columnIndex 🍇
+    💭             ↩️ 🐽row columnIndex❓
+    💭         🍉
+    💭     🍉
+    💭     ↩️ 🤷
+    💭 🍉
 🍉

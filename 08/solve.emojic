@@ -1,10 +1,38 @@
 📜 🔤../emojicode/common.emojic🔤
 
+💭 0: 6 segments (abcefg)
+💭 1: 2 segments (cf)
+💭 2: 5 segments (acdeg)
+💭 3: 5 segments (acdfg)
+💭 4: 4 segments (bcdf)
+💭 5: 5 segments (abdfg)
+💭 6: 6 segments (abdefg)
+💭 7: 3 segments (acf)
+💭 8: 7 segments (abcdefg)
+💭 9: 6 segments (abcdfg)
+
 🐇 🆎 🍇
 
-    📗 Returns the solution for part A of the puzzle 📗
+    📗 
+        Returns the solution for part A of the puzzle 
+        how many times do digits 1, 4, 7, or 8 appear?
+    📗
     🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+        0 ➡️ 🖍️🆕instancesOfUniqueSegmentDigits
+        🔂 line input 🍇
+            🔫line 🔤 | 🔤❗ ➡️ halves
+            🐽halves 1❗ ➡️ output
+            🔫output 🔤 🔤❗ ➡️ outputValues
+            🔂 value outputValues 🍇
+                🎶value❗ ➡️ segments
+                📏segments❓ ➡️ segmentLength
+                💭 😀🔤segment length: 🧲segmentLength🧲🔤❗
+                ↪️ 🤜segmentLength 🙌 2🤛 👐 🤜segmentLength 🙌 4🤛 👐 🤜segmentLength🤛 🙌 3 👐 🤜segmentLength 🙌 7🤛 🍇
+                    instancesOfUniqueSegmentDigits ⬅️➕ 1
+                🍉
+            🍉
+        🍉
+        ↩️ 🔡instancesOfUniqueSegmentDigits❗
     🍉
     
     📗 Returns the solution for part B of the puzzle 📗
