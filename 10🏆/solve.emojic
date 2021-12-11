@@ -1,0 +1,159 @@
+📜 🔤../emojicode/common.emojic🔤
+
+🐇 🆎 🍇
+    📗 Returns the valid test case names for this puzzle 📗
+    🐇 ❓🧪 ➡️ 🍨🐚🔡🍆 🍇
+        ↩️ 🍿 🔤00🔤 🍆
+    🍉
+
+    📗 Returns the solution for part A of the puzzle 📗
+    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        0 ➡️ 🖍️🆕 score
+        🔂 line input 🍇
+            score ⬅️➕ 🙃🐇🆎 line❓
+        🍉
+        ↩️ 🔤🧲score🧲🔤
+    🍉
+
+    📗 calculates score for this line if it is corrupted, otherwise returns 0 📗
+    💭 ): 3 points.
+    💭 ]: 57 points.
+    💭 }: 1197 points.
+    💭 >: 25137 points.
+    🐇 ❓🙃 line🔡 ➡️ 🔢 🍇
+        🎶line❗ ➡️ lineChars
+        🆕🍨🐚🔡🍆❗ ➡️ 🖍️🆕chunks
+        🔂 char lineChars 🍇
+            ↪️ char 🙌 🔤(🔤 👐 char 🙌 🔤[🔤 👐 char 🙌 🔤{🔤 👐 char 🙌 🔤<🔤 🍇
+                🐻chunks char❗  💭 start of chunk (push)
+            🍉
+            🙅↪️ char 🙌 🔤)🔤 🍇
+                ↪️ 🐽chunks 🤜📏chunks❓ ➖ 1🤛❗ 🙌 🔤(🔤 🍇
+                    🐼chunks❗  💭 end of chunk (pop)
+                🍉
+                🙅 🍇
+                    ↩️ 3 💭 line is corrupted (score)
+                🍉
+            🍉
+            🙅↪️ char 🙌 🔤]🔤 🍇
+                ↪️ 🐽chunks 🤜📏chunks❓ ➖ 1🤛❗ 🙌 🔤[🔤 🍇
+                    🐼chunks❗  💭 end of chunk (pop)
+                🍉
+                🙅 🍇
+                    ↩️ 57 💭 line is corrupted (score)
+                🍉
+            🍉
+            🙅↪️ char 🙌 🔤}🔤 🍇
+                ↪️ 🐽chunks 🤜📏chunks❓ ➖ 1🤛❗ 🙌 🔤{🔤 🍇
+                    🐼chunks❗  💭 end of chunk (pop)
+                🍉
+                🙅 🍇
+                    ↩️ 1197  💭 line is corrupted (score)
+                🍉
+            🍉
+            🙅↪️ char 🙌 🔤>🔤 🍇
+                ↪️ 🐽chunks 🤜📏chunks❓ ➖ 1🤛❗ 🙌 🔤<🔤 🍇
+                    🐼chunks❗ 💭 end of chunk (pop)
+                🍉
+                🙅 🍇
+                    ↩️ 25137  💭 line is corrupted (score)
+                🍉
+            🍉
+        🍉
+        ↪️ 📏chunks❓ ▶️ 0 🍇
+            ↩️ 0  💭 line is incomplete
+        🍉
+        ↩️ 0  💭 line is complete with no errors... which technically shouldn't happen
+    🍉
+    
+    📗 Returns the solution for part B of the puzzle 📗
+    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        🆕🍨🐚🔢🍆❗ ➡️ 🖍️🆕scores
+        🔂 line input 🍇
+            😶🐇🆎 line❓ ➡️ score
+            ↪️ score ▶️ 0 🍇
+                🐻scores score❗
+            🍉
+        🍉
+        💭 sort the scores
+        🦁scores 🍇 a🔢 b🔢 ➡️ 🔢
+            ↩️ b ➖ a
+        🍉❗ 
+        📏scores❓ ➗ 2 ➡️ midpointIndex
+        🐽scores midpointIndex❗ ➡️ middleScore
+        ↩️ 🔡middleScore❗
+    🍉
+
+    📗 calculates score for this line if it is incomplete, otherwise returns 0 📗
+    💭 ): 1 points.
+    💭 ]: 2 points.
+    💭 }: 3 points.
+    💭 >: 4 points.
+    🐇 ❓😶 line🔡 ➡️ 🔢 🍇
+        🎶line❗ ➡️ lineChars
+        🆕🍨🐚🔡🍆❗ ➡️ 🖍️🆕chunks
+        🔂 char lineChars 🍇
+            ↪️ char 🙌 🔤(🔤 👐 char 🙌 🔤[🔤 👐 char 🙌 🔤{🔤 👐 char 🙌 🔤<🔤 🍇
+                🐻chunks char❗  💭 start of chunk (push)
+            🍉
+            🙅↪️ char 🙌 🔤)🔤 🍇
+                ↪️ 🐽chunks 🤜📏chunks❓ ➖ 1🤛❗ 🙌 🔤(🔤 🍇
+                    🐼chunks❗  💭 end of chunk (pop)
+                🍉
+                🙅 🍇
+                    ↩️ 0 💭 line is corrupted (skip)
+                🍉
+            🍉
+            🙅↪️ char 🙌 🔤]🔤 🍇
+                ↪️ 🐽chunks 🤜📏chunks❓ ➖ 1🤛❗ 🙌 🔤[🔤 🍇
+                    🐼chunks❗  💭 end of chunk (pop)
+                🍉
+                🙅 🍇
+                    ↩️ 0 💭 line is corrupted (skip)
+                🍉
+            🍉
+            🙅↪️ char 🙌 🔤}🔤 🍇
+                ↪️ 🐽chunks 🤜📏chunks❓ ➖ 1🤛❗ 🙌 🔤{🔤 🍇
+                    🐼chunks❗  💭 end of chunk (pop)
+                🍉
+                🙅 🍇
+                    ↩️ 0  💭 line is corrupted (skip)
+                🍉
+            🍉
+            🙅↪️ char 🙌 🔤>🔤 🍇
+                ↪️ 🐽chunks 🤜📏chunks❓ ➖ 1🤛❗ 🙌 🔤<🔤 🍇
+                    🐼chunks❗ 💭 end of chunk (pop)
+                🍉
+                🙅 🍇
+                    ↩️ 0  💭 line is corrupted (skip)
+                🍉
+            🍉
+        🍉
+        ↪️ 📏chunks❓ ▶️ 0 🍇
+            0 ➡️ 🖍️🆕score
+            🦔chunks❗ 💭 reverse the order of the list
+            💭 ): 1 points.
+            💭 ]: 2 points.
+            💭 }: 3 points.
+            💭 >: 4 points.
+            🔂 chunk chunks 🍇
+                score ⬅️✖️ 5
+                ↪️ chunk 🙌 🔤(🔤 🍇
+                    score ⬅️➕ 1
+                🍉
+                🙅↪️ chunk 🙌 🔤[🔤 🍇
+                    score ⬅️➕ 2
+                🍉
+                🙅↪️ chunk 🙌 🔤{🔤 🍇
+                    score ⬅️➕ 3
+                🍉
+                🙅↪️ chunk 🙌 🔤<🔤 🍇
+                    score ⬅️➕ 4
+                🍉
+            🍉
+            ↩️ score 💭 line is incomplete (score)
+        🍉
+        ↩️ 0  💭 line is complete with no errors... which technically shouldn't happen
+    🍉
+
+🍉
