@@ -3,7 +3,7 @@
 🐇 🆎 🍇
     📗 Returns the valid test case names for this puzzle 📗
     🐇 ❓🧪 ➡️ 🍨🐚🔡🍆 🍇
-        ↩️ 🍿 🔤00🔤 🔤01🔤 🍆
+        ↩️ 🍿 🔤00🔤  🍆
     🍉
 
     📗 Returns the solution for part A of the puzzle 📗
@@ -89,8 +89,7 @@
             🍉
         🍉
 
-        💭 ↩️ 🔤🤷🔤
-        1 ➡️ 🖍️🆕result
+        🆕🍨🐚🔢🍆❗ ➡️ 🖍️🆕basinSizes
         🔂 pointIndex 🆕⏩0 📏lowPoints❓ 1❗ 🍇
             🐽lowPoints pointIndex❗ ➡️ point
             🐽point 0❗ ➡️ x
@@ -99,13 +98,14 @@
 
             ↪️ ❎cell 🙌 -1❗ 🍇
                 🚗🐇🆎 grid point❗ ➡️ basinSize
-                ↪️ basinSize ▶️ 0 🍇
-                    😀🔤Basin at 🧲x🧲,🧲y🧲 size: 🧲basinSize🧲🔤❗
-                    result ⬅️✖️ basinSize
-                🍉
+                🐻basinSizes basinSize❗
             🍉
         🍉
+        🦁basinSizes 🍇 a🔢 b🔢 ➡️ 🔢
+            ↩️ b ➖ a
+        🍉❗
 
+        🐽basinSizes 0❗ ✖️ 🐽basinSizes 1❗ ✖️ 🐽basinSizes 2❗ ➡️ result
         ↩️ 🔡result❗
     🍉
 
