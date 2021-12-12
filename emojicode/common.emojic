@@ -31,19 +31,19 @@
         🅰️🐇🆎 lines ❓ ➡️ resultA
         📜🐇🧰 🔤test-output-🧲testCaseName🧲-a.txt🔤 ❓ ➡️ expectedA
         ↪️ resultA 🙌 expectedA 🍇
-            😀 🔤Test 🧲testCaseName🧲 🅰️: ✔️ 🧲resultA🧲🔤 ❗
+            😀 🔤Test 🧲testCaseName🧲 🅰️ : ✔️ 🧲resultA🧲🔤 ❗
         🍉
         🙅 🍇
-            😀 🔤Test 🧲testCaseName🧲 🅰️: ❌❌ 🧲resultA🧲❌n- Expected: 🧲expectedA🧲❌n- Actual: 🧲resultA🧲 🔤 ❗
+            😀 🔤Test 🧲testCaseName🧲 🅰️ : ❌❌ 🧲resultA🧲❌n- Expected: 🧲expectedA🧲❌n- Actual: 🧲resultA🧲 🔤 ❗
         🍉
         
         🅱️🐇🆎 lines ❓ ➡️ resultB
         📜🐇🧰 🔤test-output-🧲testCaseName🧲-b.txt🔤 ❓ ➡️ expectedB
         ↪️ resultB 🙌 expectedB 🍇
-            😀 🔤Test 🧲testCaseName🧲 🅱️: ✔️ 🧲resultB🧲🔤 ❗
+            😀 🔤Test 🧲testCaseName🧲 🅱️ : ✔️ 🧲resultB🧲🔤 ❗
         🍉
         🙅 🍇
-            😀 🔤Test 🧲testCaseName🧲 🅱️: ❌❌ 🧲resultB🧲❌n- Expected: 🧲expectedB🧲❌n- Actual: 🧲resultB🧲 🔤 ❗
+            😀 🔤Test 🧲testCaseName🧲 🅱️ : ❌❌ 🧲resultB🧲❌n- Expected: 🧲expectedB🧲❌n- Actual: 🧲resultB🧲 🔤 ❗
         🍉
     🍉
 
