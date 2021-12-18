@@ -8,12 +8,152 @@
 
     📗 Returns the solution for part A of the puzzle 📗
     🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+        🐽input 0❗ ➡️ startState
+        🆕🍯🐚🔡🍆❗ ➡️ 🖍️🆕rules
+
+        💭 read in the rules from the input
+        🔂 i 🆕⏩ 2 📏input❓ 1❗ 🍇
+            🐽input i❗ ➡️ line
+            🔫line 🔤 -> 🔤❗ ➡️ halves
+            🐽halves 0❗ ➡️ pair
+            🐽halves 1❗ ➡️ result
+            result ➡️ 🐽rules pair❗
+        🍉
+
+        💭 do the pair insertion
+        ℹ️🐇🆎 startState rules 10❗ ➡️ finalState
+
+        📋🐇🆎 finalState ❗ ➡️ elementCounts
+
+        💭 sort the elements by frequency
+        🐙elementCounts❗ ➡️ 🖍️🆕elements
+        🦁elements 🍇 a🔡 b🔡 ➡️ 🔢 
+            ↩️ 🍺🐽elementCounts a❗ ➖ 🍺🐽elementCounts b❗
+        🍉❗
+
+        💭 find the least common element
+        🐽elements 0❗ ➡️ leastCommonElement
+        🍺🐽elementCounts leastCommonElement❗ ➡️ leastCommonCount
+
+        💭 find the most common element
+        🐽elements 🤜📏elements❓ ➖ 1🤛❗ ➡️ mostCommonElement
+        🍺🐽elementCounts mostCommonElement❗ ➡️ mostCommonCount
+
+        mostCommonCount ➖ leastCommonCount ➡️ answer
+        ↩️ 🔡answer❗
+    🍉
+
+    💭 return a dictionary of element to element counts
+    🐇 ❗📋 chain🔡 ➡️ 🍯🐚🔢🍆 🍇
+        🎶chain❗ ➡️ chainElements
+        🆕🍯🐚🔢🍆❗ ➡️ 🖍️🆕elementCounts
+
+        💭 count up the frequencies of each element
+        🔂 element chainElements 🍇
+            ↪️ 🐽elementCounts element❗ 🙌 🤷 🍇
+                1 ➡️ 🐽elementCounts element❗
+            🍉
+            🙅 🍇
+                🍺🐽elementCounts element❗ ➡️ currentCount
+                currentCount ➕ 1 ➡️ 🐽elementCounts element❗
+            🍉
+        🍉
+
+        ↩️ elementCounts
+    🍉
+
+    📗 performs pair insertion the provided number of times and returns the result 📗
+    🐇 ❗ℹ️ input🔡 rules🍯🐚🔡🍆 steps🔢 ➡️ 🔡 🍇
+        input ➡️ 🖍️🆕chain
+        😀chain❗
+
+        🔂 i 🆕⏩0 steps 1❗🍇
+            💭 convert the chain into a char array
+            🎶chain❗ ➡️ chainElements
+            🆕🔠❗ ➡️ builder
+
+            💭 iterate over the current chain
+            🔂 j 🆕⏩1 📏chainElements❓ 1❗ 🍇
+                🐽chainElements 🤜j ➖ 1🤛❗ ➡️ elementA
+                🐽chainElements j❗ ➡️ elementB
+                💭 insert the left element in the pair
+                🐻builder elementA❗
+
+                💭 insert the result of the pair 
+                🔤🧲elementA🧲🧲elementB🧲🔤 ➡️ pair
+                🐽rules pair❗ ➡️ result
+                ↪️ result 🙌 🤷 🍇
+                    ↩️ 🔤INVALID AT STEP 🧲i🧲: NO MATCHING RULES FOR 🧲pair🧲🔤
+                🍉
+                🙅 🍇
+                    🐻builder 🍺result❗
+                🍉
+            🍉
+
+            💭 insert the last element of the chain
+            🐻builder 🐽chainElements 🤜📏chainElements❓ ➖ 1🤛❗❗
+
+            💭 set the chain to the result of this step
+            🔡builder❗ ➡️ 🖍️chain
+            😀 🔤after step 🧲i ➕ 1🧲: length of 🧲📏🎶chain❗❓🧲🔤❗
+
+            📋🐇🆎 chain ❗ ➡️ elementCounts
+            🔂 element 🐙elementCounts❗ 🍇
+                😀 🔤🧲element🧲: 🧲🍺🐽elementCounts element❗🧲🔤❗
+            🍉
+            💭 😀chain❗
+        🍉
+
+        ↩️ chain
     🍉
     
     📗 Returns the solution for part B of the puzzle 📗
     🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+        🐽input 0❗ ➡️ startState
+        🆕🍯🐚🔡🍆❗ ➡️ 🖍️🆕rules
+
+        💭 read in the rules from the input
+        🔂 i 🆕⏩ 2 📏input❓ 1❗ 🍇
+            🐽input i❗ ➡️ line
+            🔫line 🔤 -> 🔤❗ ➡️ halves
+            🐽halves 0❗ ➡️ pair
+            🐽halves 1❗ ➡️ result
+            result ➡️ 🐽rules pair❗
+        🍉
+
+        💭 do the pair insertion
+        ℹ️🐇🆎 startState rules 40❗ ➡️ finalState
+
+        🎶finalState❗ ➡️ finalStateElements
+        🆕🍯🐚🔢🍆❗ ➡️ 🖍️🆕elementCounts
+
+        💭 count up the frequencies of each element
+        🔂 element finalStateElements 🍇
+            ↪️ 🐽elementCounts element❗ 🙌 🤷 🍇
+                1 ➡️ 🐽elementCounts element❗
+            🍉
+            🙅 🍇
+                🍺🐽elementCounts element❗ ➡️ currentCount
+                currentCount ➕ 1 ➡️ 🐽elementCounts element❗
+            🍉
+        🍉
+
+        💭 sort the elements by frequency
+        🐙elementCounts❗ ➡️ 🖍️🆕elements
+        🦁elements 🍇 a🔡 b🔡 ➡️ 🔢 
+            ↩️ 🍺🐽elementCounts a❗ ➖ 🍺🐽elementCounts b❗
+        🍉❗
+
+        💭 find the least common element
+        🐽elements 0❗ ➡️ leastCommonElement
+        🍺🐽elementCounts leastCommonElement❗ ➡️ leastCommonCount
+
+        💭 find the most common element
+        🐽elements 🤜📏elements❓ ➖ 1🤛❗ ➡️ mostCommonElement
+        🍺🐽elementCounts mostCommonElement❗ ➡️ mostCommonCount
+
+        mostCommonCount ➖ leastCommonCount ➡️ answer
+        ↩️ 🔡answer❗
     🍉
 
 🍉

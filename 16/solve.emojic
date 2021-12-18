@@ -1,0 +1,178 @@
+📜 🔤../emojicode/common.emojic🔤
+
+🐇 🆎 🍇
+    📗 Returns the valid test case names for this puzzle 📗
+    🐇 ❓🧪 ➡️ 🍨🐚🔡🍆 🍇
+        ↩️ 🍿 🔤00🔤 🔤01🔤 🔤02🔤 🔤03🔤 🍆
+    🍉
+
+    📗 Returns the solution f🗂️or part A of the puzzle 📗
+    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        ✉️🐇🏭 🐽input 0❗❗ ➡️ packet
+
+        💭 convert the result to string and return
+        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+    🍉
+    
+    📗 Returns the solution for part B of the puzzle 📗
+    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+    🍉
+🍉
+
+🐇 🏭 🍇    
+    🐇 ❗✉️ packetHex🔡 ➡️ ✉️ 🍇
+        💭 Convert the hex string to binary string
+        🍿
+            🔤0🔤 ➡️ 🔤0000🔤
+            🔤1🔤 ➡️ 🔤0001🔤
+            🔤2🔤 ➡️ 🔤0010🔤
+            🔤3🔤 ➡️ 🔤0011🔤
+            🔤4🔤 ➡️ 🔤0100🔤
+            🔤5🔤 ➡️ 🔤0101🔤
+            🔤6🔤 ➡️ 🔤0110🔤
+            🔤7🔤 ➡️ 🔤0111🔤
+            🔤8🔤 ➡️ 🔤1000🔤
+            🔤9🔤 ➡️ 🔤1001🔤
+            🔤A🔤 ➡️ 🔤1010🔤
+            🔤B🔤 ➡️ 🔤1011🔤
+            🔤C🔤 ➡️ 🔤1100🔤
+            🔤D🔤 ➡️ 🔤1101🔤
+            🔤E🔤 ➡️ 🔤1110🔤
+            🔤F🔤 ➡️ 🔤1111🔤
+        🍆 ➡️ hexToBinary
+        🆕🔠❗ ➡️ binaryBuilder
+        🔂 hex 🎶packetHex❗ 🍇
+            🐻binaryBuilder 🍺🐽hexToBinary 🔧hex❗❗❗
+        🍉
+        🔡binaryBuilder❗ ➡️ binaryString
+        🎶binaryString❗ ➡️ bits
+
+        📨🐇🏭 bits 0❗ ➡️ packet
+        ↩️ packet
+    🍉
+
+    🐇 ❗📨 bits🍨🐚🔡🍆 startIndex🔢 ➡️ ✉️ 🍇
+        0 ➡️ 🖍️🆕pointer
+        💭 Keep track of where we started
+        pointer ➡️ packetStartPointer
+
+        💭 Read three bits as the packet version
+        🔤🧲🐽bits pointer❗🧲🧲🐽bits 🤜pointer ➕ 1🤛❗🧲🧲🐽bits 🤜pointer ➕ 2🤛❗🧲🔤 ➡️ packetVersionString
+        pointer ⬅️➕ 3
+        🍺🔢packetVersionString 2❗ ➡️ packetVersion
+
+        💭 Read three bits as the packet type
+        🔤🧲🐽bits pointer❗🧲🧲🐽bits 🤜pointer ➕ 1🤛❗🧲🧲🐽bits 🤜pointer ➕ 2🤛❗🧲🔤 ➡️ packetTypeString
+        pointer ⬅️➕ 3
+        🍺🔢packetTypeString 2❗ ➡️ packetType
+
+        💭 Depending on the packet type we proceed differently
+        ↪️ packetType 🙌 4 🍇
+            💭 Read a Literal packet
+            👎 ➡️ 🖍️🆕packetDone
+            🆕🔠❗ ➡️ literalBuilder
+            🔁 ❎packetDone❗ 🍇
+                💭 the first bit indicates whether we have reached the last 5 bits of the packet
+                🐽bits pointer❗ ➡️ firstBit
+                pointer ⬅️➕ 1
+                ↪️ firstBit 🙌 🔤0🔤 🍇
+                    👍 ➡️ 🖍️packetDone
+                🍉
+
+                🔤🧲🐽bits pointer❗🧲🧲🐽bits 🤜pointer ➕ 1🤛❗🧲🧲🐽bits 🤜pointer ➕ 2🤛❗🧲🧲🐽bits 🤜pointer ➕ 3🤛❗🧲🔤 ➡️ nextFourBits
+                🐻literalBuilder nextFourBits❗
+                pointer ⬅️➕ 4
+            🍉
+            
+            💭 put all the literal bits together and turn it into a number
+            🔡literalBuilder❗ ➡️ literalBits
+            🍺🔢literalBits 2❗ ➡️ literalValue
+
+            pointer ➖ packetStartPointer ➡️ packetLength
+
+            💭 construct the packet
+            🆕🥡 packetVersion packetType packetLength literalValue ❗ ➡️ packet
+            ↩️ packet
+        🍉
+        🙅 🍇
+            💭 read an Operator packet
+            
+            💭 get the sub packet length
+            🐽bits pointer❗ ➡️ lengthTypeId
+            pointer ⬅️➕ 1
+            0 ➡️ 🖍️🆕subPacketLengthFieldLength
+            ↪️ lengthTypeId 🙌 🔤0🔤 🍇
+                15 ➡️ 🖍️subPacketLengthFieldLength
+            🍉
+            🙅 🍇
+                11 ➡️ 🖍️subPacketLengthFieldLength
+            🍉
+            
+            🆕🔠❗ ➡️ subPacketLengthBuilder
+            🔂 i 🆕⏩ 0 subPacketLengthFieldLength 1 ❗ 🍇
+                🐻subPacketLengthBuilder 🐽bits pointer❗❗
+                pointer ⬅️➕ 1
+            🍉
+            🔡subPacketLengthBuilder❗ ➡️ subPacketLengthBits
+            🍺🔢subPacketLengthBits 2❗ ➡️ subPacketLength
+
+            💭 read the sub-packets
+            🆕🍨🐚✉️🍆❗ ➡️ 🖍️🆕subPackets
+            0 ➡️ 🖍️🆕readPacketBits
+            🔁 readPacketBits ◀️ subPacketLength 🍇
+                📨🐇🏭 bits pointer❗ ➡️ subPacket
+                🐻subPackets subPacket❗
+                readPacketBits ⬅️➕ 📏subPacket❓
+                pointer ⬅️➕ 📏subPacket❓
+            🍉
+
+            pointer ➖ packetStartPointer ➡️ packetLength
+
+            🆕🗂️ packetLength packetVersion packetType subPackets ❗ ➡️ packet
+            ↩️ packet
+        🍉
+    🍉
+🍉
+
+🐇 ✉️ 🍇
+    🖍️🆕packetVersion🔢
+    🖍️🆕packetType🔢
+    🖍️🆕packetLength🔢
+
+    🆕 🍼packetVersion🔢 🍼packetType🔢 🍼packetLength🔢 🍇🍉
+
+    📗 returns the version of the packet 📗
+    ❓⏲️ ➡️ 🔢 🍇 ↩️ packetVersion 🍉
+
+    📗 returns the type of the packet 📗
+    ❓🎏 ➡️ 🔢 🍇 ↩️ packetType 🍉
+
+    📗 returns the number of bits this packet uses up 📗
+    ❓📏 ➡️ 🔢 🍇 ↩️ packetLength 🍉
+🍉
+
+📗 literal packet class 📗
+🐇 🥡 ✉️ 🍇
+    🖍️🆕literalValue🔢
+
+    🆕 packetVersion🔢 packetType🔢 packetLength🔢 🍼literalValue🔢 🍇
+        ⤴️🆕 packetVersion packetType packetLength ❗
+    🍉
+
+    📗 returns the literal value stored in this packet 📗
+    ❓🔢 ➡️ 🔢 🍇 ↩️ literalValue 🍉
+🍉
+
+📗 operator packet class 📗
+🐇 🗂️ ✉️ 🍇
+    🖍️🆕subPackets🍨🐚✉️🍆
+
+    🆕 packetVersion🔢 packetType🔢 packetLength🔢 🍼subPackets🍨🐚✉️🍆 🍇
+        ⤴️🆕 packetVersion packetType packetLength ❗
+    🍉
+
+    📗 returns the sub-packets stored in this packet 📗
+    ❓🗂️ ➡️ 🍨🐚✉️🍆 🍇 ↩️ subPackets 🍉
+🍉
+💭 common.emojic
