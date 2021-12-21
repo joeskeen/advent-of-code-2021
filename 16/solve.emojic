@@ -8,19 +8,27 @@
 
     📗 Returns the solution f🗂️or part A of the puzzle 📗
     🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        📏🎶🐽input 0❗❗❓ ➡️ packetLength
+        💭 😀🔤total packet length: 🧲packetLength ✖️ 4🧲 bits🔤❗
+
         ✉️🐇🏭 🐽input 0❗❗ ➡️ packet
 
+        🕜packet❓ ➡️ answer
         💭 convert the result to string and return
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+        ↩️ 🔡answer❗
     🍉
     
     📗 Returns the solution for part B of the puzzle 📗
     🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+        ✉️🐇🏭 🐽input 0❗❗ ➡️ packet
+
+        💻packet❗ ➡️ answer
+        💭 convert the result to string and return
+        ↩️ 🔡answer❗
     🍉
 🍉
 
-🐇 🏭 🍇    
+🐇 🏭 🍇
     🐇 ❗✉️ packetHex🔡 ➡️ ✉️ 🍇
         💭 Convert the hex string to binary string
         🍿
@@ -52,73 +60,72 @@
         ↩️ packet
     🍉
 
-    🐇 ❗📨 bits🍨🐚🔡🍆 startIndex🔢 ➡️ ✉️ 🍇
-        0 ➡️ 🖍️🆕pointer
-        💭 Keep track of where we started
-        pointer ➡️ packetStartPointer
-
-        💭 Read three bits as the packet version
-        🔤🧲🐽bits pointer❗🧲🧲🐽bits 🤜pointer ➕ 1🤛❗🧲🧲🐽bits 🤜pointer ➕ 2🤛❗🧲🔤 ➡️ packetVersionString
-        pointer ⬅️➕ 3
-        🍺🔢packetVersionString 2❗ ➡️ packetVersion
-
-        💭 Read three bits as the packet type
-        🔤🧲🐽bits pointer❗🧲🧲🐽bits 🤜pointer ➕ 1🤛❗🧲🧲🐽bits 🤜pointer ➕ 2🤛❗🧲🔤 ➡️ packetTypeString
-        pointer ⬅️➕ 3
-        🍺🔢packetTypeString 2❗ ➡️ packetType
-
-        💭 Depending on the packet type we proceed differently
-        ↪️ packetType 🙌 4 🍇
-            💭 Read a Literal packet
-            👎 ➡️ 🖍️🆕packetDone
-            🆕🔠❗ ➡️ literalBuilder
-            🔁 ❎packetDone❗ 🍇
-                💭 the first bit indicates whether we have reached the last 5 bits of the packet
-                🐽bits pointer❗ ➡️ firstBit
-                pointer ⬅️➕ 1
-                ↪️ firstBit 🙌 🔤0🔤 🍇
-                    👍 ➡️ 🖍️packetDone
-                🍉
-
-                🔤🧲🐽bits pointer❗🧲🧲🐽bits 🤜pointer ➕ 1🤛❗🧲🧲🐽bits 🤜pointer ➕ 2🤛❗🧲🧲🐽bits 🤜pointer ➕ 3🤛❗🧲🔤 ➡️ nextFourBits
-                🐻literalBuilder nextFourBits❗
-                pointer ⬅️➕ 4
-            🍉
-            
-            💭 put all the literal bits together and turn it into a number
-            🔡literalBuilder❗ ➡️ literalBits
-            🍺🔢literalBits 2❗ ➡️ literalValue
-
-            pointer ➖ packetStartPointer ➡️ packetLength
-
-            💭 construct the packet
-            🆕🥡 packetVersion packetType packetLength literalValue ❗ ➡️ packet
-            ↩️ packet
-        🍉
-        🙅 🍇
-            💭 read an Operator packet
-            
-            💭 get the sub packet length
-            🐽bits pointer❗ ➡️ lengthTypeId
+    🐇 ❗🥡 bits🍨🐚🔡🍆 packetStartPointer🔢 currentIndex🔢 packetVersion🔢 packetType🔢 ➡️ ✉️ 🍇
+        currentIndex ➡️ 🖍️🆕pointer
+        
+        💭 Read a Literal packet
+        👎 ➡️ 🖍️🆕packetDone
+        🆕🔠❗ ➡️ literalBuilder
+        🔁 ❎packetDone❗ 🍇
+            💭 the first bit indicates whether we have reached the last 5 bits of the packet
+            🐽bits pointer❗ ➡️ firstBit
             pointer ⬅️➕ 1
-            0 ➡️ 🖍️🆕subPacketLengthFieldLength
-            ↪️ lengthTypeId 🙌 🔤0🔤 🍇
-                15 ➡️ 🖍️subPacketLengthFieldLength
+            ↪️ firstBit 🙌 🔤0🔤 🍇
+                👍 ➡️ 🖍️packetDone
             🍉
-            🙅 🍇
-                11 ➡️ 🖍️subPacketLengthFieldLength
+
+            🐽bits pointer❗ ➡️ bit1
+            🐽bits 🤜pointer ➕ 1🤛❗ ➡️ bit2
+            🐽bits 🤜pointer ➕ 2🤛❗ ➡️ bit3
+            🐽bits 🤜pointer ➕ 3🤛❗ ➡️ bit4
+            🔤🧲bit1🧲🧲bit2🧲🧲bit3🧲🧲bit4🧲🔤 ➡️ nextFourBits
+            🐻literalBuilder nextFourBits❗
+            pointer ⬅️➕ 4
+        🍉
+        
+        💭 put all the literal bits together and turn it into a number
+        🔡literalBuilder❗ ➡️ literalBits
+        🍺🔢literalBits 2❗ ➡️ literalValue
+
+        pointer ➖ packetStartPointer ➡️ packetLength
+
+        🆕🔠❗ ➡️ binaryBuilder
+        🔂 i 🆕⏩ packetStartPointer 🤜packetStartPointer ➕ packetLength🤛 1❗ 🍇
+            🐻binaryBuilder 🐽bits i❗❗
+            ↪️ i 🚮 4 🙌 0 🍇
+                🐻binaryBuilder 🔤 🔤❗
             🍉
-            
+        🍉
+        🔡binaryBuilder❗ ➡️ binaryString
+
+        💭 construct the packet
+        🆕🥡 packetVersion packetType packetLength binaryString literalValue ❗ ➡️ packet
+        ↩️ packet
+    🍉
+
+    🐇 ❗🗂️ bits🍨🐚🔡🍆 packetStartPointer🔢 currentIndex🔢 packetVersion🔢 packetType🔢 ➡️ ✉️ 🍇
+        currentIndex ➡️ 🖍️🆕pointer
+
+        💭 read an Operator packet
+        
+        💭 get the sub packet length
+        🐽bits pointer❗ ➡️ lengthTypeId
+        pointer ⬅️➕ 1
+
+        💭 read the sub-packets length
+        🆕🍨🐚✉️🍆❗ ➡️ 🖍️🆕subPackets
+        0 ➡️ 🖍️🆕subPacketLength
+        ↪️ lengthTypeId 🙌 🔤0🔤 🍇
+            15 ➡️ subPacketLengthFieldLength
+
             🆕🔠❗ ➡️ subPacketLengthBuilder
             🔂 i 🆕⏩ 0 subPacketLengthFieldLength 1 ❗ 🍇
                 🐻subPacketLengthBuilder 🐽bits pointer❗❗
                 pointer ⬅️➕ 1
             🍉
             🔡subPacketLengthBuilder❗ ➡️ subPacketLengthBits
-            🍺🔢subPacketLengthBits 2❗ ➡️ subPacketLength
+            🍺🔢subPacketLengthBits 2❗ ➡️ 🖍️subPacketLength
 
-            💭 read the sub-packets
-            🆕🍨🐚✉️🍆❗ ➡️ 🖍️🆕subPackets
             0 ➡️ 🖍️🆕readPacketBits
             🔁 readPacketBits ◀️ subPacketLength 🍇
                 📨🐇🏭 bits pointer❗ ➡️ subPacket
@@ -126,21 +133,148 @@
                 readPacketBits ⬅️➕ 📏subPacket❓
                 pointer ⬅️➕ 📏subPacket❓
             🍉
+        🍉
+        🙅 🍇
+            11 ➡️ subPacketCountFieldLength
+            pointer ➡️ subPacketStart
 
-            pointer ➖ packetStartPointer ➡️ packetLength
+            🆕🔠❗ ➡️ subPacketCountBuilder
+            🔂 i 🆕⏩ 0 subPacketCountFieldLength 1 ❗ 🍇
+                🐻subPacketCountBuilder 🐽bits pointer❗❗
+                pointer ⬅️➕ 1
+            🍉
+            🔡subPacketCountBuilder❗ ➡️ subPacketCountBits
+            🍺🔢subPacketCountBits 2❗ ➡️ subPacketCount
 
-            🆕🗂️ packetLength packetVersion packetType subPackets ❗ ➡️ packet
-            ↩️ packet
+            🔂 i 🆕⏩ 0 subPacketCount 1 ❗🍇
+                📨🐇🏭 bits pointer❗ ➡️ subPacket
+                🐻subPackets subPacket❗
+                pointer ⬅️➕ 📏subPacket❓
+            🍉
+
+            pointer ➖ subPacketStart ➡️ 🖍️subPacketLength    
+        🍉
+
+        pointer ➖ packetStartPointer ➡️ packetLength
+
+        🆕🔠❗ ➡️ binaryBuilder
+        🔂 i 🆕⏩ packetStartPointer 🤜packetStartPointer ➕ packetLength🤛 1❗ 🍇
+            🐻binaryBuilder 🐽bits i❗❗
+            ↪️ i 🚮 4 🙌 0 🍇
+                🐻binaryBuilder 🔤 🔤❗
+            🍉
+        🍉
+        🔡binaryBuilder❗ ➡️ binaryString
+
+        🆕🗂️ packetVersion packetType packetLength binaryString subPackets subPacketLength ❗ ➡️ packet
+        ↩️ packet
+    🍉
+
+    🐇 ❗📨 bits🍨🐚🔡🍆 startIndex🔢 ➡️ ✉️ 🍇
+        startIndex ➡️ 🖍️🆕pointer
+        💭 Keep track of where we started
+        pointer ➡️ packetStartPointer
+
+        💭 Read three bits as the packet version
+        🐽bits pointer❗ ➡️ packetBit1
+        🐽bits 🤜pointer ➕ 1🤛❗ ➡️ packetBit2
+        🐽bits 🤜pointer ➕ 2🤛❗ ➡️ packetBit3
+        🔤🧲packetBit1🧲🧲packetBit2🧲🧲packetBit3🧲🔤 ➡️ packetVersionString
+        pointer ⬅️➕ 3
+        🍺🔢packetVersionString 2❗ ➡️ packetVersion
+
+        💭 💭 Read three bits as the packet type
+        🐽bits pointer❗ ➡️ typeBit1
+        🐽bits 🤜pointer ➕ 1🤛❗ ➡️ typeBit2
+        🐽bits 🤜pointer ➕ 2🤛❗ ➡️ typeBit3
+        🔤🧲typeBit1🧲🧲typeBit2🧲🧲typeBit3🧲🔤 ➡️ packetTypeString
+        pointer ⬅️➕ 3
+        🍺🔢packetTypeString 2❗ ➡️ packetType
+
+        💭 💭 Depending on the packet type we proceed differently
+        ↪️ packetType 🙌 4 🍇
+            ↩️ 🥡🐇🏭 bits packetStartPointer pointer packetVersion packetType ❗
+        🍉
+        🙅 🍇
+            ↩️ 🗂️🐇🏭 bits packetStartPointer pointer packetVersion packetType ❗ 
         🍉
     🍉
 🍉
 
-🐇 ✉️ 🍇
+🐊 ✉️ 🍇
+    📗 returns the version of the packet 📗
+    ❓⏲️ ➡️ 🔢
+
+    📗 returns the type of the packet 📗
+    ❓🎏 ➡️ 🔢
+
+    📗 returns the number of bits this packet uses up 📗
+    ❓📏 ➡️ 🔢
+
+    📗 returns the total of packet versions 📗
+    ❓🕜 ➡️ 🔢
+
+    📗 returns the string representation of this packet 📗
+    ❗🔡 ➡️ 🔡
+
+    📗 returns the value of this packet 📗
+    ❗💻 ➡️ 🔢
+🍉
+
+🐇 🥡 🍇
+    🐊 ✉️
+
     🖍️🆕packetVersion🔢
     🖍️🆕packetType🔢
     🖍️🆕packetLength🔢
+    🖍️🆕literalValue🔢
+    🖍️🆕binaryString🔡
 
-    🆕 🍼packetVersion🔢 🍼packetType🔢 🍼packetLength🔢 🍇🍉
+    🆕 🍼packetVersion🔢 🍼packetType🔢 🍼packetLength🔢 🍼binaryString🔡 🍼literalValue🔢 🍇
+        💭 😀🔡❗❗
+    🍉
+
+        📗 returns the version of the packet 📗
+    ❓⏲️ ➡️ 🔢 🍇 ↩️ packetVersion 🍉
+
+    📗 returns the type of the packet 📗
+    ❓🎏 ➡️ 🔢 🍇 ↩️ packetType 🍉
+
+    📗 returns the number of bits this packet uses up 📗
+    ❓📏 ➡️ 🔢 🍇 ↩️ packetLength 🍉
+
+    📗 returns the literal value stored in this packet 📗
+    ❓🔢 ➡️ 🔢 🍇 ↩️ literalValue 🍉
+
+    📗 returns the total of packet versions 📗
+    ❓🕜 ➡️ 🔢 🍇 ↩️ packetVersion 🍉
+
+    📗 returns the string representation of this packet 📗
+    ❗🔡 ➡️ 🔡 🍇
+        ↩️ 🔤Literal packet❌n❌tversion: 🧲packetVersion🧲❌n❌ttype: 🧲packetType🧲❌n❌tvalue: 🧲literalValue🧲❌n❌tlength: 🧲packetLength🧲❌n❌toriginal: 🧲binaryString🧲🔤
+    🍉
+
+    📗 returns the value of this packet 📗
+    ❗💻 ➡️ 🔢 🍇
+        ↩️ literalValue
+    🍉
+🍉
+
+
+📗 operator packet class 📗
+🐇 🗂️ 🍇
+    🐊 ✉️
+
+    🖍️🆕subPackets🍨🐚✉️🍆
+    🖍️🆕packetVersion🔢
+    🖍️🆕packetType🔢
+    🖍️🆕packetLength🔢
+    🖍️🆕subPacketLength🔢
+    🖍️🆕binaryString🔡
+
+    🆕 🍼packetVersion🔢 🍼packetType🔢 🍼packetLength🔢 🍼binaryString🔡 🍼subPackets🍨🐚✉️🍆 🍼subPacketLength🔢 🍇
+        💭 😀🔡❗❗
+    🍉
 
     📗 returns the version of the packet 📗
     ❓⏲️ ➡️ 🔢 🍇 ↩️ packetVersion 🍉
@@ -150,29 +284,100 @@
 
     📗 returns the number of bits this packet uses up 📗
     ❓📏 ➡️ 🔢 🍇 ↩️ packetLength 🍉
-🍉
-
-📗 literal packet class 📗
-🐇 🥡 ✉️ 🍇
-    🖍️🆕literalValue🔢
-
-    🆕 packetVersion🔢 packetType🔢 packetLength🔢 🍼literalValue🔢 🍇
-        ⤴️🆕 packetVersion packetType packetLength ❗
-    🍉
-
-    📗 returns the literal value stored in this packet 📗
-    ❓🔢 ➡️ 🔢 🍇 ↩️ literalValue 🍉
-🍉
-
-📗 operator packet class 📗
-🐇 🗂️ ✉️ 🍇
-    🖍️🆕subPackets🍨🐚✉️🍆
-
-    🆕 packetVersion🔢 packetType🔢 packetLength🔢 🍼subPackets🍨🐚✉️🍆 🍇
-        ⤴️🆕 packetVersion packetType packetLength ❗
-    🍉
 
     📗 returns the sub-packets stored in this packet 📗
     ❓🗂️ ➡️ 🍨🐚✉️🍆 🍇 ↩️ subPackets 🍉
+
+    📗 returns the number of bits for the sub-packets of this packet 📗
+    ❓📐 ➡️ 🔢 🍇 ↩️ subPacketLength 🍉
+
+    📗 returns the total of packet versions 📗
+    ❓🕜 ➡️ 🔢 🍇 
+        💭 😀 🔤operator packet version: 🧲packetVersion🧲🔤❗
+        🐤 subPackets 0 🍇 accumulator🔢 element✉️ ➡️ 🔢
+            🕜element❓ ➡️ version
+            💭 😀 🔤sub-packet version: 🧲version🧲🔤❗
+            ↩️ version ➕ accumulator
+        🍉❗ ➡️ subPacketVersionTotal
+        ↩️ packetVersion ➕ subPacketVersionTotal
+    🍉
+
+    📗 returns the string representation of this packet 📗
+    ❗🔡 ➡️ 🔡 🍇
+        ↩️ 🔤Operator packet❌n❌tversion: 🧲packetVersion🧲❌n❌ttype: 🧲packetType🧲❌n❌tsub-packets: 🧲📏subPackets❓🧲 (🧲subPacketLength🧲 bits)❌n❌tlength: 🧲packetLength🧲❌n❌toriginal: 🧲binaryString🧲🔤
+    🍉
+
+    ❗💻 ➡️ 🔢 🍇
+        ↪️ packetType 🙌 0 🍇
+            💭 This packet is a Sum packet
+            🐤 subPackets 0 🍇 accumulator🔢 element✉️ ➡️ 🔢 
+                ↩️ accumulator ➕ 💻element❗
+            🍉❗ ➡️ sum
+            ↩️ sum
+        🍉
+        🙅↪️ packetType 🙌 1 🍇
+            💭 This packet is a Product packet
+            🐤 subPackets 1 🍇 accumulator🔢 element✉️ ➡️ 🔢 
+                ↩️ accumulator ✖️ 💻element❗
+            🍉❗ ➡️ product
+            ↩️ product
+        🍉
+        🙅↪️ packetType 🙌 2 🍇
+            💭 This packet is a Minimum packet
+            🐰subPackets 🍇 element✉️ ➡️ 🔢 
+                ↩️ 💻element❗
+            🍉❗ ➡️ 🖍️🆕values
+            🦁values 🍇 a🔢 b🔢 ➡️ 🔢
+                ↩️ a ➖ b
+            🍉❗
+            ↩️ 🐽values 0❗
+        🍉
+        🙅↪️ packetType 🙌 3 🍇
+            💭 This packet is a Maximum packet
+            🐰subPackets 🍇 element✉️ ➡️ 🔢 
+                ↩️ 💻element❗
+            🍉❗ ➡️ 🖍️🆕values
+            🦁values 🍇 a🔢 b🔢 ➡️ 🔢
+                ↩️ b ➖ a
+            🍉❗
+            ↩️ 🐽values 0❗
+        🍉
+        🙅↪️ packetType 🙌 5 🍇
+            💭 This packet is a Greater Than packet
+            💻🐽subPackets 0❗❗ ➡️ value1
+            💻🐽subPackets 1❗❗ ➡️ value2
+            ↪️ value1 ▶️ value2 🍇
+                ↩️ 1
+            🍉
+            🙅 🍇
+                ↩️ 0
+            🍉
+        🍉
+        🙅↪️ packetType 🙌 6 🍇
+            💭 This packet is a Less Than packet
+            💻🐽subPackets 0❗❗ ➡️ value1
+            💻🐽subPackets 1❗❗ ➡️ value2
+            ↪️ value1 ◀️ value2 🍇
+                ↩️ 1
+            🍉
+            🙅 🍇
+                ↩️ 0
+            🍉
+        🍉
+        🙅↪️ packetType 🙌 7 🍇
+            💭 This packet is an Equal to packet
+            💻🐽subPackets 0❗❗ ➡️ value1
+            💻🐽subPackets 1❗❗ ➡️ value2
+            ↪️ value1 🙌 value2 🍇
+                ↩️ 1
+            🍉
+            🙅 🍇
+                ↩️ 0
+            🍉
+        🍉
+        🙅 🍇
+            😀 🔤😬 uh yeah... that packet type wasn't recognized... (🧲packetType🧲)🔤❗
+            ↩️ -1
+        🍉
+    🍉
 🍉
-💭 common.emojic

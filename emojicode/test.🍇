@@ -1,25 +1,7 @@
 🏁🍇
-
-🍉
-
-🐇 🏭 🍇
-    🐇 ❗📨 bits🍨🐚🔡🍆 startIndex🔢 🍇
-        🆕🥡 0 0 0 0 ❗ ➡️ packet
-    🍉
-🍉
-
-🐇 ✉️ 🍇
-    🖍️🆕packetVersion🔢
-    🖍️🆕packetType🔢
-    🖍️🆕packetLength🔢
-
-    🆕 🍼packetVersion🔢 🍼packetType🔢 🍼packetLength🔢 🍇🍉
-🍉
-
-🐇 🥡 ✉️ 🍇
-    🖍️🆕literalValue🔢
-
-    🆕 packetVersion🔢 packetType🔢 packetLength🔢 🍼literalValue🔢 🍇
-        ⤴️🆕 packetVersion packetType packetLength ❗
-    🍉
+    🍿 0 1 2 3 4 5 6 7 8 9 🍆 ➡️ list
+    🐽list 0❗ ➡️ element1
+    🐽list 1❗ ➡️ element2
+    🐽list 2❗ ➡️ element3
+    😀 🔤🧲element1🧲 🧲element2🧲 🧲element3🧲🔤 ❗
 🍉

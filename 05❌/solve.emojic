@@ -27,9 +27,9 @@
     🆕🍨🐚🎯🍆❗ ➡️ 🖍️🆕intersectionPoints
     🔂 i 🆕⏩0 📏lines❓ 1❗ 🍇
       🔂 j 🆕⏩🤜i ➕ 1🤛 📏lines❓ 1❗ 🍇
-        💭 add overlap points
+        💭 add all overlap points to the intersectionPoints
         🐥intersectionPoints ⏬🐇🆎 🐽lines i❗ 🐽lines j❗❓❗
-        💭 add intersect points
+        💭 add intersect point (if it exists)
         🔀🐇🆎 🐽lines i❗ 🐽lines j❗❓ ➡️ intersectPoint
         ↪️ ❎intersectPoint 🙌 🤷❗ 🍇
           🐻intersectionPoints 🍺intersectPoint❗
@@ -37,17 +37,29 @@
       🍉
     🍉
 
-    💭 de-duplicate the intersectionPoints
-    🔂 i 🆕⏩🤜📏intersectionPoints❓ ➖ 1🤛 0 -1❗ 🍇
-      🔂 j 🆕⏩0 i 1❗ 🍇
-        ↪️ 🐽intersectionPoints i❗ 🙌 🐽intersectionPoints j❗ 🍇
-          😀🔤removing duplicate 🧲🔡🐽intersectionPoints i❗❗🧲 (indexes 🧲i🧲 and 🧲j🧲)🔤❗
-          🐨intersectionPoints i❗
+    💭 de-duplicate intersectionPoints using 🦄
+    🦄🐇🆎 intersectionPoints ❗ ➡️ uniquePoints
+
+    ↩️ 🔡📏uniquePoints❓❗
+  🍉
+
+  📗 returns only the unique elements from the provided collection 📗
+  🐇 ❗🦄 collection 🍨🐚🎯🍆 ➡️ 🍨🐚🎯🍆 🍇
+    collection ➡️ 🖍️🆕items
+
+    💭 starting at the beginning of the list for each index i 
+    🔂 i 🆕⏩ 0 📏items❓ 1❗ 🍇
+      💭 starting at the end of the list for each index j
+      🔂 j 🆕⏩🤜📏items❓ ➖ 1🤛 i -1❗ 🍇
+        💭 if the items at index i and j are the same
+        ↪️ 🐽items i❗ 🙌 🐽items j❗ 🍇
+          💭 remove the item at index j
+          🐨items j❗
         🍉
       🍉
     🍉
 
-    ↩️ 🔡📏intersectionPoints❓❗
+    ↩️ items
   🍉
 
   📗 Returns the (single) point where two lines intersect or 🤷 if they don't touch or have same slope 📗
@@ -89,18 +101,29 @@
 
   📗 If the lines are both horizontal or vertical, return each (integer) point at which they overlap, if any 📗
   🐇 ❓⏬  line1↔️ line2↔️ ➡️ 🍨🐚🎯🍆 🍇
+    💭 if the two lines are the same axis
+    💭 and are aligned such that they could overlap
+    💭 the overlap range is going to be defined by the 
+    💭 start/end point of one of the lines and the start/end point of one of the lines
+    💭 so we'll put those 4 points (start and end points)
+    💭 into a list, sort it, and then grab the middle two points
     🆕🍨🐚🎯🍆❗ ➡️ 🖍️🆕intersectionPoints
     🆕🍨🐚🎯🍆❗ ➡️ 🖍️🆕points
+    💭 add all end points for both lines
     🐻points 🔜line1❓❗
     🐻points 🔚line1❓❗
     🐻points 🔜line2❓❗
     🐻points 🔚line2❓❗
+    💭 sort the points
     🦁points 🍇 p1🎯 p2🎯 ➡️ 🔢
+      💭 compare the points first by x then by y
       ↩️ ↔️p1 p2❓
     🍉❗
+    💭 there are 4 points, indexes 1 and 2 are the middle ones
     🐽points 1❗ ➡️ overlapStart
     🐽points 2❗ ➡️ overlapEnd
 
+    💭 if both lines are vertical and their x coordinates are the same
     ↪️ ↕️line1❓ 🤝 ↕️line2❓ 🤝 🤜 🚥🔜line1❓❓ 🙌 🚥🔜line2❓❓ 🤛 🍇
       🚦🔜line1❓❓ ➡️ line1StartY
       🚦🔚line1❓❓ ➡️ line1EndY
@@ -117,6 +140,7 @@
           🍉
       🍉
     🍉
+    💭 else if both lines are horizontal and their y coordinates are the same
     🙅↪️ ↔️line1❓ 🤝 ↔️line2❓ 🤝 🤜 🚦🔜line1❓❓ 🙌 🚦🔜line2❓❓ 🤛 🍇
       🚥🔜line1❓❓ ➡️ line1StartX
       🚥🔚line1❓❓ ➡️ line1EndX
@@ -153,29 +177,19 @@
   🆕 🍼start🎯 🍼end🎯 🍇🍉
 
   📗 Returns the start point of this line segment 📗
-  ❓🔜 ➡️ 🎯 🍇
-    ↩️ start
-  🍉
+  ❓🔜 ➡️ 🎯 🍇 ↩️ start 🍉
 
   📗 Returns the end point of this line segment 📗
-  ❓🔚 ➡️ 🎯 🍇
-    ↩️ end
-  🍉
+  ❓🔚 ➡️ 🎯 🍇 ↩️ end 🍉
 
   📗 Returns whether this is a horizontal line 📗
-  ❓↔️ ➡️ 👌 🍇
-    ↩️ 🚦start❓ 🙌 🚦end❓
-  🍉
+  ❓↔️ ➡️ 👌 🍇 ↩️ 🚦start❓ 🙌 🚦end❓ 🍉
 
   📗 Returns whether this is a vertical line 📗
-  ❓↕️ ➡️ 👌 🍇
-    ↩️ 🚥start❓ 🙌 🚥end❓
-  🍉
+  ❓↕️ ➡️ 👌 🍇 ↩️ 🚥start❓ 🙌 🚥end❓ 🍉
 
   📗 Returns a string representaiton of this line segment in the format start -> end 📗
-  ❗🔡 ➡️ 🔡 🍇
-    ↩️ 🔤🧲🔡start❗🧲 -> 🧲🔡end❗🧲🔤
-  🍉
+  ❗🔡 ➡️ 🔡 🍇 ↩️ 🔤🧲🔡start❗🧲 -> 🧲🔡end❗🧲🔤 🍉
 🍉
 
 📗 Point struct 📗
@@ -187,23 +201,15 @@
     🆕 🍼x💯 🍼y💯 🍇🍉
 
     📗 Returns the X coordinate of the point 📗
-    ❓🚥➡️💯 🍇
-        ↩️x
-    🍉
+    ❓🚥➡️💯 🍇 ↩️x 🍉
     📗 Returns the Y coordinate of the point 📗
-    ❓🚦➡️💯 🍇
-        ↩️y
-    🍉
+    ❓🚦➡️💯 🍇 ↩️y 🍉
 
     📗 Returns the point in the format X,Y 📗
-    ❗🔡 ➡️ 🔡 🍇
-        ↩️ 🔤🧲🔡x❗🧲,🧲🔡y❗🧲🔤
-    🍉
+    ❗🔡 ➡️ 🔡 🍇 ↩️ 🔤🧲🔡x❗🧲,🧲🔡y❗🧲🔤 🍉
 
     📗 Returns whether this point and another point are equal, that is, have the same X and Y coordinates 📗
-    🙌 other 🎯 ➡️ 👌 🍇
-      ↩️ x 🙌 🚥other❓ 🤝 y 🙌 🚦other❓
-    🍉
+    🙌 other 🎯 ➡️ 👌 🍇 ↩️ x 🙌 🚥other❓ 🤝 y 🙌 🚦other❓ 🍉
 
     📗 Compares this point to another point, returning -1, 0, or 1 (for sorting) 📗
     ❓↔️ other🎯 ➡️ 🔢 🍇
