@@ -39,9 +39,222 @@
         ↩️ 🔡instancesOfUniqueSegmentDigits❗
     🍉
     
-    📗 Returns the solution for part B of the puzzle 📗
+    📗 
+        Returns the solution for part B of the puzzle 
+        What is the sum of all output numbers?
+    📗
     🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+        🍿
+            🔤0🔤 ➡️ 🍿 🔤a🔤 🔤b🔤 🔤c🔤 🔤e🔤 🔤f🔤 🔤g🔤 🍆
+            🔤1🔤 ➡️ 🍿 🔤c🔤 🔤f🔤 🍆
+            🔤2🔤 ➡️ 🍿 🔤a🔤 🔤c🔤 🔤d🔤 🔤e🔤 🔤g🔤 🍆
+            🔤3🔤 ➡️ 🍿 🔤a🔤 🔤c🔤 🔤d🔤 🔤f🔤 🔤g🔤 🍆
+            🔤4🔤 ➡️ 🍿 🔤b🔤 🔤c🔤 🔤d🔤 🔤f🔤 🍆
+            🔤5🔤 ➡️ 🍿 🔤a🔤 🔤b🔤 🔤d🔤 🔤f🔤 🔤g🔤 🍆
+            🔤6🔤 ➡️ 🍿 🔤a🔤 🔤b🔤 🔤d🔤 🔤e🔤 🔤f🔤 🔤g🔤 🍆
+            🔤7🔤 ➡️ 🍿 🔤a🔤 🔤c🔤 🔤f🔤 🍆
+            🔤8🔤 ➡️ 🍿 🔤a🔤 🔤b🔤 🔤c🔤 🔤d🔤 🔤e🔤 🔤f🔤 🔤g🔤 🍆
+            🔤9🔤 ➡️ 🍿 🔤a🔤 🔤b🔤 🔤c🔤 🔤d🔤 🔤f🔤 🔤g🔤 🍆
+        🍆 ➡️ lettersByDigit
+        💭 🍿
+        💭     🔤a🔤 ➡️ 🍿 🔤0🔤 🔤2🔤 🔤3🔤 🔤5🔤 🔤6🔤 🔤7🔤 🔤8🔤 🔤9🔤 🍆
+        💭     🔤b🔤 ➡️ 🍿 🔤0🔤 🔤4🔤 🔤5🔤 🔤6🔤 🔤8🔤 🔤9🔤 🍆
+        💭     🔤c🔤 ➡️ 🍿 🔤0🔤 🔤1🔤 🔤2🔤 🔤3🔤 🔤4🔤 🔤7🔤 🔤8🔤 🔤9🔤 🍆
+        💭     🔤d🔤 ➡️ 🍿 🔤2🔤 🔤3🔤 🔤4🔤 🔤5🔤 🔤6🔤 🔤8🔤 🔤9🔤 🍆
+        💭     🔤e🔤 ➡️ 🍿 🔤0🔤 🔤2🔤 🔤6🔤 🔤8🔤 🍆
+        💭     🔤f🔤 ➡️ 🍿 🔤0🔤 🔤1🔤 🔤3🔤 🔤4🔤 🔤5🔤 🔤6🔤 🔤7🔤 🔤8🔤 🔤9🔤 🍆
+        💭     🔤g🔤 ➡️ 🍿 🔤0🔤 🔤2🔤 🔤3🔤 🔤5🔤 🔤6🔤 🔤8🔤 🔤9🔤 🍆
+        💭 🍆 ➡️ digitsByLetter
+
+        0 ➡️ 🖍️🆕decodedOutputSum
+        🔂 line input 🍇
+            🔫line 🔤 | 🔤❗ ➡️ halves
+
+            🐽halves 0❗ ➡️ definitionString
+            🔫definitionString 🔤 🔤❗ ➡️ 🖍️🆕definitions
+            💭 sort definition string letters alphabetically
+            🐰definitions 🍇 definition🔡 ➡️ 🔡
+                🎶definition❗ ➡️ 🖍️🆕letters
+                🦁letters 🍇 a🔡 b🔡 ➡️ 🔢
+                    ↩️ ↔️a b❗
+                🍉❗
+                🆕🔠❗ ➡️ builder
+                🔂 letter letters 🍇
+                    🐻builder letter❗
+                🍉
+                ↩️ 🔡builder❗
+            🍉❗ ➡️ 🖍️definitions
+
+            🐽halves 1❗ ➡️ outputString
+            🔫outputString 🔤 🔤❗ ➡️ 🖍️🆕outputs
+            🐰outputs 🍇 output🔡 ➡️ 🔡
+                🎶output❗ ➡️ 🖍️🆕letters
+                🦁letters 🍇 a🔡 b🔡 ➡️ 🔢
+                    ↩️ ↔️a b❗
+                🍉❗
+                🆕🔠❗ ➡️ builder
+                🔂 letter letters 🍇
+                    🐻builder letter❗
+                🍉
+                ↩️ 🔡builder❗
+            🍉❗ ➡️ 🖍️outputs
+
+            💭 sort the definitions to ensure that the easy digits come first
+            💭 strings of length 2, 4, 3, or 7 go to the top of the list
+            🦁definitions 🍇 a🔡 b🔡 ➡️ 🔢
+                📏🎶a❗❓ ➡️ aCount
+                👎 ➡️ 🖍️🆕aIsSpecial
+                ↪️ 🤜aCount 🙌 2🤛 👐 🤜aCount 🙌 4🤛 👐 🤜aCount 🙌 3🤛 👐 🤜aCount 🙌 7🤛 🍇
+                    👍 ➡️ 🖍️aIsSpecial 
+                🍉
+
+                📏🎶b❗❓ ➡️ bCount
+                👎 ➡️ 🖍️🆕bIsSpecial
+                ↪️ 🤜bCount 🙌 2🤛 👐 🤜bCount 🙌 4🤛 👐 🤜bCount 🙌 3🤛 👐 🤜bCount 🙌 7🤛 🍇
+                    👍 ➡️ 🖍️bIsSpecial 
+                🍉
+
+                ↪️ aIsSpecial 🤝 ❎bIsSpecial❗ 🍇
+                    ↩️ -1
+                🍉
+                🙅↪️ bIsSpecial 🤝 ❎aIsSpecial❗ 🍇
+                    ↩️ 1
+                🍉
+                🙅 🍇
+                    ↩️ aCount ➖ bCount
+                🍉
+            🍉❗
+
+            🆕🍯🐚🔡🍆❗ ➡️ 🖍️🆕segmentsToNumber
+            🆕🍯🐚🔡🍆❗ ➡️ 🖍️🆕numberToSegments
+            🔂 definition definitions 🍇
+                🐰 🍿0 1 2 3 4 5 6 7 8 9🍆  🍇 num🔢 ➡️ 🔡
+                    ↩️ 🔡num❗
+                🍉❗ ➡️ 🖍️🆕candidates
+                🎶definition❗ ➡️ segments
+                📏segments❓ ➡️ segmentCount
+                💭 filter out digits with the wrong number of segments
+                🐭candidates 🍇 num🔡 ➡️ 👌
+                    🍺🐽lettersByDigit num❗ ➡️ digitSegments
+                    ↩️ 📏digitSegments❓ 🙌 segmentCount
+                🍉❗ ➡️ 🖍️candidates
+                💭 if we already have eliminated all other possibilities, 
+                💭 map this definition to the correct digit
+                ↪️ 📏candidates❓ 🙌 1 🍇
+                    🐽candidates 0❗ ➡️ correctDigit
+                    correctDigit ➡️ 🐽segmentsToNumber definition❗
+                    definition ➡️ 🐽numberToSegments correctDigit❗
+                🍉
+                🙅 🍇
+                    💭 the number must be one of 0, 2, 3, 5, 6, 9
+                    💭 🐰 🍿0 2 3 5 6 9🍆  🍇 num🔢 ➡️ 🔡
+                    💭     ↩️ 🔡num❗
+                    💭 🍉❗ ➡️ 🖍️candidates
+                    💭 0 has 6 segments; the segment it is missing is in 2,3,4,5,6,8
+                    💭 2 has 5 segments; the segments it is missing:
+                    💭 - the upper segment is in 0,4,5,6,8,9
+                    💭 - the lower segment is in 0,1,3,4,5,6,7,8,9
+                    💭 *** 2 is the only number without the segment f
+                    💭 3 has 5 segments; the segments it is missing:
+                    💭 - the upper segment is in 0,4,5,6,8,9
+                    💭 - the lower segment is in 0,2,6,8
+                    💭 5 has 5 segments; the segments it is missing:
+                    💭 - the upper segment is in 0,1,2,3,4,7,8,9
+                    💭 - the lower segment is in 0,2,6,8
+                    💭 6 has 6 segments; the segment it is missing is in 0,1,2,3,4,7,8,9
+                    💭 *** 6 and 5 are the only digits with that missing segment
+                    💭 9 has 6 segments; the segment it is missing is in 0,2,6,8
+
+                    💭 we already know the digits 1,4,7,8...
+                    💭 8 is totally not helpful
+
+                    💭 all segments from 4 are in 9 AND NOTHING ELSE
+                    🎶🍺🐽numberToSegments 🔤4🔤❗❗ ➡️ fourSegments
+                    0 ➡️ 🖍️🆕segmentsInCommonWith4
+                    🔂 segment fourSegments 🍇
+                        ↪️ 🐦segments segment❓ 🍇
+                            segmentsInCommonWith4 ⬅️➕ 1
+                        🍉
+                    🍉
+                    ↪️ segmentsInCommonWith4 🙌 4 🍇
+                        🔤9🔤 ➡️ 🐽segmentsToNumber definition❗
+                        definition ➡️ 🐽numberToSegments 🔤9🔤❗
+                    🍉
+                    🙅↪️ segmentsInCommonWith4 🙌 2 🍇
+                        🔤2🔤 ➡️ 🐽segmentsToNumber definition❗
+                        definition ➡️ 🐽numberToSegments 🔤2🔤❗
+                    🍉
+                    🙅 🍇
+                        💭 it's not 9 or 2...
+                        💭 🐰 🍿0 3 5 6🍆  🍇 num🔢 ➡️ 🔡
+                        💭     ↩️ 🔡num❗
+                        💭 🍉❗ ➡️ 🖍️candidates
+
+                        💭 all segments from the digit 7 are in 0,3
+                        💭 all segments from the digit 1 are in 0,3
+                        🎶🍺🐽numberToSegments 🔤1🔤❗❗ ➡️ oneSegments
+                        0 ➡️ 🖍️🆕segmentsInCommonWith1
+                        🔂 segment oneSegments 🍇
+                            ↪️ 🐦segments segment❓ 🍇
+                                segmentsInCommonWith1 ⬅️➕ 1
+                            🍉
+                        🍉
+
+                        ↪️ segmentsInCommonWith1 🙌 1 🤝 segmentCount 🙌 5 🍇
+                            🔤5🔤 ➡️ 🐽segmentsToNumber definition❗
+                            definition ➡️ 🐽numberToSegments 🔤5🔤❗
+                        🍉
+                        🙅↪️ segmentsInCommonWith1 🙌 1 🤝 segmentCount 🙌 6 🍇
+                            🔤6🔤 ➡️ 🐽segmentsToNumber definition❗
+                            definition ➡️ 🐽numberToSegments 🔤6🔤❗
+                        🍉
+                        🙅↪️ segmentsInCommonWith1 🙌 2 🤝 segmentCount 🙌 5 🍇
+                            🔤3🔤 ➡️ 🐽segmentsToNumber definition❗
+                            definition ➡️ 🐽numberToSegments 🔤3🔤❗
+                        🍉
+                        🙅↪️ segmentsInCommonWith1 🙌 2 🤝 segmentCount 🙌 6 🍇
+                            🔤0🔤 ➡️ 🐽segmentsToNumber definition❗
+                            definition ➡️ 🐽numberToSegments 🔤0🔤❗
+                        🍉
+                        🙅 🍇
+                            😀🔤🚨😬 something is seriously wrong with this algorithm...🔤❗
+                        🍉
+
+                    🍉
+
+
+                🍉
+            🍉
+
+            💭 if all went well above we should now have a mapping of definitions; 
+            💭 it's time to decode the output!
+
+            🐙numberToSegments❗ ➡️ numbersIdentified
+            🆕🔠❗ ➡️ debugBuilder
+            🔂 num numbersIdentified 🍇
+                🐻debugBuilder num❗
+            🍉
+            💭 😀🔡debugBuilder❗❗
+            
+            🐙segmentsToNumber❗ ➡️ segmentsIdentified
+            🆕🔠❗ ➡️ debugBuilder2
+            🔂 segment segmentsIdentified 🍇
+                🐻debugBuilder2 🔤🧲segment🧲 🔤❗
+            🍉
+            💭 😀🔡debugBuilder2❗❗
+
+            🆕🔠❗ ➡️ outputBuilder
+            🔂 output outputs 🍇
+                💭 😀output❗
+                🍺🐽segmentsToNumber output❗ ➡️ digit
+                🐻outputBuilder digit❗
+            🍉
+            🔡outputBuilder❗ ➡️ decodedDigits
+            🍺🔢decodedDigits 10❗ ➡️ decodedOutput
+            decodedOutputSum ⬅️➕ decodedOutput
+        🍉
+
+        ↩️ 🔡decodedOutputSum❗
     🍉
 
 🍉

@@ -1,7 +1,39 @@
 🏁🍇
-    🍿 0 1 2 3 4 5 6 7 8 9 🍆 ➡️ list
-    🐽list 0❗ ➡️ element1
-    🐽list 1❗ ➡️ element2
-    🐽list 2❗ ➡️ element3
-    😀 🔤🧲element1🧲 🧲element2🧲 🧲element3🧲🔤 ❗
+    🍿
+        🔤be🔤
+        🔤cfbegad🔤
+        🔤cbdgef🔤
+        🔤fgaecd🔤
+        🔤cgeb🔤
+        🔤fdcge🔤
+        🔤agebfd🔤
+        🔤fecdb🔤
+        🔤fabcd🔤
+        🔤edb🔤
+    🍆 ➡️ 🖍️🆕definitions
+
+    💭 strings of length 2, 4, 3, or 7 go to the top of the list
+    🦁definitions 🍇 a🔡 b🔡 ➡️ 🔢
+        📏🎶a❗❓ ➡️ aCount
+        👎 ➡️ 🖍️🆕aIsSpecial
+        ↪️ 🤜aCount 🙌 2🤛 👐 🤜aCount 🙌 4🤛 👐 🤜aCount 🙌 3🤛 👐 🤜aCount 🙌 7🤛 🍇
+            👍 ➡️ 🖍️aIsSpecial 
+        🍉
+
+        📏🎶b❗❓ ➡️ bCount
+        👎 ➡️ 🖍️🆕bIsSpecial
+        ↪️ 🤜bCount 🙌 2🤛 👐 🤜bCount 🙌 4🤛 👐 🤜bCount 🙌 3🤛 👐 🤜bCount 🙌 7🤛 🍇
+            👍 ➡️ 🖍️bIsSpecial 
+        🍉
+
+        ↪️ aIsSpecial 🤝 ❎bIsSpecial❗ 🍇
+            ↩️ -1
+        🍉
+        🙅↪️ bIsSpecial 🤝 ❎aIsSpecial❗ 🍇
+            ↩️ 1
+        🍉
+        🙅 🍇
+            ↩️ aCount ➖ bCount
+        🍉
+    🍉❗
 🍉

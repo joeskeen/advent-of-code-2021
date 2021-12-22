@@ -8,7 +8,61 @@
 
     📗 Returns the solution for part A of the puzzle 📗
     🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+        🐽input 0❗ ➡️ player1Line
+        🐽input 1❗ ➡️ player2Line
+
+        🍺🔢🐽🔫player1Line 🔤: 🔤❗ 1❗ 10❗ ➡️ player1Start
+        🍺🔢🐽🔫player2Line 🔤: 🔤❗ 1❗ 10❗ ➡️ player2Start
+
+        0 ➡️ 🖍️🆕player1Score
+        player1Start ➡️ 🖍️🆕player1Location
+
+        0 ➡️ 🖍️🆕player2Score
+        player2Start ➡️ 🖍️🆕player2Location
+
+        0 ➡️ 🖍️🆕turnNumber
+        0 ➡️ 🖍️🆕dieRollCount
+
+        🔁 🤜player1Score ◀️ 1000🤛 🤝 🤜player1Score ◀️ 1000🤛 🍇
+            turnNumber ⬅️➕ 1
+
+            💭 roll the dice three times
+            dieRollCount ⬅️➕ 1
+            🤜🤜dieRollCount ➖ 1🤛 🚮 100🤛 ➕ 1 ➡️ roll1
+            dieRollCount ⬅️➕ 1
+            🤜🤜dieRollCount ➖ 1🤛 🚮 100🤛 ➕ 1 ➡️ roll2
+            dieRollCount ⬅️➕ 1
+            🤜🤜dieRollCount ➖ 1🤛 🚮 100🤛 ➕ 1 ➡️ roll3
+
+            💭 sum the rolls
+            roll1 ➕ roll2 ➕ roll3 ➡️ sum
+
+            ↪️ turnNumber 🚮 2 🙌 1 🍇
+                💭 player 1 moves and scores
+                🤜🤜player1Location ➖ 1 ➕ sum🤛 🚮 10🤛 ➕ 1 ➡️ 🖍️player1Location
+                player1Score ⬅️➕ player1Location
+            🍉
+            🙅 🍇
+                💭 player 2 moves and scores
+                🤜🤜player2Location ➖ 1 ➕ sum🤛 🚮 10🤛 ➕ 1 ➡️ 🖍️player2Location
+                player2Score ⬅️➕ player2Location
+            🍉
+        🍉
+
+        💭 determine the winner
+        0 ➡️ 🖍️🆕losingScore
+        ↪️ player1Score ◀️ player2Score 🍇
+            player1Score ➡️ 🖍️losingScore
+        🍉
+        🙅 🍇
+            player2Score ➡️ 🖍️losingScore
+        🍉
+
+        💭 compute the answer
+        😀 🔤losing score: 🧲losingScore🧲; die roll count: 🧲dieRollCount🧲🔤❗
+        losingScore ✖️ dieRollCount ➡️ answer
+
+        ↩️ 🔡answer❗
     🍉
     
     📗 Returns the solution for part B of the puzzle 📗
