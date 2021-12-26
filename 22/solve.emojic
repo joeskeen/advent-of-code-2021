@@ -8,7 +8,27 @@
 
     📗 Returns the solution for part A of the puzzle 📗
     🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+        🆕📦 -50 50 -50 50 -50 50 ❗ ➡️ initializationProcedureArea
+
+        🔂 line input 🍇
+            🔫line 🔤 🔤❗ ➡️ parts
+            🐽parts 0❗ ➡️ command
+            🐽parts 1❗ ➡️ cuboidString
+            🆕📦▶️🔡 cuboidString ❗ ➡️ cuboid
+            ↪️ command 🙌 🔤on🔤 🍇
+                🌞 initializationProcedureArea cuboid ❗
+            🍉
+            🙅↪️ command 🙌 🔤off🔤 🍇
+                🕶️ initializationProcedureArea cuboid ❗
+            🍉
+            🙅 🍇
+                😀🔤😬 uh... what's the "🧲command🧲" command?🔤❗
+            🍉
+        🍉
+
+        🌞 initializationProcedureArea ❓ ➡️ activatedCubes
+
+        ↩️ 🔡📏activatedCubes❓❗
     🍉
     
     📗 Returns the solution for part B of the puzzle 📗
@@ -16,4 +36,219 @@
         ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
     🍉
 
+🍉
+
+📗 three-dimensional point class 📗
+🐇 🎯 🍇
+    🐊 ↘️🔸🔡
+
+    🖍️🆕x🔢
+    🖍️🆕y🔢
+    🖍️🆕z🔢
+
+    🆕 🍼x🔢 🍼y🔢 🍼z🔢 🍇🍉
+    💭 parses a point string
+    🆕 stringValue🔡 🍇
+        🔫stringValue 🔤,🔤❗ ➡️ values
+        🍺🔢🐽values 0❗ 10❗ ➡️ 🖍️x
+        🍺🔢🐽values 1❗ 10❗ ➡️ 🖍️y
+        🍺🔢🐽values 2❗ 10❗ ➡️ 🖍️z
+    🍉
+
+    ❓↘️ ➡️ 🔢 🍇 ↩️ x 🍉
+    ❓⬆️ ➡️ 🔢 🍇 ↩️ y 🍉
+    ❓↙️ ➡️ 🔢 🍇 ↩️ z 🍉
+
+    ❗🔡 ➡️ 🔡 🍇
+        ↩️ 🔤🧲x🧲,🧲y🧲,🧲z🧲🔤
+    🍉
+🍉
+
+📗 cuboid class: a three dimensional region bounded by min/max x,y,z 📗
+🐇 📦 🍇
+    🐊 ↘️🔸🔡
+
+    🖍️🆕minX🔢
+    🖍️🆕maxX🔢
+    🖍️🆕minY🔢
+    🖍️🆕maxY🔢
+    🖍️🆕minZ🔢
+    🖍️🆕maxZ🔢
+    🖍️🆕activatedCubes🍯🐚👌🍆 ⬅️ 🆕🍯🐚👌🍆❗
+
+    🆕 x1🔢 x2🔢 y1🔢 y2🔢 z1🔢 z2🔢 🍇
+        ↪️ x1 ◀️ x2 🍇
+            x1 ➡️ 🖍️minX
+            x2 ➡️ 🖍️maxX
+        🍉
+        🙅 🍇
+            x2 ➡️ 🖍️minX
+            x1 ➡️ 🖍️maxX
+        🍉
+
+        ↪️ y1 ◀️ y2 🍇
+            y1 ➡️ 🖍️minY
+            y2 ➡️ 🖍️maxY
+        🍉
+        🙅 🍇
+            y2 ➡️ 🖍️minY
+            y1 ➡️ 🖍️maxY
+        🍉
+
+        ↪️ z1 ◀️ z2 🍇
+            z1 ➡️ 🖍️minZ
+            z2 ➡️ 🖍️maxZ
+        🍉
+        🙅 🍇
+            z2 ➡️ 🖍️minZ
+            z1 ➡️ 🖍️maxZ
+        🍉
+    🍉
+
+    🆕▶️🔡 stringValue🔡 🍇
+        💭 x=-50..50,y=-50..50,z=-50..50
+        🔫stringValue 🔤,🔤❗ ➡️ parts
+        
+        🐽parts 0❗ ➡️ xRange
+        🐽🔫xRange 🔤=🔤❗ 1❗ ➡️ xRangeValuesString
+        🔫xRangeValuesString 🔤..🔤❗ ➡️ xRangeValues
+        🍺🔢🐽xRangeValues 0❗ 10❗ ➡️ x1
+        🍺🔢🐽xRangeValues 1❗ 10❗ ➡️ x2
+        ↪️ x1 ◀️ x2 🍇
+            x1 ➡️ 🖍️minX
+            x2 ➡️ 🖍️maxX
+        🍉
+        🙅 🍇
+            x2 ➡️ 🖍️minX
+            x1 ➡️ 🖍️maxX
+        🍉
+        
+        🐽parts 1❗ ➡️ yRange
+        🐽🔫yRange 🔤=🔤❗ 1❗ ➡️ yRangeValuesString
+        🔫yRangeValuesString 🔤..🔤❗ ➡️ yRangeValues
+        🍺🔢🐽yRangeValues 0❗ 10❗ ➡️ y1
+        🍺🔢🐽yRangeValues 1❗ 10❗ ➡️ y2
+        ↪️ y1 ◀️ y2 🍇
+            y1 ➡️ 🖍️minY
+            y2 ➡️ 🖍️maxY
+        🍉
+        🙅 🍇
+            y2 ➡️ 🖍️minY
+            y1 ➡️ 🖍️maxY
+        🍉
+        
+        🐽parts 2❗ ➡️ zRange
+        🐽🔫zRange 🔤=🔤❗ 1❗ ➡️ zRangeValuesString
+        🔫zRangeValuesString 🔤..🔤❗ ➡️ zRangeValues
+        🍺🔢🐽zRangeValues 0❗ 10❗ ➡️ z1
+        🍺🔢🐽zRangeValues 1❗ 10❗ ➡️ z2
+        ↪️ z1 ◀️ z2 🍇
+            z1 ➡️ 🖍️minZ
+            z2 ➡️ 🖍️maxZ
+        🍉
+        🙅 🍇
+            z2 ➡️ 🖍️minZ
+            z1 ➡️ 🖍️maxZ
+        🍉
+    🍉
+
+    ❓↖️ ➡️ 🔢 🍇 ↩️ minX 🍉
+    ❓↘️ ➡️ 🔢 🍇 ↩️ maxX 🍉
+    ❓⬇️ ➡️ 🔢 🍇 ↩️ minY 🍉
+    ❓⬆️ ➡️ 🔢 🍇 ↩️ maxY 🍉
+    ❓↗️ ➡️ 🔢 🍇 ↩️ minZ 🍉
+    ❓↙️ ➡️ 🔢 🍇 ↩️ maxZ 🍉
+
+    📗 returns whether the given point is inside the cuboid 📗
+    ❓💠 point🎯 ➡️ 👌 🍇
+        ↘️point❓ ➡️ x
+        ⬆️point❓ ➡️ y
+        ↙️point❓ ➡️ z
+
+        x ▶️🙌 minX 🤝 x ◀️🙌 maxX ➡️ inXRange
+        y ▶️🙌 minY 🤝 y ◀️🙌 maxY ➡️ inYRange
+        z ▶️🙌 minZ 🤝 z ◀️🙌 maxZ ➡️ inZRange
+
+        ↩️ inXRange 🤝 inYRange 🤝 inZRange
+    🍉
+    
+    📗 returns whether the given cuboid intersects with this cuboid 📗
+    ❓💠 cuboid📦 ➡️ 👌 🍇
+        ↖️cuboid❓ ➡️ cubMinX
+        ↘️cuboid❓ ➡️ cubMaxX
+        ⬇️cuboid❓ ➡️ cubMinY
+        ⬆️cuboid❓ ➡️ cubMaxY
+        ↗️cuboid❓ ➡️ cubMinZ
+        ↙️cuboid❓ ➡️ cubMaxZ
+
+        cubMaxX ◀️ minX 👐 cubMinX ▶️ maxX ➡️ outOfRangeX
+        cubMaxY ◀️ minY 👐 cubMinY ▶️ maxY ➡️ outOfRangeY
+        cubMaxZ ◀️ minZ 👐 cubMinZ ▶️ maxZ ➡️ outOfRangeZ
+
+        ↩️ ❎outOfRangeX 👐 outOfRangeY 👐 outOfRangeZ❗
+    🍉
+
+    ❓📏 ➡️ 🔢 🍇
+        ↩️ 🤜 maxX ➖ minX 🤛 ✖️ 🤜 maxY ➖ minY 🤛 ✖️ 🤜 maxZ ➖ minZ 🤛
+    🍉
+
+    ❗🔡 ➡️ 🔡 🍇
+        ↩️ 🔤x=🧲minX🧲..🧲maxX🧲,y=🧲minY🧲..🧲maxY🧲,z=🧲minZ🧲..🧲maxZ🧲🔤
+    🍉
+
+    ❗🕶️ cuboid📦 🍇
+        ↪️ ❎💠👇 cuboid❓❗ 🍇
+            ↩️↩️
+        🍉
+
+        🖍️🆕smallest📦
+        ↪️ 📏❓ ◀️ 📏cuboid❓ 🍇
+            👇 ➡️ 🖍️smallest
+        🍉
+        🙅 🍇
+            cuboid ➡️ 🖍️smallest
+        🍉
+
+        🔂 x 🆕⏩ ↖️smallest❓ 🤜↘️smallest❓ ➕ 1🤛 1❗ 🍇
+            🔂 y 🆕⏩ ⬇️smallest❓ 🤜⬆️smallest❓ ➕ 1🤛 1❗ 🍇
+                🔂 z 🆕⏩ ↗️smallest❓ 🤜↙️smallest❓ ➕ 1🤛 1❗ 🍇
+                    🆕🎯x y z❗ ➡️ point
+                    ↪️ 💠👇 point❓ 🍇
+                        🔡point❗ ➡️ pointStr
+                        🐨activatedCubes pointStr❗
+                    🍉
+                🍉
+            🍉
+        🍉
+    🍉
+
+    ❗🌞 cuboid📦 🍇
+        ↪️ ❎💠👇 cuboid❓❗ 🍇
+            ↩️↩️
+        🍉
+
+        🖍️🆕smallest📦
+        ↪️ 📏❓ ◀️ 📏cuboid❓ 🍇
+            👇 ➡️ 🖍️smallest
+        🍉
+        🙅 🍇
+            cuboid ➡️ 🖍️smallest
+        🍉
+
+        🔂 x 🆕⏩ ↖️smallest❓ 🤜↘️smallest❓ ➕ 1🤛 1❗ 🍇
+            🔂 y 🆕⏩ ⬇️smallest❓ 🤜⬆️smallest❓ ➕ 1🤛 1❗ 🍇
+                🔂 z 🆕⏩ ↗️smallest❓ 🤜↙️smallest❓ ➕ 1🤛 1❗ 🍇
+                    🆕🎯x y z❗ ➡️ point
+                    ↪️ 💠👇 point❓ 🍇
+                        🔡point❗ ➡️ pointStr
+                        👍 ➡️ 🐽activatedCubes pointStr❗
+                    🍉
+                🍉
+            🍉
+        🍉
+    🍉
+
+    ❓🌞 ➡️ 🍯🐚👌🍆 🍇
+        ↩️ activatedCubes
+    🍉
 🍉
