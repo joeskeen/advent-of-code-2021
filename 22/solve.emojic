@@ -3,7 +3,7 @@
 🐇 🆎 🍇
     📗 Returns the valid test case names for this puzzle 📗
     🐇 ❓🧪 ➡️ 🍨🐚🔡🍆 🍇
-        ↩️ 🍿 🔤00🔤 🍆
+        ↩️ 🍿 🔤00🔤 🔤01🔤 🔤02🔤 🍆
     🍉
 
     📗 Returns the solution for part A of the puzzle 📗
@@ -33,7 +33,27 @@
     
     📗 Returns the solution for part B of the puzzle 📗
     🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+        🆕📦 -100000 100000 -100000 100000 -100000 100000 ❗ ➡️ initializationProcedureArea
+
+        🔂 line input 🍇
+            🔫line 🔤 🔤❗ ➡️ parts
+            🐽parts 0❗ ➡️ command
+            🐽parts 1❗ ➡️ cuboidString
+            🆕📦▶️🔡 cuboidString ❗ ➡️ cuboid
+            ↪️ command 🙌 🔤on🔤 🍇
+                🌞 initializationProcedureArea cuboid ❗
+            🍉
+            🙅↪️ command 🙌 🔤off🔤 🍇
+                🕶️ initializationProcedureArea cuboid ❗
+            🍉
+            🙅 🍇
+                😀🔤😬 uh... what's the "🧲command🧲" command?🔤❗
+            🍉
+        🍉
+
+        🌞 initializationProcedureArea ❓ ➡️ activatedCubes
+
+        ↩️ 🔡📏activatedCubes❓❗
     🍉
 
 🍉
