@@ -1,39 +1,32 @@
-🏁🍇
-    🍿
-        🔤be🔤
-        🔤cfbegad🔤
-        🔤cbdgef🔤
-        🔤fgaecd🔤
-        🔤cgeb🔤
-        🔤fdcge🔤
-        🔤agebfd🔤
-        🔤fecdb🔤
-        🔤fabcd🔤
-        🔤edb🔤
-    🍆 ➡️ 🖍️🆕definitions
+🔘 ⏰ 🍇
+  🆕▶️🥓
+  🆕▶️🥞
+  🆕▶️🥐
 
-    💭 strings of length 2, 4, 3, or 7 go to the top of the list
-    🦁definitions 🍇 a🔡 b🔡 ➡️ 🔢
-        📏🎶a❗❓ ➡️ aCount
-        👎 ➡️ 🖍️🆕aIsSpecial
-        ↪️ 🤜aCount 🙌 2🤛 👐 🤜aCount 🙌 4🤛 👐 🤜aCount 🙌 3🤛 👐 🤜aCount 🙌 7🤛 🍇
-            👍 ➡️ 🖍️aIsSpecial 
-        🍉
+  ❗️ 🔡 ➡️ 🔡🍇
+    ↪️ 👇 🙌 🆕⏰▶️🥐❗️ 🍇
+      ↩️ 🔤Croissant🔤
+    🍉
 
-        📏🎶b❗❓ ➡️ bCount
-        👎 ➡️ 🖍️🆕bIsSpecial
-        ↪️ 🤜bCount 🙌 2🤛 👐 🤜bCount 🙌 4🤛 👐 🤜bCount 🙌 3🤛 👐 🤜bCount 🙌 7🤛 🍇
-            👍 ➡️ 🖍️bIsSpecial 
-        🍉
 
-        ↪️ aIsSpecial 🤝 ❎bIsSpecial❗ 🍇
-            ↩️ -1
-        🍉
-        🙅↪️ bIsSpecial 🤝 ❎aIsSpecial❗ 🍇
-            ↩️ 1
-        🍉
-        🙅 🍇
-            ↩️ aCount ➖ bCount
-        🍉
-    🍉❗
+    ↪️ 👇 🙌 🆕⏰▶️🥞❗️ 🍇
+      ↩️ 🔤Pancakes🔤
+    🍉
+
+
+    ↪️ 👇 🙌 🆕⏰▶️🥓❗️ 🍇
+      ↩️ 🔤Bacon🔤
+    🍉
+
+
+    ↩️ 🔤🔤
+  🍉
+🍉
+
+🏁 🍇
+  🆕⏰▶️🥓❗️ ➡️ a
+  🆕⏰▶️🥓❗️ ➡️ b
+  ↪️ a 🙌 b 🍇
+    😀🔤Equal🔤❗️
+  🍉
 🍉

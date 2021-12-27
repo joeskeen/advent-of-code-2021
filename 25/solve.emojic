@@ -1,19 +1,231 @@
 📜 🔤../emojicode/common.emojic🔤
 
 🐇 🆎 🍇
-    📗 Returns the valid test case names for this puzzle 📗
-    🐇 ❓🧪 ➡️ 🍨🐚🔡🍆 🍇
-        ↩️ 🍿 🔤00🔤 🍆
+  📗 Returns the valid test case names for this puzzle 📗
+  🥯 🐇 ❓ 🧪 ➡️ 🍨🐚🔡🍆🍇
+    ↩️ 🍿 🔤00🔤 🍆
+  🍉
+
+  📗 Returns the solution for part A of the puzzle 📗
+  🐇 ❓🅰 input🍨🐚🔡🍆 ➡️ 🔡🍇
+    📏🎶🐽input 0❗❗❓ ➡️ worldWidth
+    📏input❓ ➡️ worldHeight
+
+    🆕🌐 worldWidth worldHeight ❗ ➡️ world
+    🆕🍨🐚🥒🍆❗ ➡️ 🖍️🆕eastbounds
+    🆕🍨🐚🥒🍆❗ ➡️ 🖍️🆕southbounds
+    🔂 y 🆕⏩0 worldHeight 1❗ 🍇
+      🐽input y❗ ➡️ line
+      🎶line❗ ➡️ chars
+      🔂 x 🆕⏩0 worldWidth 1❗ 🍇
+        🆕🎯x y❗ ➡️ location
+        🐽chars x❗ ➡️ char
+        ↪️ char 🙌 🔤>🔤 🍇
+          🆕🥒 location 🆕🛤️▶️🚥❗ world❗ ➡️ cucumber
+          🐻world cucumber location❗
+          🐻eastbounds cucumber❗
+        🍉
+        🙅↪️ char 🙌 🔤v🔤 🍇
+          🆕🥒 location 🆕🛤️▶️🚦❗ world❗ ➡️ cucumber
+          🐻world cucumber location❗
+          🐻southbounds cucumber❗
+        🍉
+      🍉
     🍉
 
-    📗 Returns the solution for part A of the puzzle 📗
-    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
-    🍉
-    
-    📗 Returns the solution for part B of the puzzle 📗
-    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
-        ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+    📏world❓ ➡️ 🖍️🆕 previouslyMoved
+    0 ➡️ 🖍️🆕 step
+    🔁 previouslyMoved ▶️ 0 🍇
+      step ⬅️➕ 1
+      🐭eastbounds 🍇 cuke🥒 ➡️ 👌
+        ↩️ 🚶cuke❓
+      🍉❗ ➡️ canWalkEast
+      📏canWalkEast❓ ➡️ 🖍️previouslyMoved
+      🔂 cucumber canWalkEast 🍇
+        🚶cucumber❗
+      🍉
+      
+      🐭southbounds 🍇 cucumber🥒 ➡️ 👌
+        ↩️ 🚶cucumber❓
+      🍉❗ ➡️ canWalkSouth
+      previouslyMoved ⬅️➕ 📏canWalkSouth❓
+      🔂 cucumber canWalkSouth 🍇
+        🚶cucumber❗
+      🍉
+
+      💭 😀 🔤After step 🧲step🧲:❌n🧲world🧲❌n🔤❗
     🍉
 
+    ↩️ 🔤🧲step🧲🔤
+  🍉
+
+  📗 Returns the solution for part B of the puzzle 📗
+  🥯 🐇 ❓🅱 input🍨🐚🔡🍆 ➡️ 🔡🍇
+    ↩️ 🔤🤦 Oops, we haven't implemented this yet...🔤
+  🍉
+
+🍉
+
+🔘 🛤 🍇
+  🆕▶️🚥
+  🆕▶️🚦
+
+  ❗️ 🔡 ➡️ 🔡🍇
+    ↪️ 👇 🙌 🆕🛤▶️🚥❗️ 🍇
+      ↩️ 🔤>🔤
+    🍉
+
+    ↪️ 👇 🙌 🆕🛤▶️🚦❗️ 🍇
+      ↩️ 🔤v🔤
+    🍉
+
+    ↩️ 🔤🔤
+  🍉
+🍉
+
+🐇 🥒 🍇
+  🐊↘️🔸🔡
+  🐊😛🐚🥒🍆
+
+  🖍🆕 direction🛤
+  🖍🆕 worldRef🍬📶🐚🌐🍆
+  🖍️🆕 currentPosition🎯
+
+  🆕 🍼currentPosition🎯 🍼direction🛤 world🌐 🍇
+    🆕📶world❗ ➡️ 🖍️worldRef
+  🍉
+
+  ❗🔡 ➡️ 🔡 🍇
+    ↩️ 🔡direction❗
+  🍉
+
+  ❓🚶 ➡️ 👌 🍇
+    🍺🐽🍺worldRef❗ ➡️ world
+    ⏩❓ ➡️ newPosition
+    🥒world newPosition❓ ➡️ occupant
+    ↩️ occupant 🙌 🤷
+  🍉
+
+  ❓⏩ ➡️ 🎯 🍇
+    🍺🐽🍺worldRef❗ ➡️ world
+    🎯👇❓ ➡️ position
+    ↪️ direction 🙌 🆕🛤️▶️🚥❗ 🍇
+      🤜 🚥position❓ ➕ 1 🤛 🚮 ↔️world❓ ➡️ newX
+      ↩️ 🆕🎯 newX 🚦position❓❗
+    🍉
+    🙅 🍇
+      🤜 🚦position❓ ➕ 1 🤛 🚮 ↕️world❓ ➡️ newY
+      ↩️ 🆕🎯 🚥position❓ newY ❗
+    🍉
+  🍉
+
+  ❗🚶 🍇
+    🍺🐽🍺worldRef❗ ➡️ world
+    ⏩👇❓ ➡️ newPosition
+    🥒world 🎯👇❓ newPosition❗
+    newPosition ➡️ 🖍️currentPosition
+  🍉
+
+  ❓🎯 ➡️ 🎯 🍇
+    ↩️ currentPosition
+  🍉
+
+  🙌 other🥒 ➡️ 👌 🍇
+    ↩️ 🎯👇❓ 🙌 🎯other❓ 🤝 direction 🙌 🛤️other❓
+  🍉
+
+  ❓🛤️ ➡️ 🛤️ 🍇
+    ↩️ direction
+  🍉
+
+🍉
+
+🐇 🎯 🍇
+  🐊↘️🔸🔡
+  🐊😛🐚🎯🍆
+
+  🖍️🆕 x🔢
+  🖍️🆕 y🔢
+
+  🆕 🍼x🔢 🍼y🔢 🍇🍉
+  🆕▶️🔡 pointStr🔡 🍇
+    🔫pointStr 🔤,🔤❗ ➡️ parts
+    🍺🔢🐽parts 0❗ 10❗ ➡️ 🖍️x
+    🍺🔢🐽parts 1❗ 10❗ ➡️ 🖍️y
+  🍉
+
+  ❓🚥 ➡️ 🔢 🍇 ↩️ x 🍉
+  ❓🚦 ➡️ 🔢 🍇 ↩️ y 🍉
+
+  ❗🔡 ➡️ 🔡 🍇
+    ↩️ 🔤🧲x🧲,🧲y🧲🔤
+  🍉
+
+  🙌 other🎯 ➡️ 👌 🍇
+    ↩️ x 🙌 🚥other❓ 🤝 y 🙌 🚦other❓
+  🍉
+🍉
+
+🐇 🌐 🍇
+  🐊↘️🔸🔡
+
+  🖍🆕 cucumbers🍯🐚🥒🍆 ⬅️ 🆕🍯🐚🥒🍆❗️
+  🖍🆕 width🔢
+  🖍🆕 height🔢
+
+  🥯 🆕 🍼width🔢 🍼height🔢 🍇🍉
+
+  ❓↔️ ➡️ 🔢 🍇 ↩️ width 🍉
+  ❓↕️ ➡️ 🔢 🍇 ↩️ height 🍉
+
+  ❗🐻 cucumber🥒 location🎯 🍇
+    cucumber ➡️ 🐽cucumbers 🔡location❗❗
+  🍉
+
+  ❓📏 ➡️ 🔢 🍇 
+    ↩️ 📏cucumbers❓
+  🍉
+
+  ❓🥒 cucumber🥒 ➡️ 🍬🎯 🍇
+    🔂 pointStr 🐙cucumbers❗ 🍇
+      🍺🐽cucumbers pointStr❗ ➡️ other
+      ↪️ cucumber 🙌 other 🍇
+        ↩️ 🆕🎯▶️🔡 pointStr ❗
+      🍉
+    🍉
+
+    ↩️ 🤷
+  🍉
+
+  ❓🥒 location🎯 ➡️ 🍬🥒 🍇
+    🔡location❗ ➡️ key
+    🐽cucumbers key❗ ➡️ cucumber
+    ↩️ cucumber
+  🍉
+
+  ❗🥒 fromLocation🎯 toLocation🎯 🍇
+    🔡fromLocation❗ ➡️ fromKey
+    🍺🐽cucumbers fromKey❗ ➡️ cucumber
+    🐨cucumbers fromKey❗
+    🔡toLocation❗ ➡️ toKey
+    cucumber ➡️ 🐽cucumbers toKey❗
+  🍉
+
+  ❗🔡 ➡️ 🔡 🍇
+    🆕🔠❗ ➡️ builder
+    🔂 y 🆕⏩ 0 ↔️❓ 1 ❗ 🍇
+      🔂 x 🆕⏩ 0 ↕️❓ 1 ❗ 🍇
+        🆕🎯 x y ❗ ➡️ point
+        🥒👇 point❓ ➡️ cucumber
+        ↪️ cucumber 🙌 🤷 🍇
+          🐻builder 🔤.🔤❗
+        🍉
+        🙅 🍇
+          🐻builder 🔡🍺cucumber❗❗
+        🍉
+      🍉
+      🐻builder 🔤❌n🔤❗
+    🍉
+    ↩️ 🔡builder❗
+  🍉
 🍉
