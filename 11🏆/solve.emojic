@@ -1,0 +1,327 @@
+📜 🔤../emojicode/common.emojic🔤
+
+🐇 🆎 🍇
+    📗 Returns the valid test case names for this puzzle 📗
+    🐇 ❓🧪 ➡️ 🍨🐚🔡🍆 🍇
+        ↩️ 🍿 🔤00🔤 🔤01🔤 🍆
+    🍉
+
+    💭 1794 is too high
+    📗 Returns the solution for part A of the puzzle 📗
+    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        💭 parse into 2d int array
+        🆕🍫 input ❗ ➡️ grid
+        💭 😀 🔤grid is ↔️ 🧲↔️grid❓🧲x↕️ 🧲↕️grid❓🧲🔤❗
+        💭 flashCount is 0
+        0 ➡️ 🖍️🆕flashCount
+        💭 from 0 to 100 exclusive
+        🔂 step 🆕⏩ 0 100 1 ❗ 🍇
+            💭 😀 🔤step 🧲step ➕ 1🧲: 🧲flashCount🧲❌n🧲grid🧲🔤❗
+            💭 increase every cell by 1 unless its value is -1
+            🔂 rowIdx 🆕⏩ 0 ↕️grid❓ 1❗ 🍇
+                🔂 colIdx 🆕⏩ 0 ↔️grid❓ 1❗ 🍇
+                    🐽grid rowIdx colIdx❗ ➡️ value
+                    ↪️ ❎value 🙌 -1❗ 🍇
+                        value ➕ 1 ➡️ 🐽grid rowIdx colIdx❗
+                    🍉
+                🍉
+            🍉
+            💭 😀 🔤🧲grid🧲🔤❗
+            💭 stabilized is false
+            👎 ➡️ 🖍️🆕stabilized
+            💭 while not stabilized
+            🔁 ❎stabilized❗ 🍇
+                💭 😀 🔤🧲flashCount🧲🔤❗
+                💭   set stabilized to true
+                👍 ➡️ 🖍️stabilized
+                💭   for each >= 9 cell in the grid
+                🔂 rowIdx 🆕⏩ 0 ↕️grid❓ 1❗ 🍇
+                    🔂 colIdx 🆕⏩ 0 ↔️grid❓ 1❗ 🍇
+                        🐽grid rowIdx colIdx❗ ➡️ value
+                        💭 😀 🔤🧲colIdx🧲,🧲rowIdx🧲: 🧲value🧲🔤❗
+                        ↪️ value ▶️ 9 🍇
+                            💭     set stabilized to false
+                            👎 ➡️ 🖍️stabilized
+                            💭     flashCount is incremented
+                            flashCount ⬅️➕ 1
+                            💭 😀 🔤flash at 🧲colIdx🧲,🧲rowIdx🧲🔤❗
+                            💭     set to -1
+                            -1 ➡️ 🐽grid rowIdx colIdx❗
+                            💭 increment all 8 neighbors by 1 unless its value is -1
+                            
+                            💭 top-left
+                            ↪️ rowIdx ▶️ 0 🤝 colIdx ▶️ 0 🍇
+                                🐽grid 🤜rowIdx ➖ 1🤛 🤜colIdx ➖ 1🤛❗ ➡️ topLeftValue
+                                ↪️ ❎topLeftValue 🙌 -1❗ 🍇
+                                    topLeftValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➖ 1🤛 🤜colIdx ➖ 1🤛❗
+                                🍉
+                            🍉
+                            💭 top
+                            ↪️ rowIdx ▶️ 0 🍇
+                                🐽grid 🤜rowIdx ➖ 1🤛 colIdx❗ ➡️ topValue
+                                ↪️ ❎topValue 🙌 -1❗ 🍇
+                                    topValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➖ 1🤛 colIdx❗
+                                🍉
+                            🍉
+                            💭 top-right
+                            ↪️ rowIdx ▶️ 0 🤝 colIdx ◀️ 🤜↔️grid❓ ➖ 1🤛 🍇
+                                🐽grid 🤜rowIdx ➖ 1🤛 🤜colIdx ➕ 1🤛❗ ➡️ topRightValue
+                                ↪️ ❎topRightValue 🙌 -1❗ 🍇
+                                    topRightValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➖ 1🤛 🤜colIdx ➕ 1🤛❗
+                                🍉
+                            🍉
+                            💭 left
+                            ↪️ colIdx ▶️ 0 🍇
+                                🐽grid rowIdx 🤜colIdx ➖ 1🤛❗ ➡️ leftValue
+                                ↪️ ❎leftValue 🙌 -1❗ 🍇
+                                    leftValue ➕ 1 ➡️ 🐽grid rowIdx 🤜colIdx ➖ 1🤛❗
+                                🍉
+                            🍉
+                            💭 right
+                            ↪️ colIdx ◀️ 🤜↔️grid❓ ➖ 1🤛 🍇
+                                🐽grid rowIdx 🤜colIdx ➕ 1🤛❗ ➡️ rightValue
+                                ↪️ ❎rightValue 🙌 -1❗ 🍇
+                                    rightValue ➕ 1 ➡️ 🐽grid rowIdx 🤜colIdx ➕ 1🤛❗
+                                🍉
+                            🍉
+                            💭 bottom-left
+                            ↪️ rowIdx ◀️ 🤜↕️grid❓ ➖ 1🤛 🤝 colIdx ▶️ 0 🍇
+                                🐽grid 🤜rowIdx ➕ 1🤛 🤜colIdx ➖ 1🤛❗ ➡️ bottomLeftValue
+                                ↪️ ❎bottomLeftValue 🙌 -1❗ 🍇
+                                    bottomLeftValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➕ 1🤛 🤜colIdx ➖ 1🤛❗
+                                🍉
+                            🍉
+                            💭 bottom
+                            ↪️ rowIdx ◀️ 🤜↕️grid❓ ➖ 1🤛 🍇
+                                🐽grid 🤜rowIdx ➕ 1🤛 colIdx❗ ➡️ bottomRightValue
+                                ↪️ ❎bottomRightValue 🙌 -1❗ 🍇
+                                    bottomRightValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➕ 1🤛 colIdx❗
+                                🍉
+                            🍉
+                            💭 bottom-right
+                            ↪️ rowIdx ◀️ 🤜↕️grid❓ ➖ 1🤛 🤝 colIdx ◀️ 🤜↔️grid❓ ➖ 1🤛 🍇
+                                🐽grid 🤜rowIdx ➕ 1🤛 🤜colIdx ➕ 1🤛❗ ➡️ bottomRightValue
+                                ↪️ ❎bottomRightValue 🙌 -1❗ 🍇
+                                    bottomRightValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➕ 1🤛 🤜colIdx ➕ 1🤛❗
+                                🍉
+                            🍉
+                            💭 😀 🔤🧲grid🧲🔤❗
+                        🍉
+                    🍉
+                🍉
+            🍉
+            💭 set all -1 values to 0 
+            🔂 rowIdx 🆕⏩ 0 ↕️grid❓ 1❗ 🍇
+                🔂 colIdx 🆕⏩ 0 ↔️grid❓ 1❗ 🍇
+                    🐽grid rowIdx colIdx❗ ➡️ value
+                    ↪️ value 🙌 -1 🍇
+                        0 ➡️ 🐽grid rowIdx colIdx❗
+                    🍉
+                🍉
+            🍉
+        🍉
+        💭 return flashCount
+        ↩️ 🔡flashCount❗
+    🍉
+    
+    📗 Returns the solution for part B of the puzzle 📗
+    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        💭 parse into 2d int array
+        🆕🍫 input ❗ ➡️ grid
+        💭 😀 🔤grid is ↔️ 🧲↔️grid❓🧲x↕️ 🧲↕️grid❓🧲🔤❗
+        💭 flashCount is 0
+        0 ➡️ 🖍️🆕step
+        ↔️grid❓ ✖️ ↕️grid❓ ➡️ targetFlashCount
+        💭 from 0 to 100 exclusive
+        🔁 👍 🍇
+            step ⬅️➕ 1
+            0 ➡️ 🖍️🆕flashCount
+            💭 😀 🔤step 🧲step ➕ 1🧲: 🧲flashCount🧲❌n🧲grid🧲🔤❗
+            💭 increase every cell by 1 unless its value is -1
+            🔂 rowIdx 🆕⏩ 0 ↕️grid❓ 1❗ 🍇
+                🔂 colIdx 🆕⏩ 0 ↔️grid❓ 1❗ 🍇
+                    🐽grid rowIdx colIdx❗ ➡️ value
+                    ↪️ ❎value 🙌 -1❗ 🍇
+                        value ➕ 1 ➡️ 🐽grid rowIdx colIdx❗
+                    🍉
+                🍉
+            🍉
+            💭 😀 🔤🧲grid🧲🔤❗
+            💭 stabilized is false
+            👎 ➡️ 🖍️🆕stabilized
+            💭 while not stabilized
+            🔁 ❎stabilized❗ 🍇
+                💭 😀 🔤🧲flashCount🧲🔤❗
+                💭   set stabilized to true
+                👍 ➡️ 🖍️stabilized
+                💭   for each >= 9 cell in the grid
+                🔂 rowIdx 🆕⏩ 0 ↕️grid❓ 1❗ 🍇
+                    🔂 colIdx 🆕⏩ 0 ↔️grid❓ 1❗ 🍇
+                        🐽grid rowIdx colIdx❗ ➡️ value
+                        💭 😀 🔤🧲colIdx🧲,🧲rowIdx🧲: 🧲value🧲🔤❗
+                        ↪️ value ▶️ 9 🍇
+                            💭     set stabilized to false
+                            👎 ➡️ 🖍️stabilized
+                            💭     flashCount is incremented
+                            flashCount ⬅️➕ 1
+                            💭 😀 🔤flash at 🧲colIdx🧲,🧲rowIdx🧲🔤❗
+                            💭     set to -1
+                            -1 ➡️ 🐽grid rowIdx colIdx❗
+                            💭 increment all 8 neighbors by 1 unless its value is -1
+                            
+                            💭 top-left
+                            ↪️ rowIdx ▶️ 0 🤝 colIdx ▶️ 0 🍇
+                                🐽grid 🤜rowIdx ➖ 1🤛 🤜colIdx ➖ 1🤛❗ ➡️ topLeftValue
+                                ↪️ ❎topLeftValue 🙌 -1❗ 🍇
+                                    topLeftValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➖ 1🤛 🤜colIdx ➖ 1🤛❗
+                                🍉
+                            🍉
+                            💭 top
+                            ↪️ rowIdx ▶️ 0 🍇
+                                🐽grid 🤜rowIdx ➖ 1🤛 colIdx❗ ➡️ topValue
+                                ↪️ ❎topValue 🙌 -1❗ 🍇
+                                    topValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➖ 1🤛 colIdx❗
+                                🍉
+                            🍉
+                            💭 top-right
+                            ↪️ rowIdx ▶️ 0 🤝 colIdx ◀️ 🤜↔️grid❓ ➖ 1🤛 🍇
+                                🐽grid 🤜rowIdx ➖ 1🤛 🤜colIdx ➕ 1🤛❗ ➡️ topRightValue
+                                ↪️ ❎topRightValue 🙌 -1❗ 🍇
+                                    topRightValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➖ 1🤛 🤜colIdx ➕ 1🤛❗
+                                🍉
+                            🍉
+                            💭 left
+                            ↪️ colIdx ▶️ 0 🍇
+                                🐽grid rowIdx 🤜colIdx ➖ 1🤛❗ ➡️ leftValue
+                                ↪️ ❎leftValue 🙌 -1❗ 🍇
+                                    leftValue ➕ 1 ➡️ 🐽grid rowIdx 🤜colIdx ➖ 1🤛❗
+                                🍉
+                            🍉
+                            💭 right
+                            ↪️ colIdx ◀️ 🤜↔️grid❓ ➖ 1🤛 🍇
+                                🐽grid rowIdx 🤜colIdx ➕ 1🤛❗ ➡️ rightValue
+                                ↪️ ❎rightValue 🙌 -1❗ 🍇
+                                    rightValue ➕ 1 ➡️ 🐽grid rowIdx 🤜colIdx ➕ 1🤛❗
+                                🍉
+                            🍉
+                            💭 bottom-left
+                            ↪️ rowIdx ◀️ 🤜↕️grid❓ ➖ 1🤛 🤝 colIdx ▶️ 0 🍇
+                                🐽grid 🤜rowIdx ➕ 1🤛 🤜colIdx ➖ 1🤛❗ ➡️ bottomLeftValue
+                                ↪️ ❎bottomLeftValue 🙌 -1❗ 🍇
+                                    bottomLeftValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➕ 1🤛 🤜colIdx ➖ 1🤛❗
+                                🍉
+                            🍉
+                            💭 bottom
+                            ↪️ rowIdx ◀️ 🤜↕️grid❓ ➖ 1🤛 🍇
+                                🐽grid 🤜rowIdx ➕ 1🤛 colIdx❗ ➡️ bottomRightValue
+                                ↪️ ❎bottomRightValue 🙌 -1❗ 🍇
+                                    bottomRightValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➕ 1🤛 colIdx❗
+                                🍉
+                            🍉
+                            💭 bottom-right
+                            ↪️ rowIdx ◀️ 🤜↕️grid❓ ➖ 1🤛 🤝 colIdx ◀️ 🤜↔️grid❓ ➖ 1🤛 🍇
+                                🐽grid 🤜rowIdx ➕ 1🤛 🤜colIdx ➕ 1🤛❗ ➡️ bottomRightValue
+                                ↪️ ❎bottomRightValue 🙌 -1❗ 🍇
+                                    bottomRightValue ➕ 1 ➡️ 🐽grid 🤜rowIdx ➕ 1🤛 🤜colIdx ➕ 1🤛❗
+                                🍉
+                            🍉
+                            💭 😀 🔤🧲grid🧲🔤❗
+                        🍉
+                    🍉
+                🍉
+            🍉
+            💭 set all -1 values to 0 
+            🔂 rowIdx 🆕⏩ 0 ↕️grid❓ 1❗ 🍇
+                🔂 colIdx 🆕⏩ 0 ↔️grid❓ 1❗ 🍇
+                    🐽grid rowIdx colIdx❗ ➡️ value
+                    ↪️ value 🙌 -1 🍇
+                        0 ➡️ 🐽grid rowIdx colIdx❗
+                    🍉
+                🍉
+            🍉
+
+            ↪️ targetFlashCount 🙌 flashCount 🍇
+                ↩️ 🔡step❗
+            🍉
+        🍉
+
+        ↩️ 🔤🤷🔤
+    🍉
+🍉
+
+🐇 🍫 🍇
+    🐊↘️🔸🔡
+
+    🖍️🆕 rows 🍨🐚🎞️🍆
+
+    🆕 input 🍨🐚🔡🍆 🍇
+        🆕🍨🐚🎞️🍆❗ ➡️ 🖍️rows
+        🔂 rowIdx 🆕⏩ 0 📏input❓ 1❗ 🍇
+            🐽input rowIdx❗ ➡️ line
+            🆕🎞️ line ❗ ➡️ row
+            🐻rows row❗
+        🍉 
+    🍉
+
+    ❗🐽 rowIdx🔢 colIdx🔢 ➡️ 🔢 🍇
+        🐽rows rowIdx❗ ➡️ row
+        ↩️ 🐽row colIdx❗
+    🍉
+
+    ➡️🐽 value🔢 rowIdx🔢 colIdx🔢 🍇
+        🐽rows rowIdx❗ ➡️ row
+        value ➡️ 🐽row colIdx❗
+    🍉
+
+    ❓↔️ ➡️ 🔢 🍇
+        🐽rows 0❗ ➡️ row
+        ↩️ 📏row❓
+    🍉
+
+    ❓↕️ ➡️ 🔢 🍇
+        ↩️ 📏rows❓
+    🍉
+
+    ❗🔡 ➡️ 🔡 🍇
+        🆕🔠❗ ➡️ builder
+        🔂 rowIdx 🆕⏩ 0 ↕️❓ 1❗ 🍇
+            🔂 colIdx 🆕⏩ 0 ↔️❓ 1❗ 🍇
+                🐽👇 rowIdx colIdx❗ ➡️ value
+                ↪️ value 🙌 -1 🍇
+                    🐻builder 🔤-🔤❗
+                🍉
+                🙅 🍇
+                    🐻builder 🔡value 16❗❗
+                🍉
+            🍉
+            🐻builder 🔤❌n🔤❗
+        🍉
+        ↩️ 🔡builder❗
+    🍉
+🍉
+
+🐇 🎞️ 🍇
+    🖍️🆕 cells 🍨🐚🔢🍆
+
+    🆕 line🔡 🍇
+        🆕🍨🐚🔢🍆❗ ➡️ 🖍️cells
+        🎶line❗ ➡️ chars
+        🔂 colIdx 🆕⏩ 0 📏chars❓ 1❗ 🍇
+            🐽chars colIdx❗ ➡️ cell
+            🍺🔢cell 10❗ ➡️ value
+            🐻cells value❗
+        🍉
+    🍉
+
+    ❗🐽 colIdx🔢 ➡️ 🔢 🍇
+        ↩️ 🐽cells colIdx❗
+    🍉
+
+    ➡️🐽 value🔢 colIdx🔢 🍇
+        value ➡️ 🐽cells colIdx❗
+    🍉
+
+    ❓📏 ➡️ 🔢 🍇
+        ↩️ 📏cells❓
+    🍉
+🍉
