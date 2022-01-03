@@ -1,0 +1,277 @@
+📦 testtube 🏠
+📜 🔤../emojicode/common.emojic🔤
+
+🐇 🆎 🍇
+    📗 Returns the valid test case names for this puzzle 📗
+    🐇 ❓🧪 ➡️ 🍨🐚🔡🍆 🍇
+        👔🆕🧑‍🔬❗❗
+        ↩️ 🍿 
+            🔤00🔤 
+            🔤01🔤 
+            🔤02🔤 
+        🍆
+    🍉
+
+    📗 Returns the solution for part A of the puzzle 📗
+    🐇 ❓🅰️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        🏭🐇🆎 input ❗ ➡️ caves
+        🍺🐽caves 🔤start🔤❗ ➡️ startCave
+
+        🚶startCave 🆕🍨🐚🔡🍆❗❗ ➡️ possiblePaths
+        ↩️ 🔡📏possiblePaths❓❗
+    🍉
+
+    🐇 ❗🏭 input🍨🐚🔡🍆 ➡️ 🍯🐚🕳️🍆 🍇
+        🆕🍯🐚🕳️🍆❗ ➡️ 🖍️🆕caves
+
+        🔂 line input 🍇
+            🔫line 🔤-🔤❗ ➡️ parts
+            🆕🕳️ 🐽parts 0❗❗ ➡️ 🐽caves 🐽parts 0❗❗
+            🆕🕳️ 🐽parts 1❗❗ ➡️ 🐽caves 🐽parts 1❗❗
+        🍉
+        
+        🔂 line input 🍇
+            🔫line 🔤-🔤❗ ➡️ parts
+            🍺🐽caves 🐽parts 0❗❗ ➡️ cave1
+            🍺🐽caves 🐽parts 1❗❗ ➡️ cave2
+            🐻cave1 cave2❗
+        🍉
+        
+        ↩️ caves
+    🍉
+    
+    📗 Returns the solution for part B of the puzzle 📗
+    🐇 ❓🅱️ input🍨🐚🔡🍆 ➡️ 🔡 🍇
+        🏭🐇🆎 input ❗ ➡️ caves
+        🍺🐽caves 🔤start🔤❗ ➡️ startCave
+
+        🏃startCave 🆕🍨🐚🔡🍆❗❗ ➡️ possiblePaths
+        ↩️ 🔡📏possiblePaths❓❗
+    🍉
+🍉
+
+🐇 🕳️ 🍇
+
+    🖍️🆕 name🔡
+    🖍️🆕 neighbors🍨🐚📶🐚🕳️🍆🍆 ⬅️ 🆕🍨🐚📶🐚🕳️🍆🍆❗
+
+    🆕 🍼name🔡 🍇🍉
+
+    ❓📛 ➡️ 🔡 🍇 ↩️ name 🍉
+    ❓🏘️ ➡️ 🍨🐚📶🐚🕳️🍆🍆 🍇 ↩️ neighbors 🍉
+    ❓🕳️ otherCaveName🔡 ➡️ 👌 🍇
+        🐭neighbors 🍇 neighbor📶🐚🕳️🍆 ➡️ 👌
+            🍺🐽neighbor❗ ➡️ cave
+            💭 TODO: although this line is pointless, without it you get a segmentation fault
+            💭 Need to boil this down to the most simple use case and submit a bug
+            📛❓ ➡️ myName
+            ↩️ 📛cave❓ 🙌 otherCaveName
+        🍉❗ ➡️ matching
+        ↩️ 📏matching❓ ▶️ 0
+    🍉
+    ❓🔡 ➡️ 👌 🍇
+        🎶name❗ ➡️ chars
+        🐽chars 0❗ ➡️ firstChar
+        📫firstChar❗ ➡️ upperChar
+        ↩️ ❎upperChar 🙌 firstChar❗
+    🍉
+    ❓🔠 ➡️ 👌 🍇
+        🎶name❗ ➡️ chars
+        🐽chars 0❗ ➡️ firstChar
+        📫firstChar❗ ➡️ upperChar
+        ↩️ upperChar 🙌 firstChar
+    🍉
+
+    ❗🐻 adjacent🕳️ 🍇
+        ↪️ 🕳️👇 📛adjacent❓❓ 🍇
+            ↩️↩️
+        🍉
+        🐻neighbors 🆕📶🐚🕳️🍆 adjacent❗❗
+        🐻adjacent 👇❗
+    🍉
+
+    ❗🚶 history🍨🐚🔡🍆 ➡️ 🍨🐚🍨🐚🔡🍆🍆 🍇
+        💭 if this is a small cave we have already been to, abort
+        ↪️ 🔡❓ 🤝 🐦history 📛❓❓ 🍇
+            💭 😀🔤❌❌ 🧲🆕🔡history 🔤,🔤❗🧲,🧲📛❓🧲🔤❗
+            ↩️ 🍿 history 🍆
+        🍉
+
+        💭 😀🔤👌 🧲🆕🔡history 🔤,🔤❗🧲,🧲📛❓🧲🔤❗
+        🆕🍨🐚🔡🍆❗ ➡️ 🖍️🆕journey
+        💭 add the history to our journey
+        🐥journey history❗
+        💭 add this cave to our journey
+        🐻journey 📛❓❗
+        🆕🍨🐚🍨🐚🔡🍆🍆❗ ➡️ 🖍️🆕possibleJourneys
+        ↪️ 📛❓ 🙌 🔤end🔤 🍇
+            🐻possibleJourneys journey❗
+            ↩️ possibleJourneys
+        🍉
+        💭 for each connected cave
+        🔂 neighborRef neighbors 🍇
+            💭 get a reference to the cave
+            🍺🐽neighborRef❗ ➡️ neighbor
+            💭 find all possible journeys from going to that neighbor
+            🚶neighbor journey❗ ➡️ neighborJourneys
+            💭 we only care about journeys that finish at the "end" cave
+            🐭neighborJourneys 🍇 neighborJourney🍨🐚🔡🍆 ➡️ 👌 
+                🐽neighborJourney 🤜📏neighborJourney❓ ➖ 1🤛❗ ➡️ destination
+                ↩️ destination 🙌 🔤end🔤
+            🍉❗ ➡️ viableJourneys
+            💭 merge this list into the possible journeys list
+            🐥possibleJourneys viableJourneys❗
+        🍉
+        💭 eliminate duplicate journeys
+        💭 TODO: this list should be mutable, and is, but it complains about it
+        💭 if you take away the mutability indicator it still works, but it shouldn't
+        💭 need to write up a bug for this (related to closure)
+        🆕🍨🐚🔡🍆❗ ➡️ 🖍️🆕candidateStrings
+        🐭possibleJourneys 🍇 candidate🍨🐚🔡🍆 ➡️ 👌
+            🆕🔡candidate 🔤,🔤❗ ➡️ string
+            ↪️ 🐦candidateStrings string❓ 🍇
+                ↩️ 👎
+            🍉
+            🐻candidateStrings string❗
+            ↩️ 👍
+        🍉❗ ➡️ uniqueJourneys
+        ↩️ possibleJourneys
+    🍉
+    
+    ❗🏃 history🍨🐚🔡🍆 ➡️ 🍨🐚🍨🐚🔡🍆🍆 🍇
+        🆕🍨🐚🔡🍆❗ ➡️ 🖍️🆕journey
+        💭 add the history to our journey
+        🐥journey history❗
+        ↪️ 🔡❓ 🍇
+            🐭history 🍇 caveName🔡 ➡️ 👌
+                ↩️ caveName 🙌 📛❓
+            🍉❗ ➡️ visits
+            📏visits❓ ▶️ 1 ➡️ visitedTwice
+            📛❓ 🙌 🔤start🔤 ➡️ isStartCave
+            📏visits❓ 🙌 1 ➡️ visitedOnce
+            📏history❓ ▶️ 0 ➡️ journeyBegun
+            💭 if this is a small cave we have already been to twice, abort
+            ↪️ visitedTwice 👐 
+              🤜isStartCave 🤝 visitedOnce🤛 👐 
+              🤜journeyBegun 🤝 visitedOnce 🤝 🐽history 0❗ 🙌 🔤*🔤🤛 🍇
+                💭 😀🔤❌❌ 🧲🆕🔡history 🔤,🔤❗🧲,🧲📛❓🧲🔤❗
+                ↩️ 🍿 history 🍆
+            🍉
+            🙅↪️ visitedOnce 🍇
+                💭 mark the history with the "already double visited a small cave" indicator
+                🐵journey 0 🔤*🔤❗
+            🍉
+        🍉
+
+        💭 😀🔤👌 🧲🆕🔡history 🔤,🔤❗🧲,🧲📛❓🧲🔤❗
+        💭 add this cave to our journey
+        🐻journey 📛❓❗
+        🆕🍨🐚🍨🐚🔡🍆🍆❗ ➡️ 🖍️🆕possibleJourneys
+        ↪️ 📛❓ 🙌 🔤end🔤 🍇
+            🐻possibleJourneys journey❗
+            ↩️ possibleJourneys
+        🍉
+        💭 for each connected cave
+        🔂 neighborRef neighbors 🍇
+            💭 get a reference to the cave
+            🍺🐽neighborRef❗ ➡️ neighbor
+            💭 find all possible journeys from going to that neighbor
+            🏃neighbor journey❗ ➡️ neighborJourneys
+            💭 we only care about journeys that finish at the "end" cave
+            🐭neighborJourneys 🍇 neighborJourney🍨🐚🔡🍆 ➡️ 👌 
+                🐽neighborJourney 🤜📏neighborJourney❓ ➖ 1🤛❗ ➡️ destination
+                ↩️ destination 🙌 🔤end🔤
+            🍉❗ ➡️ viableJourneys
+            💭 merge this list into the possible journeys list
+            🐥possibleJourneys viableJourneys❗
+        🍉
+        💭 eliminate duplicate journeys
+        💭 TODO: this list should be mutable, and is, but it complains about it
+        💭 if you take away the mutability indicator it still works, but it shouldn't
+        💭 need to write up a bug for this (related to closure)
+        🆕🍨🐚🔡🍆❗ ➡️ 🖍️🆕candidateStrings
+        🐭possibleJourneys 🍇 candidate🍨🐚🔡🍆 ➡️ 👌
+            🆕🔡candidate 🔤,🔤❗ ➡️ string
+            ↪️ 🐦candidateStrings string❓ 🍇
+                ↩️ 👎
+            🍉
+            🐻candidateStrings string❗
+            ↩️ 👍
+        🍉❗ ➡️ uniqueJourneys
+        ↩️ possibleJourneys
+    🍉
+🍉
+
+🐇 🧑‍🔬🧪 🍇
+    ✒️ ❗🏁 🍇
+        🕳️❗
+        🏭❗
+    🍉
+
+    ❗🏭 🍇
+        💭 test cave system
+        🍿
+            🔤start-A🔤
+            🔤start-b🔤
+            🔤A-c🔤
+            🔤A-b🔤
+            🔤b-d🔤
+            🔤A-end🔤
+            🔤b-end🔤
+        🍆 ➡️ input
+        🏭🐇🆎 input ❗ ➡️ caves
+
+        🔢👇 📏🐙caves❗❓ 6 🔤there should be 6 caves parsed from the input🔤❗
+        
+        💭 check to make sure start cave was created properly
+        🍺🐽caves 🔤start🔤❗ ➡️ startCave
+        ⛔👇 🔡startCave❓ 🔤start cave should be a small cave🔤❗
+        🔢👇 📏🏘️startCave❓❓ 2 🔤start cave should have 2 neighbors🔤❗
+        ⛔👇 🕳️startCave 🔤A🔤❓ 🔤start cave should be adjacent to cave A🔤❗
+        ⛔👇 🕳️startCave 🔤b🔤❓ 🔤start cave should be adjacent to cave b🔤❗
+        ❎👇 🕳️startCave 🔤c🔤❓ 🔤start cave should not be adjacent to cave c🔤❗
+        ❎👇 🕳️startCave 🔤d🔤❓ 🔤start cave should not be adjacent to cave d🔤❗
+
+        🍺🐽caves 🔤end🔤❗ ➡️ endCave
+        ⛔👇 🔡endCave❓ 🔤end cave should be a small cave🔤❗
+        🔢👇 📏🏘️endCave❓❓ 2 🔤end cave should have 2 neighbors🔤❗
+        ⛔👇 🕳️endCave 🔤A🔤❓ 🔤end cave should be adjacent to cave A🔤❗
+        ⛔👇 🕳️endCave 🔤b🔤❓ 🔤end cave should be adjacent to cave b🔤❗
+        ❎👇 🕳️endCave 🔤c🔤❓ 🔤end cave should not be adjacent to cave c🔤❗
+        ❎👇 🕳️endCave 🔤d🔤❓ 🔤end cave should not be adjacent to cave d🔤❗
+    🍉
+
+    ❗🕳️ 🍇
+        🔤ABCD🔤 ➡️ bigCaveName
+        🆕🕳️ bigCaveName ❗ ➡️ bigCave
+        🔤abcd🔤 ➡️ littleCaveName
+        🆕🕳️ littleCaveName ❗ ➡️ littleCave
+
+        💭 test methods for cave size
+        🔡bigCave❓ ➡️ isBigCaveSmall
+        ❎👇 isBigCaveSmall 🔤big cave should not be small🔤❗
+        🔠bigCave❓ ➡️ isBigCaveBig
+        ⛔👇 isBigCaveBig 🔤big cave should be big🔤❗
+        🔡littleCave❓ ➡️ isLittleCaveSmall
+        ⛔👇 isLittleCaveSmall 🔤little cave should be small🔤❗
+        🔠littleCave❓ ➡️ isLittleCaveBig
+        ❎👇 isLittleCaveBig 🔤little cave should not be big🔤❗
+
+        💭 test getting name
+        🔡👇 📛bigCave❓ 🔤ABCD🔤 🔤big cave name should be "ABCD"🔤❗
+        🔡👇 📛littleCave❓ 🔤abcd🔤 🔤little cave name should be "abcd"🔤❗
+
+        💭 test adjacency test
+        🐻bigCave littleCave❗
+        ⛔👇 🕳️bigCave 🔤abcd🔤❓ 🔤big cave should be adjacent to little cave🔤❗
+        ⛔👇 🕳️littleCave 🔤ABCD🔤❓ 🔤little cave should be adjacent to big cave🔤❗
+        ❎👇 🕳️bigCave 🔤asdf🔤❓ 🔤big cave should not be adjacent to fake cave🔤❗
+        ❎👇 🕳️littleCave 🔤ASDF🔤❓ 🔤little cave should not be adjacent to fake cave🔤❗
+
+        💭 make sure the neighbor isn't added more than once
+        🏘️bigCave❓ ➡️ bigNeighbors
+        🔢👇 📏bigNeighbors❓ 1 🔤big cave should have one neighbor🔤❗
+        🏘️littleCave❓ ➡️ littleNeighbors
+        🔢👇 📏littleNeighbors❓ 1 🔤little cave should have one neighbor🔤❗
+    🍉
+🍉
