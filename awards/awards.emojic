@@ -1,0 +1,100 @@
+📦 json 🏠
+📦 files 🏠
+
+🏁 🍇
+    🔤leaderboard.json🔤 ➡️ fileName
+    
+    💭 read the JSON file in
+    🍺📇🐇📄 fileName ❗ ➡️ data
+    🍺🔡 data ❗ ➡️ input
+    
+    💭 parse and traverse the JSON structure
+    🍺🔲 🍺⚪🕊️🌸 input ❗ 🍯🐚⚪🍆 ➡️ leaderboard
+    🍺🔲🐽leaderboard 🔤members🔤❗ 🍯🐚⚪🍆 ➡️ participants
+    🆕🍨🐚🔡🍆❗ ➡️ 🖍️🆕raffleTickets
+    🐙participants❗ ➡️ participantIds
+    🆕🍯🐚🔢🍆❗ ➡️ 🖍️🆕scores
+    
+    💭 For each participant on the leaderboard
+    🔂 participantId participantIds 🍇
+        🍺🔲🐽participants participantId❗ 🍯🐚⚪🍆 ➡️ participant
+        🍺🔲🐽participant 🔤name🔤❗ 🔡 ➡️ name
+        🍺🔲🐽participant 🔤stars🔤❗ 🔢 ➡️ stars
+        stars ➡️ 🐽scores name❗
+        💭 add one raffle ticket per star achieved
+        🔂 i 🆕⏩0 stars 1❗ 🍇
+            🐻raffleTickets name❗
+        🍉
+    🍉
+    
+    💭 randomize the list of raffle tickets
+    🐹raffleTickets❗
+    
+    💭 Here are the prizes!
+    🍿 25 15 15 5 5 5 5 🍆 ➡️ prizes
+    0 ➡️ 🖍️🆕raffleTicketIndex
+    🆕🍨🐚🔡🍆❗ ➡️ 🖍️🆕winners
+    🔁 📏winners❓ ◀️ 📏prizes❓ 🤝 raffleTicketIndex ◀️ 📏raffleTickets❓ 🍇
+        🐽raffleTickets raffleTicketIndex❗ ➡️ drawnTicket
+        💭 make sure the same person doesn't win multiple prizes
+        💭 also, Joe Skeen is automatically disqualified from winning
+        ↪️ ❎🐦winners drawnTicket❓❗ 🤝 ❎drawnTicket 🙌 🔤Joe Skeen🔤❗ 🍇
+            🐻winners drawnTicket❗
+        🍉
+        raffleTicketIndex ⬅️➕ 1
+    🍉
+
+    💭 announce winners 🏆
+    😀 🔤And now, for the winners of Advent of Code 2021... 🎄🔤❗
+    🔂 i 🆕⏩0 📏winners❓ 1❗ 🍇
+        🐽winners i❗ ➡️ winner
+        🐽prizes i❗ ➡️ prize
+        💭 Pause 1 second for dramatic effect
+        ⏲️🐇🧵 1,000,000 ✖️ 3 ❗
+        😀 🔤🌟 🧲winner🧲 has won 💲🧲prize🧲!🔤❗
+    🍉
+    😀 🔤🔤 ❗
+    ⏲️🐇🧵 1,000,000 ✖️ 3 ❗
+    
+    💭 announce participation trophies 🏆😉
+    😀🔤Congrats to those who put in a lot of time and effort, earning ALL 50 stars! 🌟 You will receive 💲3 Motivosity!🔤❗
+    🐭🐙scores❗ 🍇 name🔡 ➡️ 👌
+        ↩️ 🍺🐽scores name❗ 🙌 50
+    🍉❗ ➡️ perfectPeople
+    🔂 name perfectPeople 🍇
+        ↪️ ❎🐦winners name❓❗ 🍇
+            😀 🔤⭐ 🧲name🧲🔤❗
+        🍉
+        🙅 🍇
+            😀 🔤🎄 (🧲name🧲 was already awarded a prize and will not receive this prize)🔤❗
+        🍉
+    🍉
+
+    😀🔤❌nAlso congrats to those who stuck with it for most of the month, earning at least 25 stars! ⭐ You will receive 💲2 Motivosity!🔤❗
+    🐭🐙scores❗ 🍇 name🔡 ➡️ 👌
+        🍺🐽scores name❗ ➡️ score
+        ↩️ score ▶️🙌 25 🤝 score ◀️ 50
+    🍉❗ ➡️ committedPeople
+    🔂 name committedPeople 🍇
+        ↪️ ❎🐦winners name❓❗ 🍇
+            😀 🔤⭐ 🧲name🧲🔤❗
+        🍉
+        🙅 🍇
+            😀 🔤🎄 (🧲name🧲 was already awarded a prize and will not receive this prize)🔤❗
+        🍉
+    🍉
+    
+    😀🔤❌nThanks to everyone else who participated this year! You will each get a 💲1 prize!🔤❗
+    🐭🐙scores❗ 🍇 name🔡 ➡️ 👌
+        🍺🐽scores name❗ ➡️ score
+        ↩️ score ▶️ 0 🤝 score ◀️ 25
+    🍉❗ ➡️ others
+    🔂 name others 🍇
+        ↪️ ❎🐦winners name❓❗ 🍇
+            😀 🔤⭐ 🧲name🧲🔤❗
+        🍉
+        🙅 🍇
+            😀 🔤🎄 (🧲name🧲 was already awarded a prize and will not receive this prize)🔤❗
+        🍉
+    🍉
+🍉

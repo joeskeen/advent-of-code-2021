@@ -1,4 +1,5 @@
 node_modules
-**\solve
+**/solve
 *.o
 .dccache
+awards/leaderboard.json
